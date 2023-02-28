@@ -34,14 +34,17 @@
             this.pnlTop = new System.Windows.Forms.Panel();
             this.pnlUserController = new System.Windows.Forms.Panel();
             this.pBthree = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlMenuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBCancel)).BeginInit();
+            this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBthree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenuBar
             // 
-            this.pnlMenuBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(70)))), ((int)(((byte)(84)))));
+            this.pnlMenuBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
             this.pnlMenuBar.Controls.Add(this.pBthree);
             this.pnlMenuBar.Controls.Add(this.pBCancel);
             this.pnlMenuBar.Location = new System.Drawing.Point(920, 1);
@@ -63,7 +66,8 @@
             // 
             // pnlTop
             // 
-            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(70)))), ((int)(((byte)(84)))));
+            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.pnlTop.Controls.Add(this.pictureBox1);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
@@ -91,6 +95,18 @@
             this.pBthree.TabStop = false;
             this.pBthree.Click += new System.EventHandler(this.pBthree_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(141, 86);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pBthree_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -105,11 +121,15 @@
             this.MaximumSize = new System.Drawing.Size(1106, 720);
             this.MinimumSize = new System.Drawing.Size(1106, 720);
             this.Name = "Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlMenuBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBCancel)).EndInit();
+            this.pnlTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBthree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -121,6 +141,7 @@
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Panel pnlUserController;
         private System.Windows.Forms.PictureBox pBthree;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

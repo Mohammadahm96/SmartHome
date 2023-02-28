@@ -12,11 +12,12 @@ namespace RPSmartHome
 {
     public partial class Home : Form
     {
+        Dashboard Dashboard = new Dashboard();
         public Home()
         {
             InitializeComponent();
+            userControl(Dashboard);
         }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -24,28 +25,60 @@ namespace RPSmartHome
             pnlMenuBar.Size = new System.Drawing.Size(170, 91);
         }
 
-        private void pBthree_Click(object sender, EventArgs e)
+
+        private void pnlTop_Click(object sender, EventArgs e)
+        {
+            pBCancel_Click(sender, e);
+        }
+
+        #region Menu bar
+        //Menu bar open or close
+        public void closeMenuBar()
+        {
+            
+            pBthree.Visible = true;
+            pBCancel.Visible = false;
+            pnlMenuBar.Size = new System.Drawing.Size(170, 91);
+        }
+        
+        public void openMenuBar()
         {
             pBthree.Visible = false;
             pBCancel.Visible = true;
             pnlMenuBar.Size = new System.Drawing.Size(170, 668);
         }
 
-        private void pBCancel_Click(object sender, EventArgs e)
+
+        private void pBthree_Click(object sender, EventArgs e)
         {
-            pBthree.Visible = true;
-            pBCancel.Visible = false;
-            pnlMenuBar.Size = new System.Drawing.Size(170, 91);
+            openMenuBar();
         }
 
+        private void pBCancel_Click(object sender, EventArgs e)
+        {
+            closeMenuBar();
+        }
+        #endregion
+
+        #region User Controller
         private void pnlUserController_Click(object sender, EventArgs e)
         {
             pBCancel_Click(sender, e);
         }
 
-        private void pnlTop_Click(object sender, EventArgs e)
+        //all U_forms controll and show it Panel pnl_U
+        private void userControl(UserControl userControl)
         {
-            pBCancel_Click(sender, e);
+            userControl.Dock = DockStyle.Fill;
+            pnlUserController.Controls.Clear();
+            pnlUserController.Controls.Add(userControl);
+            userControl.BringToFront();
+        }
+
+        #endregion
+        private void Home_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
