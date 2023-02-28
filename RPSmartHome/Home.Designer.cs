@@ -105,7 +105,7 @@
             this.MaximumSize = new System.Drawing.Size(1106, 720);
             this.MinimumSize = new System.Drawing.Size(1106, 720);
             this.Name = "Home";
-            this.Text = "Form1";
+            this.Text = "Home";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlMenuBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBCancel)).EndInit();
