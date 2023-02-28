@@ -69,6 +69,7 @@
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1090, 92);
             this.pnlTop.TabIndex = 2;
+            this.pnlTop.Click += new System.EventHandler(this.pnlTop_Click);
             // 
             // pnlUserController
             // 
@@ -76,6 +77,7 @@
             this.pnlUserController.Name = "pnlUserController";
             this.pnlUserController.Size = new System.Drawing.Size(1070, 571);
             this.pnlUserController.TabIndex = 3;
+            this.pnlUserController.Click += new System.EventHandler(this.pnlUserController_Click);
             // 
             // pBthree
             // 

@@ -17,10 +17,6 @@ namespace RPSmartHome
             InitializeComponent();
         }
 
-        private void pBMenuBar_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -40,6 +36,16 @@ namespace RPSmartHome
             pBthree.Visible = true;
             pBCancel.Visible = false;
             pnlMenuBar.Size = new System.Drawing.Size(170, 91);
+        }
+
+        private void pnlUserController_Click(object sender, EventArgs e)
+        {
+            pBCancel_Click(sender, e);
+        }
+
+        private void pnlTop_Click(object sender, EventArgs e)
+        {
+            pBCancel_Click(sender, e);
         }
     }
 }
