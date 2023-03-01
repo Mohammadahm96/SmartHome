@@ -50,10 +50,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lbRoomNmae = new System.Windows.Forms.Label();
+            this.pnlRooms = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -64,9 +65,9 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBon)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pnlRooms.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -158,10 +159,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            this.panel2.Controls.Add(this.pBoff1);
             this.panel2.Controls.Add(this.pBon1);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.pBoff1);
             this.panel2.Location = new System.Drawing.Point(6, 96);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(209, 62);
@@ -214,10 +215,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            this.panel1.Controls.Add(this.pBoff);
             this.panel1.Controls.Add(this.pBon);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.pBoff);
             this.panel1.Location = new System.Drawing.Point(6, 28);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(209, 62);
@@ -291,25 +292,6 @@
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
             this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.pictureBox1);
-            this.groupBox4.Location = new System.Drawing.Point(23, 103);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(760, 465);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(17, 114);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(725, 345);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -325,16 +307,46 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // lbRoomNmae
+            // 
+            this.lbRoomNmae.AutoSize = true;
+            this.lbRoomNmae.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRoomNmae.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.lbRoomNmae.Location = new System.Drawing.Point(-2, 0);
+            this.lbRoomNmae.Name = "lbRoomNmae";
+            this.lbRoomNmae.Size = new System.Drawing.Size(128, 27);
+            this.lbRoomNmae.TabIndex = 4;
+            this.lbRoomNmae.Text = "Room name";
+            // 
+            // pnlRooms
+            // 
+            this.pnlRooms.Controls.Add(this.pictureBox1);
+            this.pnlRooms.Location = new System.Drawing.Point(3, 87);
+            this.pnlRooms.Name = "pnlRooms";
+            this.pnlRooms.Size = new System.Drawing.Size(753, 481);
+            this.pnlRooms.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(13, 133);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(725, 345);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lbRoomNmae);
+            this.Controls.Add(this.pnlRooms);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -355,9 +367,9 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBon)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.pnlRooms.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,13 +392,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pBoff1;
         private System.Windows.Forms.PictureBox pBon1;
         private System.Windows.Forms.PictureBox pBoff;
         private System.Windows.Forms.PictureBox pBon;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lbRoomNmae;
+        private System.Windows.Forms.Panel pnlRooms;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -18,6 +18,7 @@ namespace RPSmartHome
         {
             InitializeComponent();
             timer1.Start();
+            lbRoomNmae.Text = "Dashboard";
         }
 
         private void txtSearch_Click(object sender, EventArgs e)
@@ -68,8 +69,18 @@ namespace RPSmartHome
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoginRegs loginRegs = new LoginRegs();
-            loginRegs.Show();
+            Panel panel = new Panel();
+            this.Controls.Add(panel);
+            pictureBox pictureBox = new pictureBox();
+
+            panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            //panel.Controls.Add(this.pictureBox4);
+            //panel.Controls.Add(this.label9);
+            //panel.Controls.Add(this.pictureBox5);
+            panel.Location = new System.Drawing.Point(28, 13);
+            panel.Name = "panel4";
+            panel.Size = new System.Drawing.Size(117, 95);
+            panel.TabIndex = 0;
         }
 
         private void timer1_Tick(object sender, EventArgs e)

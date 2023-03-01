@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="user controllers\pictureBox.cs" />
     <EmbeddedResource Include="forms\LoginRegs.resx">
       <DependentUpon>LoginRegs.cs</DependentUpon>
     </EmbeddedResource>
