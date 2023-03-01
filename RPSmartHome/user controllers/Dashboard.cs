@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace RPSmartHome
@@ -19,6 +20,10 @@ namespace RPSmartHome
             InitializeComponent();
             timer1.Start();
             lbRoomNmae.Text = "Dashboard";
+            if (flowLayoutPanel1.Controls.Count < 0)
+            {
+                button1.Visible = false;
+            }
         }
 
         private void txtSearch_Click(object sender, EventArgs e)
@@ -70,8 +75,8 @@ namespace RPSmartHome
         int Top = 29;
         int Left = 18;
         int count = 0;
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        private void createRoom()
         {
             count++;
             for (int i = 0; i < count; i++)
@@ -116,17 +121,49 @@ namespace RPSmartHome
                 Left += 120;
                 count--;
             }
-
         }
-        
-        //private Panel createRoom()
-        //{
-            
-        //}
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lbClockan.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void btnAddRoom_Click(object sender, EventArgs e)
+        {
+            createRoom();
+        }
+
+        private void flowLayoutPanel1_ControlAdded(object sender, ControlEventArgs e)
+        {
+            if (flowLayoutPanel1.Controls.Count > 0)
+            {
+                button1.Visible = false;
+            }
+        }
+
+        private void flowLayoutPanel1_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (flowLayoutPanel1.Controls.Count < 0)
+            {
+                button1.Visible = true;
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text.ToLower();
+
+            foreach (Panel panel in flowLayoutPanel1.Controls.OfType<Panel>())
+            {
+                if (panel.Name.ToLower().Contains(searchText))
+                {
+                    panel.Visible = true;
+                }
+                else
+                {
+                    panel.Visible = false;
+                }
+            }
         }
     }
 }
