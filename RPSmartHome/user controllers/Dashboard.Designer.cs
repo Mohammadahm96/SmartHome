@@ -38,9 +38,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pBoff1 = new System.Windows.Forms.PictureBox();
+            this.pBon1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pBoff = new System.Windows.Forms.PictureBox();
+            this.pBon = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -48,23 +52,19 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pBon = new System.Windows.Forms.PictureBox();
-            this.pBoff = new System.Windows.Forms.PictureBox();
-            this.pBon1 = new System.Windows.Forms.PictureBox();
-            this.pBoff1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoff1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBon1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBon)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoff)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBon1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoff1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -84,7 +84,7 @@
             this.lbClockan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
             this.lbClockan.Location = new System.Drawing.Point(155, 25);
             this.lbClockan.Name = "lbClockan";
-            this.lbClockan.Size = new System.Drawing.Size(72, 21);
+            this.lbClockan.Size = new System.Drawing.Size(92, 27);
             this.lbClockan.TabIndex = 4;
             this.lbClockan.Text = "Clockan";
             // 
@@ -95,7 +95,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
             this.label1.Location = new System.Drawing.Point(6, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 26);
+            this.label1.Size = new System.Drawing.Size(136, 35);
             this.label1.TabIndex = 3;
             this.label1.Text = "Summary";
             // 
@@ -117,7 +117,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
             this.label3.Location = new System.Drawing.Point(90, 43);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 19);
+            this.label3.Size = new System.Drawing.Size(109, 22);
             this.label3.TabIndex = 4;
             this.label3.Text = "Temperature";
             // 
@@ -128,7 +128,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
             this.label2.Location = new System.Drawing.Point(87, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 40);
+            this.label2.Size = new System.Drawing.Size(123, 51);
             this.label2.TabIndex = 4;
             this.label2.Text = "30 °C";
             // 
@@ -164,6 +164,28 @@
             this.panel2.Size = new System.Drawing.Size(209, 62);
             this.panel2.TabIndex = 0;
             // 
+            // pBoff1
+            // 
+            this.pBoff1.Image = ((System.Drawing.Image)(resources.GetObject("pBoff1.Image")));
+            this.pBoff1.Location = new System.Drawing.Point(147, 9);
+            this.pBoff1.Name = "pBoff1";
+            this.pBoff1.Size = new System.Drawing.Size(50, 44);
+            this.pBoff1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBoff1.TabIndex = 1;
+            this.pBoff1.TabStop = false;
+            this.pBoff1.Click += new System.EventHandler(this.pBoff1_Click);
+            // 
+            // pBon1
+            // 
+            this.pBon1.Image = ((System.Drawing.Image)(resources.GetObject("pBon1.Image")));
+            this.pBon1.Location = new System.Drawing.Point(147, 9);
+            this.pBon1.Name = "pBon1";
+            this.pBon1.Size = new System.Drawing.Size(50, 44);
+            this.pBon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBon1.TabIndex = 1;
+            this.pBon1.TabStop = false;
+            this.pBon1.Click += new System.EventHandler(this.pBon1_Click);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -171,7 +193,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(19, 34);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 19);
+            this.label7.Size = new System.Drawing.Size(165, 22);
             this.label7.TabIndex = 4;
             this.label7.Text = "after 2 minute close";
             // 
@@ -182,7 +204,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(14, 11);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 23);
+            this.label5.Size = new System.Drawing.Size(129, 31);
             this.label5.TabIndex = 4;
             this.label5.Text = "Main door";
             // 
@@ -198,6 +220,28 @@
             this.panel1.Size = new System.Drawing.Size(209, 62);
             this.panel1.TabIndex = 0;
             // 
+            // pBoff
+            // 
+            this.pBoff.Image = ((System.Drawing.Image)(resources.GetObject("pBoff.Image")));
+            this.pBoff.Location = new System.Drawing.Point(147, 13);
+            this.pBoff.Name = "pBoff";
+            this.pBoff.Size = new System.Drawing.Size(50, 44);
+            this.pBoff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBoff.TabIndex = 1;
+            this.pBoff.TabStop = false;
+            this.pBoff.Click += new System.EventHandler(this.pBoff_Click);
+            // 
+            // pBon
+            // 
+            this.pBon.Image = ((System.Drawing.Image)(resources.GetObject("pBon.Image")));
+            this.pBon.Location = new System.Drawing.Point(147, 13);
+            this.pBon.Name = "pBon";
+            this.pBon.Size = new System.Drawing.Size(50, 44);
+            this.pBon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBon.TabIndex = 1;
+            this.pBon.TabStop = false;
+            this.pBon.Click += new System.EventHandler(this.pBon_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -205,7 +249,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(30, 36);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 19);
+            this.label6.Size = new System.Drawing.Size(109, 22);
             this.label6.TabIndex = 4;
             this.label6.Text = "18:00 - 6:00";
             // 
@@ -216,7 +260,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(14, 13);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 23);
+            this.label4.Size = new System.Drawing.Size(171, 31);
             this.label4.TabIndex = 4;
             this.label4.Text = "Out side lights";
             // 
@@ -237,7 +281,7 @@
             this.txtSearch.ForeColor = System.Drawing.Color.Gray;
             this.txtSearch.Location = new System.Drawing.Point(31, 47);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(725, 29);
+            this.txtSearch.Size = new System.Drawing.Size(725, 35);
             this.txtSearch.TabIndex = 6;
             this.txtSearch.Text = "search room";
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
@@ -273,53 +317,9 @@
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
-            // pBon
-            // 
-            this.pBon.Image = ((System.Drawing.Image)(resources.GetObject("pBon.Image")));
-            this.pBon.Location = new System.Drawing.Point(147, 13);
-            this.pBon.Name = "pBon";
-            this.pBon.Size = new System.Drawing.Size(50, 44);
-            this.pBon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBon.TabIndex = 1;
-            this.pBon.TabStop = false;
-            this.pBon.Click += new System.EventHandler(this.pBon_Click);
-            // 
-            // pBoff
-            // 
-            this.pBoff.Image = ((System.Drawing.Image)(resources.GetObject("pBoff.Image")));
-            this.pBoff.Location = new System.Drawing.Point(147, 13);
-            this.pBoff.Name = "pBoff";
-            this.pBoff.Size = new System.Drawing.Size(50, 44);
-            this.pBoff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBoff.TabIndex = 1;
-            this.pBoff.TabStop = false;
-            this.pBoff.Click += new System.EventHandler(this.pBoff_Click);
-            // 
-            // pBon1
-            // 
-            this.pBon1.Image = ((System.Drawing.Image)(resources.GetObject("pBon1.Image")));
-            this.pBon1.Location = new System.Drawing.Point(147, 9);
-            this.pBon1.Name = "pBon1";
-            this.pBon1.Size = new System.Drawing.Size(50, 44);
-            this.pBon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBon1.TabIndex = 1;
-            this.pBon1.TabStop = false;
-            this.pBon1.Click += new System.EventHandler(this.pBon1_Click);
-            // 
-            // pBoff1
-            // 
-            this.pBoff1.Image = ((System.Drawing.Image)(resources.GetObject("pBoff1.Image")));
-            this.pBoff1.Location = new System.Drawing.Point(147, 9);
-            this.pBoff1.Name = "pBoff1";
-            this.pBoff1.Size = new System.Drawing.Size(50, 44);
-            this.pBoff1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBoff1.TabIndex = 1;
-            this.pBoff1.TabStop = false;
-            this.pBoff1.Click += new System.EventHandler(this.pBoff1_Click);
-            // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.groupBox3);
@@ -341,15 +341,15 @@
             this.groupBox3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoff1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBon1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBon)).EndInit();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoff)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBon1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoff1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
