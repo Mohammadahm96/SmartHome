@@ -39,15 +39,15 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pBoff1 = new System.Windows.Forms.PictureBox();
             this.pBon1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.pBoff1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pBoff = new System.Windows.Forms.PictureBox();
             this.pBon = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.pBoff = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -55,16 +55,17 @@
             this.lbRoomNmae = new System.Windows.Forms.Label();
             this.pnlRooms = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoff1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBon1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoff1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlRooms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -168,17 +169,6 @@
             this.panel2.Size = new System.Drawing.Size(209, 62);
             this.panel2.TabIndex = 0;
             // 
-            // pBoff1
-            // 
-            this.pBoff1.Image = ((System.Drawing.Image)(resources.GetObject("pBoff1.Image")));
-            this.pBoff1.Location = new System.Drawing.Point(147, 9);
-            this.pBoff1.Name = "pBoff1";
-            this.pBoff1.Size = new System.Drawing.Size(50, 44);
-            this.pBoff1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBoff1.TabIndex = 1;
-            this.pBoff1.TabStop = false;
-            this.pBoff1.Click += new System.EventHandler(this.pBoff1_Click);
-            // 
             // pBon1
             // 
             this.pBon1.Image = ((System.Drawing.Image)(resources.GetObject("pBon1.Image")));
@@ -212,6 +202,17 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Main door";
             // 
+            // pBoff1
+            // 
+            this.pBoff1.Image = ((System.Drawing.Image)(resources.GetObject("pBoff1.Image")));
+            this.pBoff1.Location = new System.Drawing.Point(147, 9);
+            this.pBoff1.Name = "pBoff1";
+            this.pBoff1.Size = new System.Drawing.Size(50, 44);
+            this.pBoff1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBoff1.TabIndex = 1;
+            this.pBoff1.TabStop = false;
+            this.pBoff1.Click += new System.EventHandler(this.pBoff1_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
@@ -223,17 +224,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(209, 62);
             this.panel1.TabIndex = 0;
-            // 
-            // pBoff
-            // 
-            this.pBoff.Image = ((System.Drawing.Image)(resources.GetObject("pBoff.Image")));
-            this.pBoff.Location = new System.Drawing.Point(147, 13);
-            this.pBoff.Name = "pBoff";
-            this.pBoff.Size = new System.Drawing.Size(50, 44);
-            this.pBoff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBoff.TabIndex = 1;
-            this.pBoff.TabStop = false;
-            this.pBoff.Click += new System.EventHandler(this.pBoff_Click);
             // 
             // pBon
             // 
@@ -267,6 +257,17 @@
             this.label4.Size = new System.Drawing.Size(131, 23);
             this.label4.TabIndex = 4;
             this.label4.Text = "Out side lights";
+            // 
+            // pBoff
+            // 
+            this.pBoff.Image = ((System.Drawing.Image)(resources.GetObject("pBoff.Image")));
+            this.pBoff.Location = new System.Drawing.Point(147, 13);
+            this.pBoff.Name = "pBoff";
+            this.pBoff.Size = new System.Drawing.Size(50, 44);
+            this.pBoff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBoff.TabIndex = 1;
+            this.pBoff.TabStop = false;
+            this.pBoff.Click += new System.EventHandler(this.pBoff_Click);
             // 
             // button1
             // 
@@ -336,6 +337,13 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "off-button.png");
+            this.imageList1.Images.SetKeyName(1, "on-button.png");
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -361,12 +369,12 @@
             this.groupBox3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoff1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBon1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoff1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlRooms.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -401,5 +409,6 @@
         private System.Windows.Forms.Label lbRoomNmae;
         private System.Windows.Forms.Panel pnlRooms;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

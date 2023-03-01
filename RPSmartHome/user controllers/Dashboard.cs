@@ -67,20 +67,63 @@ namespace RPSmartHome
             pBoff1.BringToFront();
         }
 
+        int Width = 81;
+        int Height = 117;
+        int count = 0;
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Panel panel = new Panel();
-            this.Controls.Add(panel);
-            pictureBox pictureBox = new pictureBox();
+            count ++;
+            
+            for(int i = 0; i < count; i++)
+            {
+                createRoom();
+            }
 
-            panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            //panel.Controls.Add(this.pictureBox4);
-            //panel.Controls.Add(this.label9);
-            //panel.Controls.Add(this.pictureBox5);
-            panel.Location = new System.Drawing.Point(28, 13);
-            panel.Name = "panel4";
-            panel.Size = new System.Drawing.Size(117, 95);
-            panel.TabIndex = 0;
+        }
+        
+        private Panel createRoom()
+        {
+            //Panel
+
+            Panel parentPanel = this.pnlRooms;
+
+            Panel newPanel = new Panel();
+            newPanel.Location = new Point(13, 24);
+            newPanel.Size = new Size(Height, Width);
+            newPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            newPanel.Name = "room name";
+            parentPanel.Controls.Add(newPanel);
+
+            //Label
+
+            Label label = new Label();
+            label.Location = new Point(8, 4);
+            label.Size = new Size(114, 23);
+            label.Text = "Living room";
+            label.Name = "lbLivingRoom";
+            label.ForeColor = Color.White;
+            newPanel.Controls.Add(label);
+
+            // On and Off 
+
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Location = new Point(30, 35);
+            pictureBox.Size = new Size(50, 44);
+            pictureBox.Name = "pBroomOff";
+            pictureBox.Image = imageList1.Images[0];
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            newPanel.Controls.Add(pictureBox);
+
+            PictureBox pictureBox1 = new PictureBox();
+            pictureBox1.Location = new Point(30, 35);
+            pictureBox1.Size = new Size(50, 44);
+            pictureBox1.Name = "pBroomOn";
+            pictureBox1.Image = imageList1.Images[1];
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            newPanel.Controls.Add(pictureBox1);
+            Height += 50;
+            return newPanel;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
