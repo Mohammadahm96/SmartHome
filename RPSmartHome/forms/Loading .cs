@@ -34,9 +34,13 @@ namespace RPSmartHome
             {
                 timer1.Stop();
 
-                Home home = new Home();
+                //Home home = new Home();
 
-                home.Show();
+                //home.Show();
+                //this.Hide();
+
+                LoginRegs loginRegs = new LoginRegs();
+                loginRegs.Show();
                 this.Hide();
             }
         }

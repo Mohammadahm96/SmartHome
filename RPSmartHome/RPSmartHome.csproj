@@ -64,16 +64,16 @@
     <Compile Include="forms\Loading .Designer.cs">
       <DependentUpon>Loading .cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\Login.cs">
+    <Compile Include="forms\LoginRegs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="forms\LoginRegs.Designer.cs">
+      <DependentUpon>LoginRegs.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="forms\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="forms\LoginRegs.resx">
+      <DependentUpon>LoginRegs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="user controllers\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

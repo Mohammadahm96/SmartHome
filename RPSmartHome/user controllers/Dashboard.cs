@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace RPSmartHome
 {
@@ -16,6 +17,7 @@ namespace RPSmartHome
         public Dashboard()
         {
             InitializeComponent();
+            timer1.Start();
         }
 
         private void txtSearch_Click(object sender, EventArgs e)
@@ -62,6 +64,17 @@ namespace RPSmartHome
         private void pBon1_Click(object sender, EventArgs e)
         {
             pBoff1.BringToFront();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoginRegs loginRegs = new LoginRegs();
+            loginRegs.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbClockan.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }
