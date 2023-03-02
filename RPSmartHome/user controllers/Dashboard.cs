@@ -55,7 +55,6 @@ namespace RPSmartHome
             }
         }
 
-      
 
         int Top = 29;
         int Left = 18;
@@ -69,8 +68,26 @@ namespace RPSmartHome
             count++;
             for (int i = 0; i < count; i++)
             {
-
                 
+
+                // Create a new instance of your UserControl class
+                UserControl userControl = new UserControl();
+                userControl.Name = Newroom.roomName;
+                userControl.Size = new Size(753, 481);
+
+                // Add the UserControl to the "pnlRooms" Panel control
+                pnlRooms.Controls.Add(userControl);
+
+                // Add a Label to the UserControl
+                Label label1 = new Label();
+                label1.Location = new Point(297, 208);
+                label1.Size = new Size(114, 23);
+                label1.Text = Newroom.roomName;
+                label1.Name = Newroom.roomName;
+                label1.ForeColor = Color.White;
+                userControl.Controls.Add(label1);
+
+
                 //Panel
 
                 FlowLayoutPanel parentPanel = this.flowLayoutPanel1;
@@ -89,6 +106,8 @@ namespace RPSmartHome
                 label.Text = Newroom.roomName;
                 label.Name = Newroom.roomName;
                 label.ForeColor = Color.White;
+                label.Cursor = Cursors.Hand;
+                label.Click += new EventHandler(label_Click);
                 newPanel.Controls.Add(label);
 
                 // On and Off 
@@ -100,6 +119,7 @@ namespace RPSmartHome
                 pictureBox.Image = imageList1.Images[0];
                 pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox.Click += new EventHandler(pictureBoxOn_Click);
+                pictureBox.Cursor = Cursors.Hand;
                 newPanel.Controls.Add(pictureBox);
 
                 PictureBox pictureBox1 = new PictureBox();
@@ -109,6 +129,7 @@ namespace RPSmartHome
                 pictureBox1.Image = imageList1.Images[1];
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
+                pictureBox1.Cursor = Cursors.Hand;
                 newPanel.Controls.Add(pictureBox1);
                 Left += 120;
                 count--;
@@ -117,6 +138,7 @@ namespace RPSmartHome
 
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
+            
             createRoom();
         }
 
@@ -138,7 +160,22 @@ namespace RPSmartHome
 
         }
 
-        
+
+        private void label_Click(object sender, EventArgs e)
+        {
+            Label clickedLabel = (Label)sender;
+            string labelName = clickedLabel.Name;
+
+            // Create a new instance of your UserControl class
+            UserControl userControl = new UserControl();
+            userControl.Name = labelName; // Set any necessary properties of the control here
+
+            // Set the UserControl as the content of the pnlRooms panel
+            userControl.Dock = DockStyle.Fill;
+            pnlRooms.Controls.Clear();
+            pnlRooms.Controls.Add(userControl);
+            userControl.BringToFront();
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
