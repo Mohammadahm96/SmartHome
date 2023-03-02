@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="forms\Newroom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Newroom.Designer.cs">
+      <DependentUpon>Newroom.cs</DependentUpon>
+    </Compile>
     <Compile Include="user controllers\Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     <Compile Include="user controllers\pictureBox.cs" />
     <EmbeddedResource Include="forms\LoginRegs.resx">
       <DependentUpon>LoginRegs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Newroom.resx">
+      <DependentUpon>Newroom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="user controllers\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
