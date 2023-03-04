@@ -125,5 +125,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Diagram\SmartHome Flödesdiagram.png" />
+    <Content Include="Diagram\SmartHome KlassDiagram.png" />
+    <Content Include="Diagram\SmartHome UseCase.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
