@@ -62,30 +62,15 @@ namespace RPSmartHome
         
         private void createRoom()
         {
-            Newroom newroom = new Newroom();
-            newroom.ShowDialog();
+            newRoomDetails newRoomDetails = new newRoomDetails();
+            newRoomDetails.ShowDialog();
+
 
             count++;
             for (int i = 0; i < count; i++)
             {
-                
 
-                // Create a new instance of your UserControl class
-                UserControl userControl = new UserControl();
-                userControl.Name = Newroom.roomName;
-                userControl.Size = new Size(753, 481);
 
-                // Add the UserControl to the "pnlRooms" Panel control
-                pnlRooms.Controls.Add(userControl);
-
-                // Add a Label to the UserControl
-                Label label1 = new Label();
-                label1.Location = new Point(297, 208);
-                label1.Size = new Size(114, 23);
-                label1.Text = Newroom.roomName;
-                label1.Name = Newroom.roomName;
-                label1.ForeColor = Color.White;
-                userControl.Controls.Add(label1);
 
 
                 //Panel
@@ -95,16 +80,17 @@ namespace RPSmartHome
                 newPanel.Location = new Point(Left, Top);
                 newPanel.Size = new Size(117, 81);
                 newPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-                newPanel.Name = Newroom.roomName;
+                newPanel.Name = newRoomDetails.roomName;
                 parentPanel.Controls.Add(newPanel);
+
 
                 //Label
 
                 Label label = new Label();
                 label.Location = new Point(8, 4);
                 label.Size = new Size(114, 23);
-                label.Text = Newroom.roomName;
-                label.Name = Newroom.roomName;
+                label.Text = newRoomDetails.roomName;
+                label.Name = newRoomDetails.roomName;
                 label.ForeColor = Color.White;
                 label.Cursor = Cursors.Hand;
                 label.Click += new EventHandler(label_Click);
@@ -133,6 +119,8 @@ namespace RPSmartHome
                 newPanel.Controls.Add(pictureBox1);
                 Left += 120;
                 count--;
+
+                
             }
         }
 
@@ -140,6 +128,7 @@ namespace RPSmartHome
         {
             
             createRoom();
+
         }
 
         private void pictureBoxOn_Click(object sender, EventArgs e)
@@ -159,22 +148,46 @@ namespace RPSmartHome
             clickedPictureBox.SendToBack();
 
         }
+        public class RoomForm : Form
+        {
+            private string roomName;
 
+            public RoomForm(string roomName)
+            {
+                this.roomName = roomName;
+                this.Size = new Size(753, 481);
+                this.StartPosition = FormStartPosition.CenterScreen;
+
+            }
+        }
 
         private void label_Click(object sender, EventArgs e)
         {
             Label clickedLabel = (Label)sender;
-            string labelName = clickedLabel.Name;
 
-            // Create a new instance of your UserControl class
-            UserControl userControl = new UserControl();
-            userControl.Name = labelName; // Set any necessary properties of the control here
+            // Get the name of the room associated with the label
+            string roomName = clickedLabel.Name;
 
-            // Set the UserControl as the content of the pnlRooms panel
-            userControl.Dock = DockStyle.Fill;
-            pnlRooms.Controls.Clear();
-            pnlRooms.Controls.Add(userControl);
-            userControl.BringToFront();
+            // Create a new instance of RoomForm
+            RoomForm roomForm = new RoomForm(roomName);
+
+
+            //label
+
+            //Label
+
+            Label label = new Label();
+            label.Location = new Point(200,0);
+            label.Size = new Size(500, 100);
+            label.Text = newRoomDetails.roomName;
+            label.Name = newRoomDetails.roomName;
+            label.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label.ForeColor = Color.Black;
+            label.Cursor = Cursors.Hand;
+            roomForm.Controls.Add(label);
+
+            // Show the new form
+            roomForm.Show();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

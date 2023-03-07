@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace RPSmartHome.forms
 {
-    public partial class Newroom : Form
+    public partial class newRoomDetails : Form
     {
         public static string roomName { get; set; }
-        public Newroom()
+        public newRoomDetails()
         {
             InitializeComponent();
         }
