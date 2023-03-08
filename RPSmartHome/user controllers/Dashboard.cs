@@ -19,7 +19,7 @@ namespace RPSmartHome
 {
     public partial class Dashboard : UserControl
     {
-        
+
         public Dashboard()
         {
             InitializeComponent();
@@ -42,10 +42,77 @@ namespace RPSmartHome
 
            
         }
+        int Top2 = 29;
+        int Left2 = 18;
+        int count2 = 0;
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            
+            dbHelper dbHelper  = new dbHelper();
+            dbHelper.GetRooms();
+
+            List<string> rooms = dbHelper.GetRooms();
+            foreach (string room in rooms)
+            {
+
+                count2++;
+                for (int i = 0; i < count2; i++)
+                {
+
+
+
+
+                    //Panel
+
+                    FlowLayoutPanel parentPanel = this.flowLayoutPanel1;
+                    Panel newPanel = new Panel();
+                    newPanel.Location = new Point(Left2, Top2);
+                    newPanel.Size = new Size(117, 81);
+                    newPanel.BackColor = Color.FromArgb(60, 75, 109);
+                    newPanel.Name = NewroomOrDevice.roomName;
+                    parentPanel.Controls.Add(newPanel);
+
+
+                    //Label
+
+                    Label label = new Label();
+                    label.Location = new Point(8, 4);
+                    label.Size = new Size(114, 23);
+                    label.Text = room;
+                    label.Name = room;
+                    label.ForeColor = Color.White;
+                    label.Cursor = Cursors.Hand;
+                    label.Click += new EventHandler(label_Click);
+                    newPanel.Controls.Add(label);
+
+                    // On and Off 
+
+                    PictureBox pictureBox = new PictureBox();
+                    pictureBox.Location = new Point(30, 35);
+                    pictureBox.Size = new Size(50, 44);
+                    pictureBox.Name = "pBroomOff";
+                    pictureBox.Image = imageList1.Images[0];
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBox.Click += new EventHandler(pictureBoxOn_Click);
+                    pictureBox.Cursor = Cursors.Hand;
+                    newPanel.Controls.Add(pictureBox);
+
+                    PictureBox pictureBox1 = new PictureBox();
+                    pictureBox1.Location = new Point(30, 35);
+                    pictureBox1.Size = new Size(50, 44);
+                    pictureBox1.Name = "pBroomOn";
+                    pictureBox1.Image = imageList1.Images[1];
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
+                    pictureBox1.Cursor = Cursors.Hand;
+                    newPanel.Controls.Add(pictureBox1);
+                    Left2 += 120;
+                    count2--;
+
+
+                }
+            }
+
         }
 
         private void txtSearch_Leave(object sender, EventArgs e)
@@ -62,11 +129,10 @@ namespace RPSmartHome
         int Left = 18;
         int count = 0;
         
-        private void createRoom()
+        public void createRoom()
         {
             NewroomOrDevice newRoomDetails = new NewroomOrDevice();
             newRoomDetails.ShowDialog();
-
 
             count++;
             for (int i = 0; i < count; i++)
@@ -129,7 +195,7 @@ namespace RPSmartHome
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
             NewroomOrDevice newroomOrDevice = new NewroomOrDevice();
-            NewroomOrDevice.roomORDevice = "New Room";
+            NewroomOrDevice.roomName = "New Room";
             createRoom();
 
         }
@@ -168,11 +234,15 @@ namespace RPSmartHome
 
         private void label_Click(object sender, EventArgs e)
         {
+            NewroomOrDevice newroomOrDevice = new NewroomOrDevice();
+
             Label clickedLabel = (Label)sender;
 
             // Get the name of the room associated with the label
             string roomName = clickedLabel.Name;
+            NewroomOrDevice.roomName = roomName;
 
+            MessageBox.Show($"{roomName} roomname label click");
             // Create a new instance of RoomForm
             RoomForm roomForm = new RoomForm(roomName);
             roomForm.BackColor= Color.White;
@@ -247,8 +317,74 @@ namespace RPSmartHome
             label.Cursor = Cursors.Hand;
             roomForm.Controls.Add(label);
 
+            dbHelper dbHelper = new dbHelper();
+            dbHelper.GetDevices();
+
+            List<string> devices = dbHelper.GetDevices();
+
+            foreach (string device in devices)
+            {
+                MessageBox.Show($"{devices} device");
+                
+                count1++;
+                for (int i = 0; i < count1; i++)
+                {
+                    //RoomForm roomForm = (RoomForm)((Button)sender).FindForm();
+
+
+                    //FlowLayoutPanel
+
+
+                    Panel newPanel = new Panel();
+                    newPanel.Location = new Point(Left1, Top1);
+                    newPanel.Size = new Size(120, 100);
+                    newPanel.BackColor = Color.FromArgb(60, 75, 109);
+                    newPanel.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, (0));
+                    newPanel.Name = NewroomOrDevice.roomName;
+                    _flowLayoutPanel.Controls.Add(newPanel);
+
+
+                    //Label
+
+                    Label label1 = new Label();
+                    label1.Location = new Point(8, 4);
+                    label1.Size = new Size(114, 23);
+                    label1.Text = NewroomOrDevice.deviceName;
+                    label1.Name = NewroomOrDevice.roomName;
+                    label1.ForeColor = Color.White;
+                    newPanel.Controls.Add(label1);
+
+                    // On and Off 
+
+                    PictureBox pictureBox = new PictureBox();
+                    pictureBox.Location = new Point(30, 35);
+                    pictureBox.Size = new Size(50, 44);
+                    pictureBox.Name = "pBroomOff";
+                    pictureBox.Image = imageList1.Images[0];
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBox.Click += new EventHandler(pictureBoxOn_Click);
+                    pictureBox.Cursor = Cursors.Hand;
+                    newPanel.Controls.Add(pictureBox);
+
+                    PictureBox pictureBox1 = new PictureBox();
+                    pictureBox1.Location = new Point(30, 35);
+                    pictureBox1.Size = new Size(50, 44);
+                    pictureBox1.Name = "pBroomOn";
+                    pictureBox1.Image = imageList1.Images[1];
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
+                    pictureBox1.Cursor = Cursors.Hand;
+                    newPanel.Controls.Add(pictureBox1);
+                    Left1 += 120;
+                    count1--;
+
+                }
+
+            }
+
             // Show the new form
             roomForm.ShowDialog();
+
 
 
         }
@@ -262,13 +398,13 @@ namespace RPSmartHome
         private void btnAddDevice_Click(object sender, EventArgs e)
         {
             NewroomOrDevice newroomOrDevice = new NewroomOrDevice();
-            NewroomOrDevice.roomORDevice = "New Device";
+            NewroomOrDevice.deviceName = "New Device";
             newroomOrDevice.ShowDialog();
 
             count1++;
             for (int i = 0; i < count1; i++)
             {
-                RoomForm roomForm = (RoomForm)((Button)sender).FindForm();
+                //RoomForm roomForm = (RoomForm)((Button)sender).FindForm();
                                
                
                 //FlowLayoutPanel
@@ -288,7 +424,7 @@ namespace RPSmartHome
                 Label label = new Label();
                 label.Location = new Point(8, 4);
                 label.Size = new Size(114, 23);
-                label.Text = NewroomOrDevice.roomName;
+                label.Text = NewroomOrDevice.deviceName;
                 label.Name = NewroomOrDevice.roomName;
                 label.ForeColor = Color.White;
                 newPanel.Controls.Add(label);

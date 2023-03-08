@@ -13,7 +13,7 @@ namespace RPSmartHome.forms
     public partial class NewroomOrDevice : Form
     {
         public static string roomName { get; set; }
-        public static string roomORDevice { get; set; }
+        public static string deviceName { get; set; }
         public NewroomOrDevice()
         {
             InitializeComponent();
@@ -22,8 +22,22 @@ namespace RPSmartHome.forms
 
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
-            roomName= txtRoomName.Text;
-            this.Hide();
+            dbHelper dbHelper = new dbHelper();
+            if(lbRoomDevice.Text == "New Room")
+            {
+                MessageBox.Show("roomName");
+                roomName = txtRoomName.Text;
+                dbHelper.roomName();
+                this.Hide();
+            }
+            else if(lbRoomDevice.Text == "New Device")
+            {
+                MessageBox.Show("deviceName");
+                deviceName = txtRoomName.Text;
+                dbHelper.newdevice();
+                this.Hide();
+            }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -60,7 +74,7 @@ namespace RPSmartHome.forms
 
         private void NewroomOrDevice_Load(object sender, EventArgs e)
         {
-            lbRoomDevice.Text = roomORDevice;
+            lbRoomDevice.Text = deviceName;
         }
     }
 }
