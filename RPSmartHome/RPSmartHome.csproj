@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="forms\Newroom.cs">
+    <Compile Include="forms\NewroomOrDevice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Newroom.Designer.cs">
-      <DependentUpon>Newroom.cs</DependentUpon>
+    <Compile Include="forms\NewroomOrDevice.Designer.cs">
+      <DependentUpon>NewroomOrDevice.cs</DependentUpon>
     </Compile>
     <Compile Include="user controllers\Dashboard.cs">
       <SubType>UserControl</SubType>
@@ -88,8 +88,8 @@
     <EmbeddedResource Include="forms\LoginRegs.resx">
       <DependentUpon>LoginRegs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Newroom.resx">
-      <DependentUpon>Newroom.cs</DependentUpon>
+    <EmbeddedResource Include="forms\NewroomOrDevice.resx">
+      <DependentUpon>NewroomOrDevice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="user controllers\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

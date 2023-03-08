@@ -10,12 +10,14 @@ using System.Windows.Forms;
 
 namespace RPSmartHome.forms
 {
-    public partial class newRoomDetails : Form
+    public partial class NewroomOrDevice : Form
     {
         public static string roomName { get; set; }
-        public newRoomDetails()
+        public static string roomORDevice { get; set; }
+        public NewroomOrDevice()
         {
             InitializeComponent();
+            
         }
 
         private void btnAddRoom_Click(object sender, EventArgs e)
@@ -54,6 +56,11 @@ namespace RPSmartHome.forms
         {
             lbRoomName.Text = "room name";
             txtRoomName.ForeColor = Color.Black;
+        }
+
+        private void NewroomOrDevice_Load(object sender, EventArgs e)
+        {
+            lbRoomDevice.Text = roomORDevice;
         }
     }
 }

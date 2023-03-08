@@ -1,6 +1,6 @@
 ﻿namespace RPSmartHome.forms
 {
-    partial class newRoomDetails
+    partial class NewroomOrDevice
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(newRoomDetails));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewroomOrDevice));
             this.txtRoomName = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbRoomDevice = new System.Windows.Forms.Label();
             this.btnAddRoom = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lbRoomName = new System.Windows.Forms.Label();
@@ -62,15 +62,15 @@
             this.pictureBox2.TabIndex = 23;
             this.pictureBox2.TabStop = false;
             // 
-            // label3
+            // lbRoomDevice
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(197, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(159, 36);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "New Room";
+            this.lbRoomDevice.AutoSize = true;
+            this.lbRoomDevice.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRoomDevice.Location = new System.Drawing.Point(172, 9);
+            this.lbRoomDevice.Name = "lbRoomDevice";
+            this.lbRoomDevice.Size = new System.Drawing.Size(257, 36);
+            this.lbRoomDevice.TabIndex = 24;
+            this.lbRoomDevice.Text = "New Room/Device";
             // 
             // btnAddRoom
             // 
@@ -106,7 +106,7 @@
             this.lbRoomName.Size = new System.Drawing.Size(0, 24);
             this.lbRoomName.TabIndex = 26;
             // 
-            // Newroom
+            // NewroomOrDevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -115,16 +115,17 @@
             this.Controls.Add(this.lbRoomName);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddRoom);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbRoomDevice);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.txtRoomName);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.Name = "Newroom";
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Name = "NewroomOrDevice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Newroom";
+            this.Load += new System.EventHandler(this.NewroomOrDevice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -135,7 +136,7 @@
 
         private System.Windows.Forms.TextBox txtRoomName;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbRoomDevice;
         private System.Windows.Forms.Button btnAddRoom;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lbRoomName;

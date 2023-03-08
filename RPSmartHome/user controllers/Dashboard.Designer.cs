@@ -42,8 +42,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pBon1 = new System.Windows.Forms.PictureBox();
             this.pBoff1 = new System.Windows.Forms.PictureBox();
+            this.pBon1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,15 +58,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBon1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoff1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBon1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBon)).BeginInit();
@@ -208,17 +208,6 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Main door";
             // 
-            // pBon1
-            // 
-            this.pBon1.Image = ((System.Drawing.Image)(resources.GetObject("pBon1.Image")));
-            this.pBon1.Location = new System.Drawing.Point(147, 9);
-            this.pBon1.Name = "pBon1";
-            this.pBon1.Size = new System.Drawing.Size(50, 44);
-            this.pBon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBon1.TabIndex = 1;
-            this.pBon1.TabStop = false;
-            this.pBon1.Click += new System.EventHandler(this.pictureBoxOff_Click);
-            // 
             // pBoff1
             // 
             this.pBoff1.Image = ((System.Drawing.Image)(resources.GetObject("pBoff1.Image")));
@@ -229,6 +218,17 @@
             this.pBoff1.TabIndex = 1;
             this.pBoff1.TabStop = false;
             this.pBoff1.Click += new System.EventHandler(this.pictureBoxOn_Click);
+            // 
+            // pBon1
+            // 
+            this.pBon1.Image = ((System.Drawing.Image)(resources.GetObject("pBon1.Image")));
+            this.pBon1.Location = new System.Drawing.Point(147, 9);
+            this.pBon1.Name = "pBon1";
+            this.pBon1.Size = new System.Drawing.Size(50, 44);
+            this.pBon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBon1.TabIndex = 1;
+            this.pBon1.TabStop = false;
+            this.pBon1.Click += new System.EventHandler(this.pictureBoxOff_Click);
             // 
             // panel1
             // 
@@ -384,13 +384,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btnAddRoom_Click);
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "off-button.png");
-            this.imageList1.Images.SetKeyName(1, "on-button.png");
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -400,6 +393,13 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "off-button.png");
+            this.imageList1.Images.SetKeyName(1, "on-button.png");
             // 
             // Dashboard
             // 
@@ -426,8 +426,8 @@
             this.groupBox3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBon1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoff1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBon1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoff)).EndInit();
