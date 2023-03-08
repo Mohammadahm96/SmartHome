@@ -66,7 +66,7 @@
             this.lbSingUp.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.lbSingUp.Location = new System.Drawing.Point(780, 454);
             this.lbSingUp.Name = "lbSingUp";
-            this.lbSingUp.Size = new System.Drawing.Size(68, 22);
+            this.lbSingUp.Size = new System.Drawing.Size(88, 29);
             this.lbSingUp.TabIndex = 11;
             this.lbSingUp.TabStop = true;
             this.lbSingUp.Text = "SingUp";
@@ -78,7 +78,7 @@
             this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(555, 454);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(219, 22);
+            this.label2.Size = new System.Drawing.Size(284, 29);
             this.label2.TabIndex = 12;
             this.label2.Text = "Don\'t have an account yet?";
             // 
@@ -100,7 +100,7 @@
             this.txtPass.ForeColor = System.Drawing.Color.Gray;
             this.txtPass.Location = new System.Drawing.Point(526, 255);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(326, 29);
+            this.txtPass.Size = new System.Drawing.Size(326, 34);
             this.txtPass.TabIndex = 8;
             this.txtPass.Text = "password";
             this.txtPass.Click += new System.EventHandler(this.txtPass_Click);
@@ -112,7 +112,7 @@
             this.txtUsername.ForeColor = System.Drawing.Color.Gray;
             this.txtUsername.Location = new System.Drawing.Point(526, 185);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(326, 29);
+            this.txtUsername.Size = new System.Drawing.Size(326, 34);
             this.txtUsername.TabIndex = 6;
             this.txtUsername.Text = "username";
             this.txtUsername.Click += new System.EventHandler(this.txtUsername_Click);
@@ -125,7 +125,7 @@
             this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(596, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 36);
+            this.label1.Size = new System.Drawing.Size(223, 46);
             this.label1.TabIndex = 9;
             this.label1.Text = "Hello Again!";
             // 
@@ -177,7 +177,7 @@
             this.lbConfPass.AutoSize = true;
             this.lbConfPass.Location = new System.Drawing.Point(28, 265);
             this.lbConfPass.Name = "lbConfPass";
-            this.lbConfPass.Size = new System.Drawing.Size(0, 21);
+            this.lbConfPass.Size = new System.Drawing.Size(0, 26);
             this.lbConfPass.TabIndex = 21;
             // 
             // lbPassReg
@@ -185,7 +185,7 @@
             this.lbPassReg.AutoSize = true;
             this.lbPassReg.Location = new System.Drawing.Point(28, 191);
             this.lbPassReg.Name = "lbPassReg";
-            this.lbPassReg.Size = new System.Drawing.Size(0, 21);
+            this.lbPassReg.Size = new System.Drawing.Size(0, 26);
             this.lbPassReg.TabIndex = 21;
             // 
             // lbUsernameReg
@@ -193,7 +193,7 @@
             this.lbUsernameReg.AutoSize = true;
             this.lbUsernameReg.Location = new System.Drawing.Point(28, 120);
             this.lbUsernameReg.Name = "lbUsernameReg";
-            this.lbUsernameReg.Size = new System.Drawing.Size(0, 21);
+            this.lbUsernameReg.Size = new System.Drawing.Size(0, 26);
             this.lbUsernameReg.TabIndex = 21;
             // 
             // lbFullName
@@ -201,7 +201,7 @@
             this.lbFullName.AutoSize = true;
             this.lbFullName.Location = new System.Drawing.Point(28, 47);
             this.lbFullName.Name = "lbFullName";
-            this.lbFullName.Size = new System.Drawing.Size(0, 21);
+            this.lbFullName.Size = new System.Drawing.Size(0, 26);
             this.lbFullName.TabIndex = 21;
             // 
             // linkLabel1
@@ -212,7 +212,7 @@
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.linkLabel1.Location = new System.Drawing.Point(268, 450);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(60, 22);
+            this.linkLabel1.Size = new System.Drawing.Size(78, 29);
             this.linkLabel1.TabIndex = 20;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Log in";
@@ -223,9 +223,10 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(61, 451);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(201, 21);
+            this.label4.Size = new System.Drawing.Size(251, 26);
             this.label4.TabIndex = 19;
             this.label4.Text = "Already have an account?";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // checkBox1
             // 
@@ -233,7 +234,7 @@
             this.checkBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(23, 362);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(282, 23);
+            this.checkBox1.Size = new System.Drawing.Size(369, 26);
             this.checkBox1.TabIndex = 18;
             this.checkBox1.Text = "I agree to all the Terms and Privacy Policy";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -255,7 +256,7 @@
             this.txtConfPass.ForeColor = System.Drawing.Color.Gray;
             this.txtConfPass.Location = new System.Drawing.Point(23, 289);
             this.txtConfPass.Name = "txtConfPass";
-            this.txtConfPass.Size = new System.Drawing.Size(372, 29);
+            this.txtConfPass.Size = new System.Drawing.Size(372, 34);
             this.txtConfPass.TabIndex = 13;
             this.txtConfPass.Text = "confirm password";
             this.txtConfPass.Click += new System.EventHandler(this.txtConfPass_Click);
@@ -267,7 +268,7 @@
             this.txtPassReg.ForeColor = System.Drawing.Color.Gray;
             this.txtPassReg.Location = new System.Drawing.Point(23, 215);
             this.txtPassReg.Name = "txtPassReg";
-            this.txtPassReg.Size = new System.Drawing.Size(372, 29);
+            this.txtPassReg.Size = new System.Drawing.Size(372, 34);
             this.txtPassReg.TabIndex = 15;
             this.txtPassReg.Text = "password";
             this.txtPassReg.Click += new System.EventHandler(this.txtPassReg_Click);
@@ -279,7 +280,7 @@
             this.txtUsernameReg.ForeColor = System.Drawing.Color.Gray;
             this.txtUsernameReg.Location = new System.Drawing.Point(23, 144);
             this.txtUsernameReg.Name = "txtUsernameReg";
-            this.txtUsernameReg.Size = new System.Drawing.Size(372, 29);
+            this.txtUsernameReg.Size = new System.Drawing.Size(372, 34);
             this.txtUsernameReg.TabIndex = 14;
             this.txtUsernameReg.Text = "username";
             this.txtUsernameReg.Click += new System.EventHandler(this.txtUsernameReg_Click);
@@ -291,7 +292,7 @@
             this.txtFullName.ForeColor = System.Drawing.Color.Gray;
             this.txtFullName.Location = new System.Drawing.Point(23, 71);
             this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(372, 29);
+            this.txtFullName.Size = new System.Drawing.Size(372, 34);
             this.txtFullName.TabIndex = 16;
             this.txtFullName.Text = "full name";
             this.txtFullName.Click += new System.EventHandler(this.txtFullName_Click);
@@ -304,7 +305,7 @@
             this.label3.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(143, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 36);
+            this.label3.Size = new System.Drawing.Size(152, 46);
             this.label3.TabIndex = 11;
             this.label3.Text = "Register";
             // 
@@ -313,7 +314,7 @@
             this.lbUsername.AutoSize = true;
             this.lbUsername.Location = new System.Drawing.Point(532, 161);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(0, 21);
+            this.lbUsername.Size = new System.Drawing.Size(0, 26);
             this.lbUsername.TabIndex = 14;
             // 
             // lbPass
@@ -321,15 +322,15 @@
             this.lbPass.AutoSize = true;
             this.lbPass.Location = new System.Drawing.Point(532, 231);
             this.lbPass.Name = "lbPass";
-            this.lbPass.Size = new System.Drawing.Size(0, 21);
+            this.lbPass.Size = new System.Drawing.Size(0, 26);
             this.lbPass.TabIndex = 14;
             // 
             // LoginRegs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(909, 533);
+            this.ClientSize = new System.Drawing.Size(907, 525);
             this.Controls.Add(this.lbPass);
             this.Controls.Add(this.lbUsername);
             this.Controls.Add(this.pnlRegister);
