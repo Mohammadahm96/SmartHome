@@ -10,6 +10,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static RPSmartHome.Dashboard;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 using Button = System.Windows.Forms.Button;
@@ -220,11 +221,25 @@ namespace RPSmartHome
             btnDeleteDevice.Click += new EventHandler(btnDeleteDevice_Click);
             roomForm.Controls.Add(btnDeleteDevice);
 
+            Button btnCancel = new Button();
+
+            btnCancel.BackColor = Color.FromArgb(122, 0, 0);
+            btnCancel.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            btnCancel.Cursor = Cursors.Hand;
+            btnCancel.ForeColor = Color.White;
+            btnCancel.Location = new Point(420, 60);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(150, 51);
+            btnCancel.TabIndex = 2;
+            btnCancel.Text = "Cancel";
+            btnCancel.Click += new EventHandler(btnCancel_Click);
+            roomForm.Controls.Add(btnCancel);
+
             //Label
 
             Label label = new Label();
             label.Location = new Point(200,0);
-            label.Size = new Size(500, 100);
+            label.Size = new Size(212, 46);
             label.Text = NewroomOrDevice.roomName;
             label.Name = NewroomOrDevice.roomName;
             label.Font = new Font("Times New Roman", 30F, FontStyle.Regular, GraphicsUnit.Point, (0));
@@ -307,30 +322,61 @@ namespace RPSmartHome
             
         }
 
+        private bool deleteDevice = false;
+
         private void btnDeleteDevice_Click(object sender, EventArgs e)
         {
+            deleteDevice = true;
+            //RoomForm roomForm = (RoomForm)((Button)sender).FindForm();
+
             Button clickedButton = sender as Button;
-            clickedButton.Visible= false;
+            clickedButton.SendToBack();
+
+            //Cancel delete device button
+
             
+
 
             foreach (Control ctrl in _flowLayoutPanel.Controls)
             {
                 if (ctrl is Panel panel)
                 {
                     // Add the MouseEnter event handler to the panel
+                    panel.BackColor = Color.FromArgb(122, 0, 0);
                     panel.Click += Panel_Click;
-                    
+
+               
                 }
             }
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            deleteDevice = false;
+
+            Button clickedButton = sender as Button;
+            clickedButton.SendToBack();
+            foreach (Control ctrl in _flowLayoutPanel.Controls)
+            {
+                if (ctrl is Panel panel)
+                {
+                    // Add the MouseEnter event handler to the panel
+                    panel.BackColor = Color.FromArgb(60, 75, 109);
+
+
+                }
+            }
+        }
 
         private void Panel_Click(object sender, EventArgs e)
         {
-            // Remove the panel from the flowLayoutPanel
-            MessageBox.Show("Are sure to delete this Device?");
-            Panel newPanel = (Panel)sender;
-            _flowLayoutPanel.Controls.Remove(newPanel);
+            if (deleteDevice)
+            {
+                // Remove the panel from the flowLayoutPanel
+                MessageBox.Show("Are sure to delete this Device?");
+                Panel newPanel = (Panel)sender;
+                _flowLayoutPanel.Controls.Remove(newPanel);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
