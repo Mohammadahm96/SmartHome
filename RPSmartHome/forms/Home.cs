@@ -80,5 +80,50 @@ namespace RPSmartHome
         {
             Application.Exit();
         }
+
+        private void lbl_exit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to Exit?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+
+                Application.Exit();
+
+            }
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Please call us at 072829131 or email us at Smarthome@hotmail.com for assistance");
+        }
+
+        private void lbl_logout_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to log out?", "Log out", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+
+                Form Login = new LoginRegs();
+                Login.Show();
+                this.Hide();
+
+            }
+
+            
+        }
+
+        private void txt_Install_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("We dont not provide home installation at the moment. Our developers are currently performing scheduled maintenance on the Dashboard. Sorry for the inconvenience. Please contact us for more information ", "Maintenence", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+
+
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Our Smarthome application enables users to easily connect with various appliances, including control of lights, refrigerator, washer, air conditioner, oven, vacuum vacuum and more through your smartphones.\r\n\r\n\r\nWith our Smarthome application, you can monitor and control home appliances on the go and enjoy useful services including status check, device control, home view, and customer support.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
