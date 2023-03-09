@@ -200,6 +200,23 @@ namespace RPSmartHome
 
             conn.Close();
         }
+        
+        public void setRoomDevicesStatus()
+        {
+            string query = "rpsmarthome.setRoomDevicesStatus;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("$rooms_name", Dashboard.roomName);
+            cmd.Parameters.AddWithValue("$roomStatus", Dashboard.roomStatus);
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+        }
 
         public void setDeviceStatus()
         {
