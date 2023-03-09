@@ -132,7 +132,6 @@ namespace RPSmartHome
         public List<string> GetDevicesStatus()
         {
             Dashboard dashboard = new Dashboard();
-            //MessageBox.Show($"{Dashboard.devicesName}");
 
             List<string> devicesStatus = new List<string>();
 
@@ -143,7 +142,7 @@ namespace RPSmartHome
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("$devices_name", Dashboard.devicesName);
+            cmd.Parameters.AddWithValue("$devices_name", Dashboard.deviceName);
             using (MySqlDataReader dataReader = cmd.ExecuteReader())
             {
                 while (dataReader.Read())
@@ -156,43 +155,70 @@ namespace RPSmartHome
 
         }
 
-        public void roomStatus()
+
+        public List<string> GetRoomStatus()
         {
-            string query = "rpsmarthome.getRoomId;";
+            Dashboard dashboard = new Dashboard();
+
+            List<string> devicesStatus = new List<string>();
+
+            string query = "rpsmarthome.GetRoomStatus;";
 
             conn.Open();
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("$roomName", NewroomOrDevice.roomName);
-            using (MySqlDataReader reader = cmd.ExecuteReader())
+            cmd.Parameters.AddWithValue("$rooms_name", Dashboard.roomName);
+            using (MySqlDataReader dataReader = cmd.ExecuteReader())
             {
-                while (reader.Read())
+                while (dataReader.Read())
                 {
-                    roomId = reader.GetString(0);
+                    devicesStatus.Add(dataReader["rooms_status"].ToString());
                 }
             }
             conn.Close();
+            return devicesStatus;
+
         }
 
-        public void deviceStatus()
+
+
+        public void setRoomStatus()
         {
-            string query = "rpsmarthome.getRoomId;";
+            string query = "rpsmarthome.setRoomStatus;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("$rooms_name", Dashboard.roomName);
+            cmd.Parameters.AddWithValue("$roomStatus", Dashboard.roomStatus);
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+        }
+
+        public void setDeviceStatus()
+        {
+            MessageBox.Show($"{Dashboard.deviceName}");
+            MessageBox.Show($"{Dashboard.devicesStatus}");
+            string query = "rpsmarthome.setDeviceStatus;";
 
             conn.Open();
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("$roomName", NewroomOrDevice.roomName);
-            using (MySqlDataReader reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    roomId = reader.GetString(0);
-                }
-            }
+            cmd.Parameters.AddWithValue("$devices_name", Dashboard.deviceName);
+            cmd.Parameters.AddWithValue("$devicesStatus", Dashboard.devicesStatus);
+           
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
             conn.Close();
         }
     }

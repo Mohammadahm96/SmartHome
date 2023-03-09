@@ -10,6 +10,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Mysqlx.Datatypes.Scalar.Types;
 using static RPSmartHome.Dashboard;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
@@ -19,7 +20,11 @@ namespace RPSmartHome
 {
     public partial class Dashboard : UserControl
     {
-        public static string devicesName { get; set; }
+        public static string deviceName { get; set; }
+        public static string devicesStatus { get; set; }
+        public static string roomName { get; set; }
+        public static string roomStatus { get; set; }
+        public static string roomORDevice { get; set; }
         public Dashboard()
         {
             InitializeComponent();
@@ -58,6 +63,7 @@ namespace RPSmartHome
                 count2++;
                 for (int i = 0; i < count2; i++)
                 {
+                    roomName= room;
                     //Panel
 
                     FlowLayoutPanel parentPanel = this.flowLayoutPanel1;
@@ -86,7 +92,7 @@ namespace RPSmartHome
                     PictureBox pictureBox = new PictureBox();
                     pictureBox.Location = new Point(30, 35);
                     pictureBox.Size = new Size(50, 44);
-                    pictureBox.Name = "Room";
+                    pictureBox.Name = room + " Room";
                     pictureBox.Image = imageList1.Images[0];
                     pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     pictureBox.Click += new EventHandler(pictureBoxOn_Click);
@@ -96,12 +102,40 @@ namespace RPSmartHome
                     PictureBox pictureBox1 = new PictureBox();
                     pictureBox1.Location = new Point(30, 35);
                     pictureBox1.Size = new Size(50, 44);
-                    pictureBox1.Name = "Room";
+                    pictureBox1.Name = room + " Room";
                     pictureBox1.Image = imageList1.Images[1];
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                     pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
                     pictureBox1.Cursor = Cursors.Hand;
                     newPanel.Controls.Add(pictureBox1);
+
+                    dbHelper.GetRoomStatus();
+
+
+                    List<string> roomsStatus = dbHelper.GetRoomStatus();
+
+
+                    foreach (string roomStatus in roomsStatus)
+                    {
+                        int Top1 = 100;
+                        int Left1 = 50;
+                        int count1 = 0;
+                        count1++;
+                        for (int j = 0; j < count1; j++)
+                        {
+                            string Status = roomStatus;
+                            if (Status == "ON")
+                            {
+                                pictureBox1.BringToFront();
+                            }
+                            else if (Status == "OFF")
+                            {
+                                pictureBox.BringToFront();
+                            }
+                            count1--;
+                        }
+                    }
+
                     Left2 += 120;
                     count2--;
 
@@ -165,7 +199,7 @@ namespace RPSmartHome
                 PictureBox pictureBox = new PictureBox();
                 pictureBox.Location = new Point(30, 35);
                 pictureBox.Size = new Size(50, 44);
-                pictureBox.Name = "Room";
+                pictureBox.Name = NewroomOrDevice.roomName + " Room";
                 pictureBox.Image = imageList1.Images[0];
                 pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox.Click += new EventHandler(pictureBoxOn_Click);
@@ -175,7 +209,7 @@ namespace RPSmartHome
                 PictureBox pictureBox1 = new PictureBox();
                 pictureBox1.Location = new Point(30, 35);
                 pictureBox1.Size = new Size(50, 44);
-                pictureBox1.Name = "Room";
+                pictureBox1.Name = NewroomOrDevice.roomName + " Room";
                 pictureBox1.Image = imageList1.Images[1];
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
@@ -203,13 +237,26 @@ namespace RPSmartHome
 
             // Hide the clicked PictureBox control
             clickedPictureBox.SendToBack();
-            if(clickedPictureBox.Name == "Room")
+
+            //If all room or a device turns on
+
+            string[] words = clickedPictureBox.Name.Split(' ');
+
+            if (words.Length == 2 && (words[1].Contains("Room")))
             {
-                MessageBox.Show("Room");
+                roomStatus = "ON";
+                roomName = words[0];
+                dbHelper dbHelper = new dbHelper();
+                dbHelper.setRoomStatus();
             }
-            else if (clickedPictureBox.Name == "Device")
+            else if (words.Length == 2 && (words[1].Contains("Device")))
             {
                 MessageBox.Show("Device");
+                devicesStatus = "ON";
+                deviceName = words[0];
+                dbHelper dbHelper = new dbHelper();
+                dbHelper.setDeviceStatus();
+
             }
         }
         private void pictureBoxOff_Click(object sender, EventArgs e)
@@ -220,13 +267,24 @@ namespace RPSmartHome
             // Hide the clicked PictureBox control
             clickedPictureBox.SendToBack();
 
-            if (clickedPictureBox.Name == "Room")
+            
+            //If all room or a device turns off
+            string[] words = clickedPictureBox.Name.Split(' ');
+
+            if (words.Length == 2 && (words[1].Contains("Room")))
             {
-                MessageBox.Show("Room");
+                roomStatus = "OFF";
+                roomName = words[0];
+                dbHelper dbHelper = new dbHelper();
+                dbHelper.setRoomStatus();
             }
-            else if (clickedPictureBox.Name == "Device")
+            else if (words.Length == 2 && (words[1].Contains("Device")))
             {
                 MessageBox.Show("Device");
+                devicesStatus = "OFF";
+                deviceName = words[0];
+                dbHelper dbHelper = new dbHelper();
+                dbHelper.setDeviceStatus();
             }
         }
         public class RoomForm : Form
@@ -345,7 +403,7 @@ namespace RPSmartHome
                 count++;
                 for (int i = 0; i < count; i++)
                 {
-                    devicesName = device;
+                    deviceName = device;
                     //FlowLayoutPanel
 
                     Panel newPanel = new Panel();
@@ -372,7 +430,7 @@ namespace RPSmartHome
                     PictureBox pictureBox = new PictureBox();
                     pictureBox.Location = new Point(30, 35);
                     pictureBox.Size = new Size(50, 44);
-                    pictureBox.Name = "Device";
+                    pictureBox.Name = device + " Device";
                     pictureBox.Image = imageList1.Images[0];
                     pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     pictureBox.Click += new EventHandler(pictureBoxOn_Click);
@@ -382,7 +440,7 @@ namespace RPSmartHome
                     PictureBox pictureBox1 = new PictureBox();
                     pictureBox1.Location = new Point(30, 35);
                     pictureBox1.Size = new Size(50, 44);
-                    pictureBox1.Name = "Device";
+                    pictureBox1.Name = device + " Device";
                     pictureBox1.Image = imageList1.Images[1];
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                     pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
@@ -475,7 +533,7 @@ namespace RPSmartHome
                 PictureBox pictureBox = new PictureBox();
                 pictureBox.Location = new Point(30, 35);
                 pictureBox.Size = new Size(50, 44);
-                pictureBox.Name = "pBroomOff";
+                pictureBox.Name = NewroomOrDevice.deviceName + " Device";
                 pictureBox.Image = imageList1.Images[0];
                 pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox.Click += new EventHandler(pictureBoxOn_Click);
@@ -485,7 +543,7 @@ namespace RPSmartHome
                 PictureBox pictureBox1 = new PictureBox();
                 pictureBox1.Location = new Point(30, 35);
                 pictureBox1.Size = new Size(50, 44);
-                pictureBox1.Name = "pBroomOn";
+                pictureBox1.Name = NewroomOrDevice.deviceName + " Device";
                 pictureBox1.Image = imageList1.Images[1];
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
