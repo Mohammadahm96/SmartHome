@@ -31,22 +31,28 @@ namespace RPSmartHome
 
         public static string roomId { get; set; }
         
-        public void roomName()
+        public void newRoom()
         {
-            string query = "INSERT INTO rpsmarthome.rooms (rooms_name) VALUES ('" + NewroomOrDevice.roomName + "');";
+            string query = "rpsmarthome.newRoom;";
 
             conn.Open();
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.ExecuteNonQueryAsync();
 
-            conn.Close();
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$roomName", NewroomOrDevice.roomName);
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
+            conn.Close(); ;
         }
 
-        public void newdevice() 
+        public void newDevice() 
         {
-            string query = "rpsmarthome.newdevice";
-
+            string query = "rpsmarthome.newDevice";
+            MessageBox.Show($"{NewroomOrDevice.deviceName}Test");
             conn.Open();
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -220,8 +226,6 @@ namespace RPSmartHome
 
         public void setDeviceStatus()
         {
-            MessageBox.Show($"{Dashboard.deviceName}");
-            MessageBox.Show($"{Dashboard.devicesStatus}");
             string query = "rpsmarthome.setDeviceStatus;";
 
             conn.Open();
@@ -230,6 +234,7 @@ namespace RPSmartHome
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("$devices_name", Dashboard.deviceName);
+            cmd.Parameters.AddWithValue("$rooms_name", Dashboard.roomName);
             cmd.Parameters.AddWithValue("$devicesStatus", Dashboard.devicesStatus);
            
             var ds = new DataSet();

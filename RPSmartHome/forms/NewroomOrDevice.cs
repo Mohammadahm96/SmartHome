@@ -13,6 +13,7 @@ namespace RPSmartHome.forms
     public partial class NewroomOrDevice : Form
     {
         public static string roomName { get; set; }
+        public static string roomOrDevice { get; set; }
         public static string deviceName { get; set; }
         public NewroomOrDevice()
         {
@@ -22,6 +23,8 @@ namespace RPSmartHome.forms
 
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
+            
+            MessageBox.Show($"{roomOrDevice}");
             if(txtRoomName.Text == "room name")
             {
                 error.SetError(txtRoomName, "Room name is required");
@@ -29,18 +32,18 @@ namespace RPSmartHome.forms
             else
             {
                 dbHelper dbHelper = new dbHelper();
-                if (roomName == "New Room")
+                if (roomOrDevice == "New Room")
                 {
-                    MessageBox.Show("roomName");
                     roomName = txtRoomName.Text;
-                    dbHelper.roomName();
+                    dbHelper.newRoom();
                     this.Close();
                 }
-                else if (lbRoomDevice.Text == "New Device")
+                else if (roomOrDevice == "New Device")
                 {
                     MessageBox.Show("deviceName");
                     deviceName = txtRoomName.Text;
-                    dbHelper.newdevice();
+                    MessageBox.Show($"device name = {deviceName}");
+                    dbHelper.newDevice();
 
                     this.Close();
                 }
@@ -52,8 +55,11 @@ namespace RPSmartHome.forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+
             txtRoomName.Text = "";
+            roomName = txtRoomName.Text;
             this.Hide();
+            
         }
 
         private void txtRoomName_Leave(object sender, EventArgs e)
@@ -84,9 +90,9 @@ namespace RPSmartHome.forms
 
         private void NewroomOrDevice_Load(object sender, EventArgs e)
         {
-            lbRoomDevice.Text = deviceName;
+            lbRoomDevice.Text = roomOrDevice;
 
-
+            MessageBox.Show($"{roomName}");
         }
     }
 }
