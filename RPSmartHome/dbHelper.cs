@@ -28,10 +28,10 @@ namespace RPSmartHome
         MySqlConnection conn = new MySqlConnection($"SERVER={server};DATABASE={database};UID={user};PASSWORD={pass};");
 
         //Add roomName to DB
-        public static string roomNameDb {  get; set; }
+
+        public static string roomId { get; set; }
         public void roomName()
         {
-            MessageBox.Show($"{NewroomOrDevice.roomName}");
             string query = "INSERT INTO rpsmarthome.rooms (rooms_name) VALUES ('" + NewroomOrDevice.roomName + "');";
 
             conn.Open();
@@ -44,7 +44,6 @@ namespace RPSmartHome
 
         public void newdevice() 
         {
-            MessageBox.Show($"{NewroomOrDevice.deviceName}");
             string query = "rpsmarthome.newdevice";
 
             conn.Open();
@@ -85,12 +84,31 @@ namespace RPSmartHome
 
         }
 
+        public void getRoomId()
+        {
+            string query = "rpsmarthome.getRoomId;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$roomName", NewroomOrDevice.roomName);
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    roomId = reader.GetString(0);
+                }
+            }
+            conn.Close();
+        }
+
         public List<string> GetDevices()
         {
-            //MessageBox.Show($"{NewroomOrDevice.roomName} devices");
             List<string> devices = new List<string>();
 
-            string query = "SELECT * FROM rpsmarthome.devices where rooms_rooms_id = '" + NewroomOrDevice.roomName + "';";
+            string query = "SELECT * FROM rpsmarthome.devices where rooms_rooms_id = '" + roomId + "';";
 
             conn.Open();
 

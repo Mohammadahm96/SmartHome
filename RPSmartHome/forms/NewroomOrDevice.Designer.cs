@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewroomOrDevice));
             this.txtRoomName = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -35,7 +36,9 @@
             this.btnAddRoom = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lbRoomName = new System.Windows.Forms.Label();
+            this.error = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.SuspendLayout();
             // 
             // txtRoomName
@@ -106,6 +109,10 @@
             this.lbRoomName.Size = new System.Drawing.Size(0, 24);
             this.lbRoomName.TabIndex = 26;
             // 
+            // error
+            // 
+            this.error.ContainerControl = this;
+            // 
             // NewroomOrDevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -127,6 +134,7 @@
             this.Text = "Newroom";
             this.Load += new System.EventHandler(this.NewroomOrDevice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,5 +148,6 @@
         private System.Windows.Forms.Button btnAddRoom;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lbRoomName;
+        private System.Windows.Forms.ErrorProvider error;
     }
 }

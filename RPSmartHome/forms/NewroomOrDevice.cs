@@ -22,21 +22,31 @@ namespace RPSmartHome.forms
 
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
-            dbHelper dbHelper = new dbHelper();
-            if(lbRoomDevice.Text == "New Room")
+            if(txtRoomName.Text == "room name")
             {
-                MessageBox.Show("roomName");
-                roomName = txtRoomName.Text;
-                dbHelper.roomName();
-                this.Hide();
+                error.SetError(txtRoomName, "Room name is required");
             }
-            else if(lbRoomDevice.Text == "New Device")
+            else
             {
-                MessageBox.Show("deviceName");
-                deviceName = txtRoomName.Text;
-                dbHelper.newdevice();
-                this.Hide();
+                dbHelper dbHelper = new dbHelper();
+                if (roomName == "New Room")
+                {
+                    MessageBox.Show("roomName");
+                    roomName = txtRoomName.Text;
+                    dbHelper.roomName();
+                    this.Close();
+                }
+                else if (lbRoomDevice.Text == "New Device")
+                {
+                    MessageBox.Show("deviceName");
+                    deviceName = txtRoomName.Text;
+                    dbHelper.newdevice();
+
+                    this.Close();
+                }
             }
+
+            
             
         }
 
@@ -75,6 +85,8 @@ namespace RPSmartHome.forms
         private void NewroomOrDevice_Load(object sender, EventArgs e)
         {
             lbRoomDevice.Text = deviceName;
+
+
         }
     }
 }

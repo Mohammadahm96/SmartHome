@@ -58,10 +58,6 @@ namespace RPSmartHome
                 count2++;
                 for (int i = 0; i < count2; i++)
                 {
-
-
-
-
                     //Panel
 
                     FlowLayoutPanel parentPanel = this.flowLayoutPanel1;
@@ -139,7 +135,7 @@ namespace RPSmartHome
             {
 
 
-
+               
 
                 //Panel
 
@@ -242,7 +238,6 @@ namespace RPSmartHome
             string roomName = clickedLabel.Name;
             NewroomOrDevice.roomName = roomName;
 
-            MessageBox.Show($"{roomName} roomname label click");
             // Create a new instance of RoomForm
             RoomForm roomForm = new RoomForm(roomName);
             roomForm.BackColor= Color.White;
@@ -318,18 +313,21 @@ namespace RPSmartHome
             roomForm.Controls.Add(label);
 
             dbHelper dbHelper = new dbHelper();
+
+            dbHelper.getRoomId();
             dbHelper.GetDevices();
 
             List<string> devices = dbHelper.GetDevices();
 
+            
             foreach (string device in devices)
             {
-                MessageBox.Show($"{devices} device");
-                
-                count1++;
-                for (int i = 0; i < count1; i++)
+                int Top = 100;
+                int Left = 50;
+                int count = 0;
+                count++;
+                for (int i = 0; i < count; i++)
                 {
-                    //RoomForm roomForm = (RoomForm)((Button)sender).FindForm();
 
 
                     //FlowLayoutPanel
@@ -349,8 +347,8 @@ namespace RPSmartHome
                     Label label1 = new Label();
                     label1.Location = new Point(8, 4);
                     label1.Size = new Size(114, 23);
-                    label1.Text = NewroomOrDevice.deviceName;
-                    label1.Name = NewroomOrDevice.roomName;
+                    label1.Text = device;
+                    label1.Name = device;
                     label1.ForeColor = Color.White;
                     newPanel.Controls.Add(label1);
 
@@ -375,8 +373,8 @@ namespace RPSmartHome
                     pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
                     pictureBox1.Cursor = Cursors.Hand;
                     newPanel.Controls.Add(pictureBox1);
-                    Left1 += 120;
-                    count1--;
+                    Left += 120;
+                    count--;
 
                 }
 
@@ -385,9 +383,9 @@ namespace RPSmartHome
             // Show the new form
             roomForm.ShowDialog();
 
-
-
         }
+
+        
 
         private FlowLayoutPanel _flowLayoutPanel;
 
@@ -404,7 +402,6 @@ namespace RPSmartHome
             count1++;
             for (int i = 0; i < count1; i++)
             {
-                //RoomForm roomForm = (RoomForm)((Button)sender).FindForm();
                                
                
                 //FlowLayoutPanel
