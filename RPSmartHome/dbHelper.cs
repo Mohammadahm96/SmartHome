@@ -30,6 +30,7 @@ namespace RPSmartHome
         //Add roomName to DB
 
         public static string roomId { get; set; }
+        
         public void roomName()
         {
             string query = "INSERT INTO rpsmarthome.rooms (rooms_name) VALUES ('" + NewroomOrDevice.roomName + "');";
@@ -108,12 +109,14 @@ namespace RPSmartHome
         {
             List<string> devices = new List<string>();
 
-            string query = "SELECT * FROM rpsmarthome.devices where rooms_rooms_id = '" + roomId + "';";
+            string query = "rpsmarthome.GetDevices;";
 
             conn.Open();
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.AddWithValue("$roomId", roomId);
             using (MySqlDataReader dataReader = cmd.ExecuteReader())
             {
                 while (dataReader.Read())
@@ -126,5 +129,71 @@ namespace RPSmartHome
 
         }
 
+        public List<string> GetDevicesStatus()
+        {
+            Dashboard dashboard = new Dashboard();
+            //MessageBox.Show($"{Dashboard.devicesName}");
+
+            List<string> devicesStatus = new List<string>();
+
+            string query = "rpsmarthome.GetDevicesStatus;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$devices_name", Dashboard.devicesName);
+            using (MySqlDataReader dataReader = cmd.ExecuteReader())
+            {
+                while (dataReader.Read())
+                {
+                    devicesStatus.Add(dataReader["devices_status"].ToString());
+                }
+            }
+            conn.Close();
+            return devicesStatus;
+
+        }
+
+        public void roomStatus()
+        {
+            string query = "rpsmarthome.getRoomId;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$roomName", NewroomOrDevice.roomName);
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    roomId = reader.GetString(0);
+                }
+            }
+            conn.Close();
+        }
+
+        public void deviceStatus()
+        {
+            string query = "rpsmarthome.getRoomId;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$roomName", NewroomOrDevice.roomName);
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    roomId = reader.GetString(0);
+                }
+            }
+            conn.Close();
+        }
     }
 }
