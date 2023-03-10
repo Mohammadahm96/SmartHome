@@ -52,7 +52,6 @@ namespace RPSmartHome
         public void newDevice() 
         {
             string query = "rpsmarthome.newDevice";
-            MessageBox.Show($"{NewroomOrDevice.deviceName}Test");
             conn.Open();
 
             MySqlCommand cmd = new MySqlCommand(query, conn);

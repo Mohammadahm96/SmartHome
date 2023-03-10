@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.pnlMenuBar = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.txt_Aboutus = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.txt_Install = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_logout = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,21 +45,16 @@
             this.pnlTop = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlUserController = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.txt_Install = new System.Windows.Forms.Label();
-            this.txt_Aboutus = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pnlMenuBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBthree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBCancel)).BeginInit();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenuBar
@@ -77,12 +77,61 @@
             this.pnlMenuBar.Size = new System.Drawing.Size(170, 716);
             this.pnlMenuBar.TabIndex = 1;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(9, 364);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox6.TabIndex = 3;
+            this.pictureBox6.TabStop = false;
+            // 
+            // txt_Aboutus
+            // 
+            this.txt_Aboutus.Location = new System.Drawing.Point(44, 369);
+            this.txt_Aboutus.Name = "txt_Aboutus";
+            this.txt_Aboutus.Size = new System.Drawing.Size(112, 27);
+            this.txt_Aboutus.TabIndex = 0;
+            this.txt_Aboutus.Text = "About us";
+            this.txt_Aboutus.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(6, 182);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            // 
+            // txt_Install
+            // 
+            this.txt_Install.AutoSize = true;
+            this.txt_Install.Location = new System.Drawing.Point(44, 187);
+            this.txt_Install.Name = "txt_Install";
+            this.txt_Install.Size = new System.Drawing.Size(90, 21);
+            this.txt_Install.TabIndex = 1;
+            this.txt_Install.Text = "Installation";
+            this.txt_Install.Click += new System.EventHandler(this.txt_Install_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(7, 540);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
             // lbl_logout
             // 
             this.lbl_logout.AutoSize = true;
             this.lbl_logout.Location = new System.Drawing.Point(50, 463);
             this.lbl_logout.Name = "lbl_logout";
-            this.lbl_logout.Size = new System.Drawing.Size(87, 27);
+            this.lbl_logout.Size = new System.Drawing.Size(69, 21);
             this.lbl_logout.TabIndex = 0;
             this.lbl_logout.Text = "Log out";
             this.lbl_logout.Click += new System.EventHandler(this.lbl_logout_Click);
@@ -100,9 +149,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 271);
+            this.label1.Location = new System.Drawing.Point(50, 278);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 27);
+            this.label1.Size = new System.Drawing.Size(45, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Help";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -122,7 +171,7 @@
             this.lbl_exit.AutoSize = true;
             this.lbl_exit.Location = new System.Drawing.Point(56, 550);
             this.lbl_exit.Name = "lbl_exit";
-            this.lbl_exit.Size = new System.Drawing.Size(52, 27);
+            this.lbl_exit.Size = new System.Drawing.Size(39, 21);
             this.lbl_exit.TabIndex = 1;
             this.lbl_exit.Text = "Exit";
             this.lbl_exit.Click += new System.EventHandler(this.lbl_exit_Click);
@@ -158,7 +207,7 @@
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1088, 92);
+            this.pnlTop.Size = new System.Drawing.Size(1090, 92);
             this.pnlTop.TabIndex = 2;
             this.pnlTop.Click += new System.EventHandler(this.pnlTop_Click);
             // 
@@ -182,60 +231,11 @@
             this.pnlUserController.TabIndex = 3;
             this.pnlUserController.Click += new System.EventHandler(this.pnlUserController_Click);
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(7, 540);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(6, 182);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
-            // 
-            // txt_Install
-            // 
-            this.txt_Install.AutoSize = true;
-            this.txt_Install.Location = new System.Drawing.Point(44, 187);
-            this.txt_Install.Name = "txt_Install";
-            this.txt_Install.Size = new System.Drawing.Size(119, 27);
-            this.txt_Install.TabIndex = 1;
-            this.txt_Install.Text = "Installation";
-            this.txt_Install.Click += new System.EventHandler(this.txt_Install_Click);
-            // 
-            // txt_Aboutus
-            // 
-            this.txt_Aboutus.Location = new System.Drawing.Point(44, 369);
-            this.txt_Aboutus.Name = "txt_Aboutus";
-            this.txt_Aboutus.Size = new System.Drawing.Size(112, 27);
-            this.txt_Aboutus.TabIndex = 0;
-            this.txt_Aboutus.Text = "About us";
-            this.txt_Aboutus.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(9, 364);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox6.TabIndex = 3;
-            this.pictureBox6.TabStop = false;
-            // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1088, 673);
+            this.ClientSize = new System.Drawing.Size(1090, 681);
             this.Controls.Add(this.pnlMenuBar);
             this.Controls.Add(this.pnlUserController);
             this.Controls.Add(this.pnlTop);
@@ -247,19 +247,20 @@
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.Activated += new System.EventHandler(this.Home_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlMenuBar.ResumeLayout(false);
             this.pnlMenuBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBthree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBCancel)).EndInit();
             this.pnlTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -17,6 +17,7 @@ namespace RPSmartHome
         {
             InitializeComponent();
             userControl(Dashboard);
+            this.Activated += Home_Activated;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -124,6 +125,13 @@ namespace RPSmartHome
         private void label2_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Our Smarthome application enables users to easily connect with various appliances, including control of lights, refrigerator, washer, air conditioner, oven, vacuum vacuum and more through your smartphones.\r\n\r\n\r\nWith our Smarthome application, you can monitor and control home appliances on the go and enjoy useful services including status check, device control, home view, and customer support.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Home_Activated(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            pnlUserController.Controls.Add(dashboard);
+            dashboard.BringToFront();
         }
     }
 }

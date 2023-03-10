@@ -170,9 +170,6 @@ namespace RPSmartHome
                 for (int i = 0; i < count; i++)
                 {
 
-
-
-
                     //Panel
 
                     FlowLayoutPanel parentPanel = this.flowLayoutPanel1;
@@ -256,7 +253,6 @@ namespace RPSmartHome
             }
             else if (words.Length == 2 && (words[1].Contains("Device")))
             {
-                MessageBox.Show("Device");
                 devicesStatus = "ON";
                 deviceName = words[0];
                 dbHelper dbHelper = new dbHelper();
@@ -285,7 +281,6 @@ namespace RPSmartHome
             }
             else if (words.Length == 2 && (words[1].Contains("Device")))
             {
-                MessageBox.Show("Device");
                 devicesStatus = "OFF";
                 deviceName = words[0];
                 dbHelper dbHelper = new dbHelper();
@@ -294,6 +289,7 @@ namespace RPSmartHome
         }
         public class RoomForm : Form
         {
+            Home Home = new Home();
             private string roomName;
 
             public RoomForm(string roomName)
@@ -305,6 +301,9 @@ namespace RPSmartHome
                 this.StartPosition = FormStartPosition.CenterScreen;
 
             }
+
+            
+
         }
 
         private void label_Click(object sender, EventArgs e)
@@ -315,7 +314,6 @@ namespace RPSmartHome
 
             // Get the name of the room associated with the label
             string roomName = clickedLabel.Name;
-            MessageBox.Show($"{clickedLabel.Name}");
             NewroomOrDevice.roomName = roomName;
             NewroomOrDevice.roomOrDevice = "New Device";
 
@@ -492,8 +490,7 @@ namespace RPSmartHome
             // Show the new form
             roomForm.ShowDialog();
             Home home = new Home();
-            home.Show();
-           
+
         }
 
         
@@ -573,17 +570,12 @@ namespace RPSmartHome
         private void btnDeleteDevice_Click(object sender, EventArgs e)
         {
             deleteDevice = true;
-            //RoomForm roomForm = (RoomForm)((Button)sender).FindForm();
 
             Button clickedButton = sender as Button;
             clickedButton.SendToBack();
 
 
-            //Cancel delete device button
-
-
-
-
+            
             foreach (Control ctrl in _flowLayoutPanel.Controls)
             {
                 if (ctrl is Panel panel)
@@ -623,14 +615,25 @@ namespace RPSmartHome
             Panel clickedPnael = sender as Panel;
 
             deviceName = clickedPnael.Name;
-            MessageBox.Show($"{deviceName}");
             dbHelper.deleteDevice();
             if (deleteDevice)
             {
                 // Remove the panel from the flowLayoutPanel
-                MessageBox.Show("Are sure to delete this Device?");
-                Panel newPanel = (Panel)sender;
-                _flowLayoutPanel.Controls.Remove(newPanel);
+
+                DialogResult result = MessageBox.Show($"         {deviceName}" +
+                                                      "\nAre sure to delete this Device? ", "Confirmation", 
+                                                      MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    Panel newPanel = (Panel)sender;
+                    _flowLayoutPanel.Controls.Remove(newPanel);
+                }
+                else
+                {
+                    // user clicked No button
+                }
+
+                
             }
         }
 

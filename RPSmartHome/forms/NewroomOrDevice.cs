@@ -24,7 +24,6 @@ namespace RPSmartHome.forms
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
             
-            MessageBox.Show($"{roomOrDevice}");
             if(txtRoomName.Text == "room name")
             {
                 error.SetError(txtRoomName, "Room name is required");
@@ -40,9 +39,7 @@ namespace RPSmartHome.forms
                 }
                 else if (roomOrDevice == "New Device")
                 {
-                    MessageBox.Show("deviceName");
                     deviceName = txtRoomName.Text;
-                    MessageBox.Show($"device name = {deviceName}");
                     dbHelper.newDevice();
 
                     this.Close();
@@ -92,7 +89,6 @@ namespace RPSmartHome.forms
         {
             lbRoomDevice.Text = roomOrDevice;
 
-            MessageBox.Show($"{roomName}");
         }
     }
 }
