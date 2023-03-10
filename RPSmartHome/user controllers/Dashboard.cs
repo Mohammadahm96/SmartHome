@@ -180,7 +180,7 @@ namespace RPSmartHome
                     newPanel.Location = new Point(Left, Top);
                     newPanel.Size = new Size(117, 81);
                     newPanel.BackColor = Color.FromArgb(60, 75, 109);
-                    newPanel.Name = NewroomOrDevice.roomName;
+                    newPanel.Name = NewroomOrDevice.deviceName;
                     parentPanel.Controls.Add(newPanel);
 
 
@@ -418,7 +418,7 @@ namespace RPSmartHome
                     newPanel.Size = new Size(120, 100);
                     newPanel.BackColor = Color.FromArgb(60, 75, 109);
                     newPanel.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, (0));
-                    newPanel.Name = NewroomOrDevice.roomName;
+                    newPanel.Name = device;
                     _flowLayoutPanel.Controls.Add(newPanel);
 
 
@@ -524,7 +524,7 @@ namespace RPSmartHome
                     newPanel.Size = new Size(120, 100);
                     newPanel.BackColor = Color.FromArgb(60, 75, 109);
                     newPanel.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, (0));
-                    newPanel.Name = NewroomOrDevice.roomName;
+                    newPanel.Name = NewroomOrDevice.deviceName;
                     _flowLayoutPanel.Controls.Add(newPanel);
 
 
@@ -578,9 +578,10 @@ namespace RPSmartHome
             Button clickedButton = sender as Button;
             clickedButton.SendToBack();
 
+
             //Cancel delete device button
 
-            
+
 
 
             foreach (Control ctrl in _flowLayoutPanel.Controls)
@@ -591,7 +592,8 @@ namespace RPSmartHome
                     panel.BackColor = Color.FromArgb(122, 0, 0);
                     panel.Click += Panel_Click;
 
-               
+                    
+
                 }
             }
         }
@@ -616,6 +618,13 @@ namespace RPSmartHome
 
         private void Panel_Click(object sender, EventArgs e)
         {
+            dbHelper dbHelper = new dbHelper();
+
+            Panel clickedPnael = sender as Panel;
+
+            deviceName = clickedPnael.Name;
+            MessageBox.Show($"{deviceName}");
+            dbHelper.deleteDevice();
             if (deleteDevice)
             {
                 // Remove the panel from the flowLayoutPanel

@@ -243,5 +243,40 @@ namespace RPSmartHome
 
             conn.Close();
         }
+
+        public void deleteRoom()
+        {
+            string query = "rpsmarthome.deleteRoom;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$rooms_name", Dashboard.roomName);
+
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+        }
+        public void deleteDevice()
+        {
+            string query = "rpsmarthome.deleteDevice;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$devices_name", Dashboard.deviceName);
+
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+        }
     }
 }
