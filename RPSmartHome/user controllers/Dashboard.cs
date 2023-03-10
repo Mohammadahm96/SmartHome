@@ -24,7 +24,6 @@ namespace RPSmartHome
         public static string devicesStatus { get; set; }
         public static string roomName { get; set; }
         public static string roomStatus { get; set; }
-        public static string roomORDevice { get; set; }
         public Dashboard()
         {
             InitializeComponent();
@@ -57,91 +56,132 @@ namespace RPSmartHome
             dbHelper.GetRooms();
 
             List<string> rooms = dbHelper.GetRooms();
-            foreach (string room in rooms)
+
+            if (rooms.Count == 0)
             {
 
-                count2++;
-                for (int i = 0; i < count2; i++)
+            }
+            else
+            {
+                foreach (string room in rooms)
                 {
-                    roomName= room;
-                    //Panel
-
-                    FlowLayoutPanel parentPanel = this.flowLayoutPanel1;
-                    Panel newPanel = new Panel();
-                    newPanel.Location = new Point(Left2, Top2);
-                    newPanel.Size = new Size(117, 81);
-                    newPanel.BackColor = Color.FromArgb(60, 75, 109);
-                    newPanel.Name = NewroomOrDevice.roomName;
-                    parentPanel.Controls.Add(newPanel);
-
-
-                    //Label
-
-                    Label label = new Label();
-                    label.Location = new Point(8, 4);
-                    label.Size = new Size(114, 23);
-                    label.Text = room;
-                    label.Name = room;
-                    label.ForeColor = Color.White;
-                    label.Cursor = Cursors.Hand;
-                    label.Click += new EventHandler(label_Click);
-                    newPanel.Controls.Add(label);
-
-                    // On and Off 
-
-                    PictureBox pictureBox = new PictureBox();
-                    pictureBox.Location = new Point(30, 35);
-                    pictureBox.Size = new Size(50, 44);
-                    pictureBox.Name = room + " Room";
-                    pictureBox.Image = imageList1.Images[0];
-                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pictureBox.Click += new EventHandler(pictureBoxOn_Click);
-                    pictureBox.Cursor = Cursors.Hand;
-                    newPanel.Controls.Add(pictureBox);
-
-                    PictureBox pictureBox1 = new PictureBox();
-                    pictureBox1.Location = new Point(30, 35);
-                    pictureBox1.Size = new Size(50, 44);
-                    pictureBox1.Name = room + " Room";
-                    pictureBox1.Image = imageList1.Images[1];
-                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
-                    pictureBox1.Cursor = Cursors.Hand;
-                    newPanel.Controls.Add(pictureBox1);
-
-                    dbHelper.GetRoomStatus();
-
-
-                    List<string> roomsStatus = dbHelper.GetRoomStatus();
-
-
-                    foreach (string roomStatus in roomsStatus)
+                    count2++;
+                    for (int i = 0; i < count2; i++)
                     {
-                        int Top1 = 100;
-                        int Left1 = 50;
-                        int count1 = 0;
-                        count1++;
-                        for (int j = 0; j < count1; j++)
+                        //Delete device button
+
+                        Button btnDeleteDevice = new Button();
+
+                        btnDeleteDevice.BackColor = Color.FromArgb(122, 0, 0);
+                        btnDeleteDevice.Font = new Font("Times New Roman", 14F,FontStyle.Regular,GraphicsUnit.Point, 0);
+                        btnDeleteDevice.Cursor = Cursors.Hand;
+                        btnDeleteDevice.ForeColor = Color.White;
+                        btnDeleteDevice.Location = new Point(779, 78);
+                        btnDeleteDevice.Name = "btnDeleteRoom";
+                        btnDeleteDevice.Size = new Size(263, 51);
+                        btnDeleteDevice.TabIndex = 2;
+                        btnDeleteDevice.Text = "Delete room";
+                        btnDeleteDevice.BringToFront();
+                        btnDeleteDevice.Click += new EventHandler(btnDeleteRoom_Click);
+                        this.Controls.Add(btnDeleteDevice);
+
+                        Button btnCancel = new Button();
+
+                        btnCancel.BackColor = Color.FromArgb(122, 0, 0);
+                        btnCancel.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                        btnCancel.Cursor = Cursors.Hand;
+                        btnCancel.ForeColor = Color.White;
+                        btnCancel.Location = new Point(779, 78);
+                        btnCancel.Name = "btnCancelRoom";
+                        btnCancel.Size = new Size(263, 51);
+                        btnCancel.TabIndex = 2;
+                        btnCancel.Text = "Cancel";
+                        btnCancel.Click += new EventHandler(btnCancelRoom_Click);
+                        this.Controls.Add(btnCancel);
+
+
+
+
+                        roomName = room;
+                        //Panel
+                        FlowLayoutPanel parentPanel = this.flowLayoutPanel1;
+                        Panel newPanel = new Panel();
+                        newPanel.Location = new Point(Left2, Top2);
+                        newPanel.Size = new Size(117, 81);
+                        newPanel.BackColor = Color.FromArgb(60, 75, 109);
+                        newPanel.Name = roomName;
+                        parentPanel.Controls.Add(newPanel);
+
+
+                        //Label
+
+                        Label label = new Label();
+                        label.Location = new Point(8, 4);
+                        label.Size = new Size(114, 23);
+                        label.Text = room;
+                        label.Name = room;
+                        label.ForeColor = Color.White;
+                        label.Cursor = Cursors.Hand;
+                        label.Click += new EventHandler(label_Click);
+                        newPanel.Controls.Add(label);
+
+                        // On and Off 
+
+                        PictureBox pictureBox = new PictureBox();
+                        pictureBox.Location = new Point(30, 35);
+                        pictureBox.Size = new Size(50, 44);
+                        pictureBox.Name = room + " Room";
+                        pictureBox.Image = imageList1.Images[0];
+                        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pictureBox.Click += new EventHandler(pictureBoxOn_Click);
+                        pictureBox.Cursor = Cursors.Hand;
+                        newPanel.Controls.Add(pictureBox);
+
+                        PictureBox pictureBox1 = new PictureBox();
+                        pictureBox1.Location = new Point(30, 35);
+                        pictureBox1.Size = new Size(50, 44);
+                        pictureBox1.Name = room + " Room";
+                        pictureBox1.Image = imageList1.Images[1];
+                        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
+                        pictureBox1.Cursor = Cursors.Hand;
+                        newPanel.Controls.Add(pictureBox1);
+
+                        dbHelper.GetRoomStatus();
+
+
+                        List<string> roomsStatus = dbHelper.GetRoomStatus();
+
+
+                        foreach (string roomStatus in roomsStatus)
                         {
-                            string Status = roomStatus;
-                            if (Status == "ON")
+                            int Top1 = 100;
+                            int Left1 = 50;
+                            int count1 = 0;
+                            count1++;
+                            for (int j = 0; j < count1; j++)
                             {
-                                pictureBox1.BringToFront();
+                                string Status = roomStatus;
+                                if (Status == "ON")
+                                {
+                                    pictureBox1.BringToFront();
+                                }
+                                else if (Status == "OFF")
+                                {
+                                    pictureBox.BringToFront();
+                                }
+                                count1--;
                             }
-                            else if (Status == "OFF")
-                            {
-                                pictureBox.BringToFront();
-                            }
-                            count1--;
                         }
+
+                        Left2 += 120;
+                        count2--;
+
+
                     }
-
-                    Left2 += 120;
-                    count2--;
-
-
                 }
             }
+            
 
         }
 
@@ -232,7 +272,50 @@ namespace RPSmartHome
 
         }
 
-        private void pictureBoxOn_Click(object sender, EventArgs e)
+        private bool deleteRoom = false;
+
+        private void btnDeleteRoom_Click(object sender, EventArgs e)
+        {
+            //deleteRoom = true;
+            Button clickedButton = sender as Button;
+            clickedButton.SendToBack();
+
+            NewroomOrDevice.roomOrDevice = "Room";
+
+            foreach (Control ctrl in flowLayoutPanel1.Controls)
+            {
+                if (ctrl is Panel panel)
+                {
+                    // Add the MouseEnter event handler to the panel
+                    panel.BackColor = Color.FromArgb(122, 0, 0);
+                    panel.Click += Panel_Click;
+
+
+
+                }
+            }
+
+        }
+
+        private void btnCancelRoom_Click(object sender, EventArgs e)
+        {
+            //deleteRoom = false;
+            Button clickedButton = sender as Button;
+            clickedButton.SendToBack();
+
+            foreach (Control ctrl in flowLayoutPanel1.Controls)
+            {
+                if (ctrl is Panel panel)
+                {
+                    // Add the MouseEnter event handler to the panel
+                    panel.BackColor = Color.FromArgb(60, 75, 109);
+
+
+                }
+            }
+        }
+
+            private void pictureBoxOn_Click(object sender, EventArgs e)
         {
             // Get the clicked PictureBox control
             PictureBox clickedPictureBox = (PictureBox)sender;
@@ -312,17 +395,17 @@ namespace RPSmartHome
 
             Label clickedLabel = (Label)sender;
 
-            // Get the name of the room associated with the label
             string roomName = clickedLabel.Name;
             NewroomOrDevice.roomName = roomName;
             NewroomOrDevice.roomOrDevice = "New Device";
 
-            // Create a new instance of RoomForm
+            // Create a new RoomForm
             RoomForm roomForm = new RoomForm(roomName);
             roomForm.BackColor= Color.White;
 
-            // Create a new instance of FlowLayoutPanel
+            // Create a new FlowLayoutPanel
             _flowLayoutPanel = new FlowLayoutPanel();
+
             //Panel
             _flowLayoutPanel.Location = new Point(30, 120);
             _flowLayoutPanel.Size = new Size(530, 250);
@@ -574,8 +657,8 @@ namespace RPSmartHome
             Button clickedButton = sender as Button;
             clickedButton.SendToBack();
 
+            NewroomOrDevice.roomOrDevice = "Device";
 
-            
             foreach (Control ctrl in _flowLayoutPanel.Controls)
             {
                 if (ctrl is Panel panel)
@@ -583,8 +666,6 @@ namespace RPSmartHome
                     // Add the MouseEnter event handler to the panel
                     panel.BackColor = Color.FromArgb(122, 0, 0);
                     panel.Click += Panel_Click;
-
-                    
 
                 }
             }
@@ -612,10 +693,11 @@ namespace RPSmartHome
         {
             dbHelper dbHelper = new dbHelper();
 
-            Panel clickedPnael = sender as Panel;
+            Panel clickedPanel = sender as Panel;
 
-            deviceName = clickedPnael.Name;
-            dbHelper.deleteDevice();
+            deviceName = clickedPanel.Name;
+            MessageBox.Show($"{deviceName}");
+
             if (deleteDevice)
             {
                 // Remove the panel from the flowLayoutPanel
@@ -627,10 +709,27 @@ namespace RPSmartHome
                 {
                     Panel newPanel = (Panel)sender;
                     _flowLayoutPanel.Controls.Remove(newPanel);
+                    dbHelper.deleteDevice();
+
                 }
-                else
+
+                
+            }
+            
+            if (deviceName == "Room")
+            {
+                MessageBox.Show("remove");
+                // Remove the panel from the flowLayoutPanel
+
+                DialogResult result = MessageBox.Show($"         {deviceName}" +
+                                                      "\nAre sure to delete this Device? ", "Confirmation",
+                                                      MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
                 {
-                    // user clicked No button
+                    
+                    flowLayoutPanel1.Controls.Remove(clickedPanel);
+                    dbHelper.deleteRoom();
+
                 }
 
                 
@@ -653,8 +752,9 @@ namespace RPSmartHome
 
         private void flowLayoutPanel1_ControlRemoved(object sender, ControlEventArgs e)
         {
-            if (flowLayoutPanel1.Controls.Count < 0)
+            if (flowLayoutPanel1.Controls.Count == 0)
             {
+                MessageBox.Show("remove");
                 button1.Visible = true;
             }
         }

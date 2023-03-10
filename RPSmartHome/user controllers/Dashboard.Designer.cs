@@ -81,7 +81,7 @@
             this.groupBox1.Controls.Add(this.lbDay);
             this.groupBox1.Controls.Add(this.lbClockan);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(779, 87);
+            this.groupBox1.Location = new System.Drawing.Point(779, 149);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(263, 208);
             this.groupBox1.TabIndex = 2;
@@ -168,7 +168,7 @@
             // 
             this.groupBox3.Controls.Add(this.panel2);
             this.groupBox3.Controls.Add(this.panel1);
-            this.groupBox3.Location = new System.Drawing.Point(795, 301);
+            this.groupBox3.Location = new System.Drawing.Point(795, 363);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(221, 207);
             this.groupBox3.TabIndex = 5;
@@ -291,7 +291,7 @@
             this.btnAddRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.btnAddRoom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddRoom.ForeColor = System.Drawing.Color.White;
-            this.btnAddRoom.Location = new System.Drawing.Point(779, 30);
+            this.btnAddRoom.Location = new System.Drawing.Point(779, 24);
             this.btnAddRoom.Name = "btnAddRoom";
             this.btnAddRoom.Size = new System.Drawing.Size(263, 51);
             this.btnAddRoom.TabIndex = 1;
