@@ -252,7 +252,7 @@ namespace RPSmartHome
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("$rooms_name", Dashboard.roomName);
+            cmd.Parameters.AddWithValue("$rooms_name", Dashboard.deleteRoomORDevice);
 
             var ds = new DataSet();
 
@@ -262,7 +262,6 @@ namespace RPSmartHome
         }
         public void deleteDevice()
         {
-            MessageBox.Show($"{Dashboard.deviceName} deleted");
             string query = "rpsmarthome.deleteDevice;";
 
             conn.Open();
@@ -270,7 +269,7 @@ namespace RPSmartHome
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("$devices_name", Dashboard.deviceName);
+            cmd.Parameters.AddWithValue("$devices_name", Dashboard.deleteRoomORDevice);
 
             var ds = new DataSet();
 

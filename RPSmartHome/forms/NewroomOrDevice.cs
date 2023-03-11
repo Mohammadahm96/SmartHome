@@ -41,7 +41,6 @@ namespace RPSmartHome.forms
                 {
                     deviceName = txtRoomName.Text;
                     dbHelper.newDevice();
-
                     this.Close();
                 }
             }
@@ -52,10 +51,8 @@ namespace RPSmartHome.forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
-            txtRoomName.Text = "";
-            roomName = txtRoomName.Text;
-            this.Hide();
+            deviceName = "";
+            this.Close();
             
         }
 
