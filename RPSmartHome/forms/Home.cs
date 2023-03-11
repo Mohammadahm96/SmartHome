@@ -132,6 +132,7 @@ namespace RPSmartHome
             Dashboard dashboard = new Dashboard();
             pnlUserController.Controls.Add(dashboard);
             dashboard.BringToFront();
+            
         }
     }
 }

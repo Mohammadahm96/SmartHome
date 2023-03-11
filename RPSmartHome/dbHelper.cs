@@ -262,6 +262,7 @@ namespace RPSmartHome
         }
         public void deleteDevice()
         {
+            MessageBox.Show($"{Dashboard.deviceName} deleted");
             string query = "rpsmarthome.deleteDevice;";
 
             conn.Open();
