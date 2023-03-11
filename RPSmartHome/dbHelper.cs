@@ -99,12 +99,13 @@ namespace RPSmartHome
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("$roomName", NewroomOrDevice.roomName);
+            cmd.Parameters.AddWithValue("$roomName", Dashboard.roomName);
             using (MySqlDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
                 {
                     roomId = reader.GetString(0);
+                    
                 }
             }
             conn.Close();
@@ -197,8 +198,9 @@ namespace RPSmartHome
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("$rooms_name", Dashboard.roomName);
+            cmd.Parameters.AddWithValue("$rooms_name", NewroomOrDevice.roomName);
             cmd.Parameters.AddWithValue("$roomStatus", Dashboard.roomStatus);
+            cmd.Parameters.AddWithValue("$rooms_rooms_id", roomId);
             var ds = new DataSet();
 
             cmd.ExecuteReader();
@@ -214,7 +216,7 @@ namespace RPSmartHome
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("$rooms_name", Dashboard.roomName);
+            cmd.Parameters.AddWithValue("$rooms_name", NewroomOrDevice.roomName);
             cmd.Parameters.AddWithValue("$roomStatus", Dashboard.roomStatus);
             var ds = new DataSet();
 
@@ -233,7 +235,7 @@ namespace RPSmartHome
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("$devices_name", Dashboard.deviceName);
-            cmd.Parameters.AddWithValue("$rooms_name", Dashboard.roomName);
+            cmd.Parameters.AddWithValue("$rooms_name",NewroomOrDevice.roomName);
             cmd.Parameters.AddWithValue("$devicesStatus", Dashboard.devicesStatus);
            
             var ds = new DataSet();

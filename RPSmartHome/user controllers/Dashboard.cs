@@ -326,13 +326,19 @@ namespace RPSmartHome
 
             //If all room or a device turns on
 
+
             string[] words = clickedPictureBox.Name.Split(' ');
 
             if (words.Length == 2 && (words[1].Contains("Room")))
             {
+
                 roomStatus = "ON";
                 roomName = words[0];
+                
                 dbHelper dbHelper = new dbHelper();
+
+                dbHelper.getRoomId();
+                MessageBox.Show($"room id {dbHelper.roomId}");
                 dbHelper.setRoomStatus();
             }
             else if (words.Length == 2 && (words[1].Contains("Device")))
@@ -346,13 +352,18 @@ namespace RPSmartHome
         }
         private void pictureBoxOff_Click(object sender, EventArgs e)
         {
+
+            dbHelper dbHelper = new dbHelper();
+
             // Get the clicked PictureBox control
             PictureBox clickedPictureBox = (PictureBox)sender;
 
             // Hide the clicked PictureBox control
             clickedPictureBox.SendToBack();
 
+
             
+
             //If all room or a device turns off
             string[] words = clickedPictureBox.Name.Split(' ');
 
@@ -360,14 +371,15 @@ namespace RPSmartHome
             {
                 roomStatus = "OFF";
                 roomName = words[0];
-                dbHelper dbHelper = new dbHelper();
+
+                dbHelper.getRoomId();
+                MessageBox.Show($"room id {dbHelper.roomId}");
                 dbHelper.setRoomStatus();
             }
             else if (words.Length == 2 && (words[1].Contains("Device")))
             {
                 devicesStatus = "OFF";
                 deviceName = words[0];
-                dbHelper dbHelper = new dbHelper();
                 dbHelper.setDeviceStatus();
             }
         }
