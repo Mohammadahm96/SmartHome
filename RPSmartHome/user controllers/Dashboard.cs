@@ -293,6 +293,7 @@ namespace RPSmartHome
                     panel.Click += Panel_Click;
 
 
+
                 }
             }
 
@@ -338,7 +339,7 @@ namespace RPSmartHome
                 dbHelper dbHelper = new dbHelper();
 
                 dbHelper.getRoomId();
-                MessageBox.Show($"room id {dbHelper.roomId}");
+
                 dbHelper.setRoomStatus();
             }
             else if (words.Length == 2 && (words[1].Contains("Device")))
@@ -373,7 +374,6 @@ namespace RPSmartHome
                 roomName = words[0];
 
                 dbHelper.getRoomId();
-                MessageBox.Show($"room id {dbHelper.roomId}");
                 dbHelper.setRoomStatus();
             }
             else if (words.Length == 2 && (words[1].Contains("Device")))
@@ -424,7 +424,7 @@ namespace RPSmartHome
         {
             Label clickedLabel = (Label)sender;
             NewroomName = clickedLabel.Name;
-            NewroomOrDevice.roomName = NewroomName;
+            roomName = NewroomName;
             NewroomOrDevice.roomOrDevice = "New Device";
 
             // Create a new RoomForm
@@ -466,8 +466,8 @@ namespace RPSmartHome
             Label label = new Label();
             label.Location = new Point(200,0);
             label.Size = new Size(212, 46);
-            label.Text = NewroomOrDevice.roomName;
-            label.Name = NewroomOrDevice.roomName;
+            label.Text = roomName;
+            label.Name = roomName;
             label.Font = new Font("Times New Roman", 30F, FontStyle.Regular, GraphicsUnit.Point, (0));
             label.ForeColor = Color.Black;
             label.Cursor = Cursors.Hand;
@@ -557,7 +557,6 @@ namespace RPSmartHome
                             for (int j = 0; j < count1; j++)
                             {
                                 string Status = deviceStatus;
-                                //MessageBox.Show($"{deviceStatus}");
                                 if (Status == "ON")
                                 {
                                     pictureBox1.BringToFront();
@@ -579,7 +578,6 @@ namespace RPSmartHome
             }
 
             roomForm.ShowDialog();
-
         }
         
 
@@ -593,6 +591,7 @@ namespace RPSmartHome
         {
             NewroomOrDevice newroomOrDevice = new NewroomOrDevice();
             newroomOrDevice.ShowDialog();
+
             if(string.IsNullOrEmpty(NewroomOrDevice.deviceName))
             {
                 MessageBox.Show("No device was added in this room");
@@ -633,7 +632,7 @@ namespace RPSmartHome
                     PictureBox pictureBox = new PictureBox();
                     pictureBox.Location = new Point(30, 35);
                     pictureBox.Size = new Size(50, 44);
-                    pictureBox.Name = NewroomOrDevice.deviceName + " Device";
+                    pictureBox.Name = deviceName + " Device";
                     pictureBox.Image = imageList1.Images[0];
                     pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     pictureBox.Click += new EventHandler(pictureBoxOn_Click);
@@ -643,7 +642,7 @@ namespace RPSmartHome
                     PictureBox pictureBox1 = new PictureBox();
                     pictureBox1.Location = new Point(30, 35);
                     pictureBox1.Size = new Size(50, 44);
-                    pictureBox1.Name = NewroomOrDevice.deviceName + " Device";
+                    pictureBox1.Name = deviceName + " Device";
                     pictureBox1.Image = imageList1.Images[1];
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                     pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
@@ -682,11 +681,10 @@ namespace RPSmartHome
                 Form deleteDeviceOrRoomForm = clickedButton.Parent as Form;
                 deleteDeviceOrRoomForm.Close();
 
-                Room existingRoom = Application.OpenForms.OfType<Room>().First();
-
-                existingRoom.Close();
 
                 MessageBox.Show($"The Device was deleted");
+
+                clickedPanel.Parent.Controls.Remove(clickedPanel);
             }
 
             
@@ -699,10 +697,11 @@ namespace RPSmartHome
             deleteDeviceOrRoomForm.Close();
         }
 
+        private Panel clickedPanel;
         private void Panel_Click(object sender, EventArgs e)
         {
             
-            Panel clickedPanel = sender as Panel;
+            clickedPanel = sender as Panel;
             string Delete = clickedPanel.Name;
 
             deleteRoomORDevice = Delete;
@@ -761,8 +760,8 @@ namespace RPSmartHome
             deviceOrRoom.Controls.Add(btnCancel);
 
             deviceOrRoom.Show();
-            
 
+            
 
         }
 

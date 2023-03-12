@@ -59,7 +59,7 @@ namespace RPSmartHome
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("$deviceName", NewroomOrDevice.deviceName);
-            cmd.Parameters.AddWithValue("$roomName", NewroomOrDevice.roomName);
+            cmd.Parameters.AddWithValue("$roomName", Dashboard.roomName);
             var ds = new DataSet();
 
             cmd.ExecuteReader();
@@ -128,6 +128,7 @@ namespace RPSmartHome
                 while (dataReader.Read())
                 {
                     devices.Add(dataReader["devices_name"].ToString());
+
                 }
             }
             conn.Close();
@@ -137,8 +138,6 @@ namespace RPSmartHome
 
         public List<string> GetDevicesStatus()
         {
-            Dashboard dashboard = new Dashboard();
-
             List<string> devicesStatus = new List<string>();
 
             string query = "rpsmarthome.GetDevicesStatus;";
@@ -208,23 +207,6 @@ namespace RPSmartHome
             conn.Close();
         }
         
-        public void setRoomDevicesStatus()
-        {
-            string query = "rpsmarthome.setRoomDevicesStatus;";
-
-            conn.Open();
-
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("$rooms_name", NewroomOrDevice.roomName);
-            cmd.Parameters.AddWithValue("$roomStatus", Dashboard.roomStatus);
-            var ds = new DataSet();
-
-            cmd.ExecuteReader();
-
-            conn.Close();
-        }
-
         public void setDeviceStatus()
         {
             string query = "rpsmarthome.setDeviceStatus;";
