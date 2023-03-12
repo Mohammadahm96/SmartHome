@@ -52,6 +52,7 @@
             this.txtRoomName.Text = "room name";
             this.txtRoomName.Click += new System.EventHandler(this.txtRoomName_Click);
             this.txtRoomName.TextChanged += new System.EventHandler(this.txtRoomName_TextChanged);
+            this.txtRoomName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRoomName_KeyDown);
             this.txtRoomName.Leave += new System.EventHandler(this.txtRoomName_Leave);
             // 
             // pictureBox2

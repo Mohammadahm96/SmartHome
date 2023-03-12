@@ -87,5 +87,18 @@ namespace RPSmartHome.forms
             lbRoomDevice.Text = roomOrDevice;
 
         }
+
+        private void txtRoomName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtRoomName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnAddRoom_Click(sender, e);
+            }
+        }
     }
 }
