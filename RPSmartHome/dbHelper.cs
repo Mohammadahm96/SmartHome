@@ -30,7 +30,30 @@ namespace RPSmartHome
         //Add roomName to DB
 
         public static string roomId { get; set; }
+        public static int DuplicateRoom { get; set; }
         
+        public void checkDuplicateRoom()
+        {
+            string query = "rpsmarthome.checkDuplicateRoom;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$roomName", NewroomOrDevice.roomName);
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    DuplicateRoom = reader.GetInt32(0);
+                    MessageBox.Show($"{DuplicateRoom}");
+
+                }
+            }
+            conn.Close(); ;
+        }
         public void newRoom()
         {
             string query = "rpsmarthome.newRoom;";

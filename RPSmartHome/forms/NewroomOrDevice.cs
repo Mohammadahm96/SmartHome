@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace RPSmartHome.forms
 {
@@ -23,6 +24,7 @@ namespace RPSmartHome.forms
 
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
+            Loading loading = new Loading();
             
             if(txtRoomName.Text == "room name")
             {
@@ -34,8 +36,20 @@ namespace RPSmartHome.forms
                 if (roomOrDevice == "New Room")
                 {
                     roomName = txtRoomName.Text;
-                    dbHelper.newRoom();
-                    this.Close();
+                    dbHelper.checkDuplicateRoom();
+
+                    if (dbHelper.DuplicateRoom > 0)
+                    {
+                        error.SetError(txtRoomName, "Record already exists.");
+                        return;
+                    }
+                    else
+                    {
+                        dbHelper.newRoom();
+                        loading.Show();
+                        this.Close();
+                    }
+                    
                 }
                 else if (roomOrDevice == "New Device")
                 {
