@@ -186,6 +186,7 @@ namespace RPSmartHome
         public void createRoom()
         {
             NewroomOrDevice newRoomDetails = new NewroomOrDevice();
+            NewroomOrDevice.roomOrDevice = "New Room";
             newRoomDetails.ShowDialog();
 
             if (NewroomOrDevice.roomName != "") 
@@ -247,13 +248,10 @@ namespace RPSmartHome
 
             
         }
-
-        private void btnAddRoom_Click(object sender, EventArgs e)
+        
+        private async void btnAddRoom_Click(object sender, EventArgs e)
         {
-            NewroomOrDevice newroomOrDevice = new NewroomOrDevice();
-            NewroomOrDevice.roomOrDevice = "New Room";
             createRoom();
-
         }
 
         private bool deleteRoom = false;

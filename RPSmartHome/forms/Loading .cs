@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Asn1.X509;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,13 +16,14 @@ namespace RPSmartHome
         public Loading()
         {
             InitializeComponent();
+
         }
 
         private void Loading_Load(object sender, EventArgs e)
         {
             timer1.Start();
         }
-
+        bool isHomeFormOpen = false;
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (progressBar1.Value < 100)
@@ -33,15 +35,13 @@ namespace RPSmartHome
             else
             {
                 timer1.Stop();
-
-                //Home home = new Home();
-
-                //home.Show();
-                //this.Hide();
-
-                LoginRegs loginRegs = new LoginRegs();
-                loginRegs.Show();
+                Home home = new Home();
                 this.Hide();
+                home.Show();
+
+                //LoginRegs loginRegs = new LoginRegs();
+                //loginRegs.Show();
+                //this.Hide();
             }
         }
     }

@@ -18,6 +18,10 @@ namespace RPSmartHome
             InitializeComponent();
             userControl(Dashboard);
             this.Activated += Home_Activated;
+            lbWelcome.Visible = false;
+            lbYou.Visible = false;
+            lbSignIn.Visible = false;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -135,7 +139,63 @@ namespace RPSmartHome
             
         }
 
+        private void lbSignIn_MouseHover(object sender, EventArgs e)
+        {
+            lbSignIn.Font = new Font("Times New Roman", 14.25F, FontStyle.Underline);
+        }
 
+        private void lbSignIn_MouseLeave(object sender, EventArgs e)
+        {
+            lbSignIn.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular);
 
+        }
+
+        private void pBDown_Click(object sender, EventArgs e)
+        {
+            lbWelcome.Visible = true;
+            lbYou.Visible = true;
+            lbSignIn.Visible = true;
+            pBUp.BringToFront();
+        }
+
+        private void pBUp_Click(object sender, EventArgs e)
+        {
+            lbWelcome.Visible = false;
+            lbYou.Visible = false;
+            lbSignIn.Visible = false;
+            pBDown.BringToFront();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            if (lbWelcome.Visible)
+            {
+                pBUp_Click(sender, e);
+            }
+            else if (!lbWelcome.Visible)
+            {
+                pBDown_Click(sender, e);
+            }
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            if (lbWelcome.Visible)
+            {
+                pBUp_Click(sender, e);
+            }
+            else if (!lbWelcome.Visible)
+            {
+                pBDown_Click(sender, e);
+            }
+        }
+
+        private void lbSignIn_Click(object sender, EventArgs e)
+        {
+            LoginRegs loginRegs = new LoginRegs();
+            loginRegs.Show();
+            pBUp_Click(sender, e);
+
+        }
     }
 }

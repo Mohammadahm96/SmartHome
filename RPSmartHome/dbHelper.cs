@@ -232,7 +232,6 @@ namespace RPSmartHome
         public void setDeviceStatus()
         {
             string query = "rpsmarthome.setDeviceStatus;";
-            MessageBox.Show($"{Dashboard.roomName}");
             conn.Open();
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
