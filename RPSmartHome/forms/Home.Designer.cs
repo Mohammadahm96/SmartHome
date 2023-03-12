@@ -322,9 +322,9 @@
             // pBDown
             // 
             this.pBDown.Image = ((System.Drawing.Image)(resources.GetObject("pBDown.Image")));
-            this.pBDown.Location = new System.Drawing.Point(865, 13);
+            this.pBDown.Location = new System.Drawing.Point(866, 18);
             this.pBDown.Name = "pBDown";
-            this.pBDown.Size = new System.Drawing.Size(33, 30);
+            this.pBDown.Size = new System.Drawing.Size(24, 23);
             this.pBDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pBDown.TabIndex = 0;
             this.pBDown.TabStop = false;
@@ -333,9 +333,9 @@
             // pBUp
             // 
             this.pBUp.Image = ((System.Drawing.Image)(resources.GetObject("pBUp.Image")));
-            this.pBUp.Location = new System.Drawing.Point(865, 13);
+            this.pBUp.Location = new System.Drawing.Point(866, 18);
             this.pBUp.Name = "pBUp";
-            this.pBUp.Size = new System.Drawing.Size(33, 30);
+            this.pBUp.Size = new System.Drawing.Size(24, 23);
             this.pBUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pBUp.TabIndex = 5;
             this.pBUp.TabStop = false;
