@@ -38,17 +38,6 @@ namespace RPSmartHome
             }
         }
 
-        private void txtSearch_Click(object sender, EventArgs e)
-        {
-            
-            if(txtSearch.Text == "search room")
-            {
-                txtSearch.ForeColor = Color.Black;
-                txtSearch.Text = "";
-            }
-
-           
-        }
         int Top2 = 29;
         int Left2 = 18;
         int count2 = 0;
@@ -188,15 +177,7 @@ namespace RPSmartHome
 
         }
 
-        private void txtSearch_Leave(object sender, EventArgs e)
-        {
-            if (txtSearch.Text == "")
-            {
-                txtSearch.ForeColor = Color.Gray;
-                txtSearch.Text = "search room";
-            }
-        }
-
+        
 
         int Top = 29;
         int Left = 18;
@@ -784,23 +765,6 @@ namespace RPSmartHome
             if (flowLayoutPanel1.Controls.Count == 0)
             {
                 button1.Visible = true;
-            }
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            string searchText = txtSearch.Text.ToLower();
-
-            foreach (Panel panel in flowLayoutPanel1.Controls.OfType<Panel>())
-            {
-                if (panel.Name.ToLower().Contains(searchText))
-                {
-                    panel.Visible = true;
-                }
-                else
-                {
-                    panel.Visible = false;
-                }
             }
         }
 

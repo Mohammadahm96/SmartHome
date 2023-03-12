@@ -134,5 +134,8 @@ namespace RPSmartHome
             dashboard.BringToFront();
             
         }
+
+
+
     }
 }

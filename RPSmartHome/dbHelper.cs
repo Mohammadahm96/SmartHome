@@ -48,7 +48,6 @@ namespace RPSmartHome
                 while (reader.Read())
                 {
                     DuplicateRoom = reader.GetInt32(0);
-                    MessageBox.Show($"{DuplicateRoom}");
 
                 }
             }
@@ -233,14 +232,14 @@ namespace RPSmartHome
         public void setDeviceStatus()
         {
             string query = "rpsmarthome.setDeviceStatus;";
-
+            MessageBox.Show($"{Dashboard.roomName}");
             conn.Open();
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("$devices_name", Dashboard.deviceName);
-            cmd.Parameters.AddWithValue("$rooms_name",NewroomOrDevice.roomName);
+            cmd.Parameters.AddWithValue("$rooms_name", Dashboard.roomName);
             cmd.Parameters.AddWithValue("$devicesStatus", Dashboard.devicesStatus);
            
             var ds = new DataSet();

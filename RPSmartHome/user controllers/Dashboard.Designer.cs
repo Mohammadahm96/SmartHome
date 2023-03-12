@@ -40,11 +40,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pBoff = new System.Windows.Forms.PictureBox();
             this.pBon = new System.Windows.Forms.PictureBox();
+            this.pBoff = new System.Windows.Forms.PictureBox();
             this.btnAddRoom = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lbRoomNmae = new System.Windows.Forms.Label();
             this.pnlRooms = new System.Windows.Forms.Panel();
@@ -56,9 +54,8 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoff)).BeginInit();
             this.pnlRooms.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -175,17 +172,6 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Out side lights";
             // 
-            // pBoff
-            // 
-            this.pBoff.Image = ((System.Drawing.Image)(resources.GetObject("pBoff.Image")));
-            this.pBoff.Location = new System.Drawing.Point(147, 13);
-            this.pBoff.Name = "pBoff";
-            this.pBoff.Size = new System.Drawing.Size(50, 44);
-            this.pBoff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBoff.TabIndex = 1;
-            this.pBoff.TabStop = false;
-            this.pBoff.Click += new System.EventHandler(this.pictureBoxOn_Click);
-            // 
             // pBon
             // 
             this.pBon.Image = ((System.Drawing.Image)(resources.GetObject("pBon.Image")));
@@ -196,6 +182,17 @@
             this.pBon.TabIndex = 1;
             this.pBon.TabStop = false;
             this.pBon.Click += new System.EventHandler(this.pictureBoxOff_Click);
+            // 
+            // pBoff
+            // 
+            this.pBoff.Image = ((System.Drawing.Image)(resources.GetObject("pBoff.Image")));
+            this.pBoff.Location = new System.Drawing.Point(147, 13);
+            this.pBoff.Name = "pBoff";
+            this.pBoff.Size = new System.Drawing.Size(50, 44);
+            this.pBoff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBoff.TabIndex = 1;
+            this.pBoff.TabStop = false;
+            this.pBoff.Click += new System.EventHandler(this.pictureBoxOn_Click);
             // 
             // btnAddRoom
             // 
@@ -209,29 +206,6 @@
             this.btnAddRoom.Text = "+ Add new room";
             this.btnAddRoom.UseVisualStyleBackColor = false;
             this.btnAddRoom.Click += new System.EventHandler(this.btnAddRoom_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.ForeColor = System.Drawing.Color.Gray;
-            this.txtSearch.Location = new System.Drawing.Point(31, 47);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(725, 29);
-            this.txtSearch.TabIndex = 6;
-            this.txtSearch.Text = "search room";
-            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(729, 49);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(27, 26);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
             // 
             // timer1
             // 
@@ -253,9 +227,9 @@
             this.pnlRooms.Controls.Add(this.label8);
             this.pnlRooms.Controls.Add(this.flowLayoutPanel1);
             this.pnlRooms.Controls.Add(this.pictureBox1);
-            this.pnlRooms.Location = new System.Drawing.Point(3, 87);
+            this.pnlRooms.Location = new System.Drawing.Point(3, 30);
             this.pnlRooms.Name = "pnlRooms";
-            this.pnlRooms.Size = new System.Drawing.Size(753, 481);
+            this.pnlRooms.Size = new System.Drawing.Size(753, 538);
             this.pnlRooms.TabIndex = 7;
             // 
             // label8
@@ -263,7 +237,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            this.label8.Location = new System.Drawing.Point(308, 1);
+            this.label8.Location = new System.Drawing.Point(305, 2);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 27);
             this.label8.TabIndex = 4;
@@ -298,9 +272,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(13, 176);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 139);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(725, 302);
+            this.pictureBox1.Size = new System.Drawing.Size(725, 381);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -324,8 +298,6 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pnlRooms);
             this.Controls.Add(this.btnAddRoom);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.txtSearch);
             this.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Dashboard";
@@ -336,9 +308,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoff)).EndInit();
             this.pnlRooms.ResumeLayout(false);
             this.pnlRooms.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -359,8 +330,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAddRoom;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pBoff;
         private System.Windows.Forms.PictureBox pBon;
         private System.Windows.Forms.Timer timer1;
