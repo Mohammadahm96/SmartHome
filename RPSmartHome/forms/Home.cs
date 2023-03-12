@@ -21,6 +21,8 @@ namespace RPSmartHome
             lbWelcome.Visible = false;
             lbYou.Visible = false;
             lbSignIn.Visible = false;
+            pbSingin.Visible = false;
+            pbSingOut.Visible = false;
 
         }
 
@@ -86,22 +88,6 @@ namespace RPSmartHome
             Application.Exit();
         }
 
-        private void lbl_exit_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to Exit?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-
-                Application.Exit();
-
-            }
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Please call us at 072829131 or email us at Smarthome@hotmail.com for assistance");
-        }
-
         private void lbl_logout_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to log out?", "Log out", MessageBoxButtons.OKCancel) == DialogResult.OK)
@@ -124,11 +110,6 @@ namespace RPSmartHome
 
 
 
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Our Smarthome application enables users to easily connect with various appliances, including control of lights, refrigerator, washer, air conditioner, oven, vacuum vacuum and more through your smartphones.\r\n\r\n\r\nWith our Smarthome application, you can monitor and control home appliances on the go and enjoy useful services including status check, device control, home view, and customer support.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Home_Activated(object sender, EventArgs e)
@@ -155,6 +136,8 @@ namespace RPSmartHome
             lbWelcome.Visible = true;
             lbYou.Visible = true;
             lbSignIn.Visible = true;
+            pbSingin.Visible = true;
+            pbSingOut.Visible = true;
             pBUp.BringToFront();
         }
 
@@ -163,6 +146,8 @@ namespace RPSmartHome
             lbWelcome.Visible = false;
             lbYou.Visible = false;
             lbSignIn.Visible = false;
+            pbSingin.Visible = false;
+            pbSingOut.Visible = false;
             pBDown.BringToFront();
         }
 
@@ -196,6 +181,83 @@ namespace RPSmartHome
             loginRegs.Show();
             pBUp_Click(sender, e);
 
+        }
+        private void lbHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Please call us at 0728291131 or email us at info@smarthome.com for assistance");
+        }
+        private void lbAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Our Smarthome application enables users to easily connect with various " +
+                            "appliances, including control of lights, refrigerator, washer, air conditioner," +
+                            " oven, vacuum vacuum and more through your smartphones." +
+                            "\r\n\r\n\r\nWith our Smarthome application, you can monitor and control home " +
+                            "appliances on the go and enjoy useful services including status check, device control, " +
+                            "home view, and customer support.", "Information", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void lbexit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to Exit?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+
+                Application.Exit();
+
+            }
+        }
+        #region Menu bar mouseHover
+        private void txt_Install_MouseHover(object sender, EventArgs e)
+        {
+            pnlInstall.BackColor= Color.FromArgb(0, 175, 128);
+        }
+
+
+
+        private void lbHelp_MouseHover(object sender, EventArgs e)
+        {
+            pnlHelp.BackColor = Color.FromArgb(0, 175, 128);
+        }
+
+        private void lbAbout_MouseHover(object sender, EventArgs e)
+        {
+            pnlAbout.BackColor = Color.FromArgb(0, 175, 128);
+        }
+
+        private void lbSigninOut_MouseHover(object sender, EventArgs e)
+        {
+            pnlsinginout.BackColor = Color.FromArgb(0, 175, 128);
+        }
+
+        private void lbexit_MouseHover(object sender, EventArgs e)
+        {
+            pnlExit.BackColor = Color.FromArgb(0, 175, 128);
+        }
+        #endregion
+
+        private void txt_Install_MouseLeave(object sender, EventArgs e)
+        {
+            pnlInstall.BackColor = Color.FromArgb(38, 40, 51);
+        }
+
+        private void lbHelp_MouseLeave(object sender, EventArgs e)
+        {
+            pnlHelp.BackColor = Color.FromArgb(38, 40, 51);
+        }
+
+        private void lbAbout_MouseLeave(object sender, EventArgs e)
+        {
+            pnlAbout.BackColor = Color.FromArgb(38, 40, 51);
+        }
+
+        private void lbSigninOut_MouseLeave(object sender, EventArgs e)
+        {
+            pnlsinginout.BackColor = Color.FromArgb(38, 40, 51);
+        }
+
+        private void lbexit_MouseLeave(object sender, EventArgs e)
+        {
+            pnlExit.BackColor = Color.FromArgb(38, 40, 51);
         }
     }
 }
