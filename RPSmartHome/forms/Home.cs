@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPSmartHome.forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,16 +21,21 @@ namespace RPSmartHome
             this.Activated += Home_Activated;
             lbWelcome.Visible = false;
             lbYou.Visible = false;
-            lbSignIn.Visible = false;
-            pbSingin.Visible = false;
-            pbSingOut.Visible = false;
+            lbSigninOut1.Visible = false;
+            pbSingin1.Visible = false;
+            pbSingOut1.Visible = false;
+
+            
+
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             pBCancel.Visible = false;
-            pnlMenuBar.Size = new System.Drawing.Size(170, 91);
+            pnlMenuBar.Size = new Size(170, 91);
+
+            
         }
 
 
@@ -117,17 +123,31 @@ namespace RPSmartHome
             Dashboard dashboard = new Dashboard();
             pnlUserController.Controls.Add(dashboard);
             dashboard.BringToFront();
-            
+
+            if (string.IsNullOrEmpty(dbHelper.personName))
+            {
+
+            }
+            else
+            {
+                lbSigninOut.Text = "Sing out";
+                lbSigninOut1.Text = "Sing out";
+                pbSingOut.BringToFront();
+                pbSingOut1.BringToFront();
+                lbYou.Text = dbHelper.personName;
+
+            }
+
         }
 
         private void lbSignIn_MouseHover(object sender, EventArgs e)
         {
-            lbSignIn.Font = new Font("Times New Roman", 14.25F, FontStyle.Underline);
+            lbSigninOut1.Font = new Font("Times New Roman", 14.25F, FontStyle.Underline);
         }
 
         private void lbSignIn_MouseLeave(object sender, EventArgs e)
         {
-            lbSignIn.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular);
+            lbSigninOut1.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular);
 
         }
 
@@ -135,19 +155,33 @@ namespace RPSmartHome
         {
             lbWelcome.Visible = true;
             lbYou.Visible = true;
-            lbSignIn.Visible = true;
-            pbSingin.Visible = true;
-            pbSingOut.Visible = true;
+            lbSigninOut1.Visible = true;
+            pbSingin1.Visible = true;
+            pbSingOut1.Visible = true;
             pBUp.BringToFront();
+            if (string.IsNullOrEmpty(dbHelper.personName))
+            {
+
+            }
+            else
+            {
+                lbSigninOut.Text = "Sing out";
+                lbSigninOut1.Text = "Sing out";
+                pbSingOut.BringToFront();
+                pbSingOut1.BringToFront();
+                lbYou.Text = dbHelper.personName;
+                
+            }
+
         }
 
         private void pBUp_Click(object sender, EventArgs e)
         {
             lbWelcome.Visible = false;
             lbYou.Visible = false;
-            lbSignIn.Visible = false;
-            pbSingin.Visible = false;
-            pbSingOut.Visible = false;
+            lbSigninOut1.Visible = false;
+            pbSingin1.Visible = false;
+            pbSingOut1.Visible = false;
             pBDown.BringToFront();
         }
 
@@ -175,11 +209,21 @@ namespace RPSmartHome
             }
         }
 
+
         private void lbSignIn_Click(object sender, EventArgs e)
         {
-            LoginRegs loginRegs = new LoginRegs();
-            loginRegs.Show();
-            pBUp_Click(sender, e);
+            if(lbSigninOut1.Text == "Sign in")
+            {
+                LoginRegs loginRegs = new LoginRegs();
+                loginRegs.Show();
+                pBUp_Click(sender, e);
+            }
+            else
+            {
+                pbSingOut_Click(sender, e);
+
+            }
+            
 
         }
         private void lbHelp_Click(object sender, EventArgs e)
@@ -258,6 +302,28 @@ namespace RPSmartHome
         private void lbexit_MouseLeave(object sender, EventArgs e)
         {
             pnlExit.BackColor = Color.FromArgb(38, 40, 51);
+        }
+
+        private void pbSingOut_Click(object sender, EventArgs e)
+        {
+            dbHelper dbHelper = new dbHelper();
+
+            lbSigninOut.Text = "Sing in";
+            lbSigninOut1.Text = "Sing in";
+            pbSingin.BringToFront();
+            pbSingin1.BringToFront();
+            dbHelper.personName = "";
+            lbYou.Text = "You're not logged in";
+
+            dbHelper.userNameDb = "";
+            LoginRegs.userName = "";
+            LoginRegs.password = "";
+            
+
+        }
+
+        private void lbSigninOut_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }

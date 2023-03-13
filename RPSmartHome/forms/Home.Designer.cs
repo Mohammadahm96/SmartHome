@@ -30,20 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.pnlMenuBar = new System.Windows.Forms.Panel();
+            this.pnlExit = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lbexit = new System.Windows.Forms.Label();
+            this.pnlsinginout = new System.Windows.Forms.Panel();
+            this.lbSigninOut = new System.Windows.Forms.Label();
+            this.pbSingOut = new System.Windows.Forms.PictureBox();
+            this.pbSingin = new System.Windows.Forms.PictureBox();
+            this.pnlAbout = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lbAbout = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.txt_Install = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.lbSigninOut = new System.Windows.Forms.Label();
+            this.pnlHelp = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbHelp = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lbexit = new System.Windows.Forms.Label();
+            this.pnlInstall = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.txt_Install = new System.Windows.Forms.Label();
+            this.pnlMenu = new System.Windows.Forms.Panel();
             this.pBthree = new System.Windows.Forms.PictureBox();
             this.pBCancel = new System.Windows.Forms.PictureBox();
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.lbSignIn = new System.Windows.Forms.Label();
+            this.lbSigninOut1 = new System.Windows.Forms.Label();
             this.lbYou = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,22 +58,22 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pBDown = new System.Windows.Forms.PictureBox();
             this.pBUp = new System.Windows.Forms.PictureBox();
+            this.pbSingOut1 = new System.Windows.Forms.PictureBox();
+            this.pbSingin1 = new System.Windows.Forms.PictureBox();
             this.pnlUserController = new System.Windows.Forms.Panel();
-            this.pbSingin = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pnlMenu = new System.Windows.Forms.Panel();
-            this.pnlInstall = new System.Windows.Forms.Panel();
-            this.pnlHelp = new System.Windows.Forms.Panel();
-            this.pnlAbout = new System.Windows.Forms.Panel();
-            this.pnlsinginout = new System.Windows.Forms.Panel();
-            this.pnlExit = new System.Windows.Forms.Panel();
-            this.pbSingOut = new System.Windows.Forms.PictureBox();
             this.pnlMenuBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.pnlExit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.pnlsinginout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSingOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSingin)).BeginInit();
+            this.pnlAbout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.pnlHelp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnlInstall.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBthree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBCancel)).BeginInit();
             this.pnlTop.SuspendLayout();
@@ -74,15 +81,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBUp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSingin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            this.pnlMenu.SuspendLayout();
-            this.pnlInstall.SuspendLayout();
-            this.pnlHelp.SuspendLayout();
-            this.pnlAbout.SuspendLayout();
-            this.pnlsinginout.SuspendLayout();
-            this.pnlExit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSingOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSingOut1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSingin1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenuBar
@@ -98,6 +98,117 @@
             this.pnlMenuBar.Name = "pnlMenuBar";
             this.pnlMenuBar.Size = new System.Drawing.Size(177, 682);
             this.pnlMenuBar.TabIndex = 1;
+            // 
+            // pnlExit
+            // 
+            this.pnlExit.Controls.Add(this.pictureBox4);
+            this.pnlExit.Controls.Add(this.lbexit);
+            this.pnlExit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlExit.Location = new System.Drawing.Point(0, 427);
+            this.pnlExit.Name = "pnlExit";
+            this.pnlExit.Size = new System.Drawing.Size(177, 81);
+            this.pnlExit.TabIndex = 1;
+            this.pnlExit.Click += new System.EventHandler(this.lbexit_Click);
+            this.pnlExit.MouseLeave += new System.EventHandler(this.lbexit_MouseLeave);
+            this.pnlExit.MouseHover += new System.EventHandler(this.lbexit_MouseHover);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(19, 25);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.lbexit_Click);
+            this.pictureBox4.MouseLeave += new System.EventHandler(this.lbexit_MouseLeave);
+            this.pictureBox4.MouseHover += new System.EventHandler(this.lbexit_MouseHover);
+            // 
+            // lbexit
+            // 
+            this.lbexit.AutoSize = true;
+            this.lbexit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbexit.ForeColor = System.Drawing.Color.White;
+            this.lbexit.Location = new System.Drawing.Point(65, 31);
+            this.lbexit.Name = "lbexit";
+            this.lbexit.Size = new System.Drawing.Size(39, 21);
+            this.lbexit.TabIndex = 1;
+            this.lbexit.Text = "Exit";
+            this.lbexit.Click += new System.EventHandler(this.lbexit_Click);
+            this.lbexit.MouseLeave += new System.EventHandler(this.lbexit_MouseLeave);
+            this.lbexit.MouseHover += new System.EventHandler(this.lbexit_MouseHover);
+            // 
+            // pnlsinginout
+            // 
+            this.pnlsinginout.Controls.Add(this.lbSigninOut);
+            this.pnlsinginout.Controls.Add(this.pbSingin);
+            this.pnlsinginout.Controls.Add(this.pbSingOut);
+            this.pnlsinginout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlsinginout.Location = new System.Drawing.Point(0, 346);
+            this.pnlsinginout.Name = "pnlsinginout";
+            this.pnlsinginout.Size = new System.Drawing.Size(177, 81);
+            this.pnlsinginout.TabIndex = 1;
+            this.pnlsinginout.Click += new System.EventHandler(this.lbSignIn_Click);
+            this.pnlsinginout.MouseLeave += new System.EventHandler(this.lbSigninOut_MouseLeave);
+            this.pnlsinginout.MouseHover += new System.EventHandler(this.lbSigninOut_MouseHover);
+            // 
+            // lbSigninOut
+            // 
+            this.lbSigninOut.AutoSize = true;
+            this.lbSigninOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbSigninOut.ForeColor = System.Drawing.Color.White;
+            this.lbSigninOut.Location = new System.Drawing.Point(60, 34);
+            this.lbSigninOut.Name = "lbSigninOut";
+            this.lbSigninOut.Size = new System.Drawing.Size(61, 21);
+            this.lbSigninOut.TabIndex = 0;
+            this.lbSigninOut.Text = "Sign in";
+            this.lbSigninOut.TextChanged += new System.EventHandler(this.lbSigninOut_TextChanged);
+            this.lbSigninOut.Click += new System.EventHandler(this.lbSignIn_Click);
+            this.lbSigninOut.MouseLeave += new System.EventHandler(this.lbSigninOut_MouseLeave);
+            this.lbSigninOut.MouseHover += new System.EventHandler(this.lbSigninOut_MouseHover);
+            // 
+            // pbSingOut
+            // 
+            this.pbSingOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbSingOut.Image = ((System.Drawing.Image)(resources.GetObject("pbSingOut.Image")));
+            this.pbSingOut.Location = new System.Drawing.Point(19, 28);
+            this.pbSingOut.Name = "pbSingOut";
+            this.pbSingOut.Size = new System.Drawing.Size(35, 35);
+            this.pbSingOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSingOut.TabIndex = 4;
+            this.pbSingOut.TabStop = false;
+            this.pbSingOut.Click += new System.EventHandler(this.pbSingOut_Click);
+            this.pbSingOut.MouseLeave += new System.EventHandler(this.lbSigninOut_MouseLeave);
+            this.pbSingOut.MouseHover += new System.EventHandler(this.lbSigninOut_MouseHover);
+            // 
+            // pbSingin
+            // 
+            this.pbSingin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbSingin.Image = ((System.Drawing.Image)(resources.GetObject("pbSingin.Image")));
+            this.pbSingin.Location = new System.Drawing.Point(19, 28);
+            this.pbSingin.Name = "pbSingin";
+            this.pbSingin.Size = new System.Drawing.Size(35, 35);
+            this.pbSingin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSingin.TabIndex = 0;
+            this.pbSingin.TabStop = false;
+            this.pbSingin.Click += new System.EventHandler(this.lbSignIn_Click);
+            this.pbSingin.MouseLeave += new System.EventHandler(this.lbSigninOut_MouseLeave);
+            this.pbSingin.MouseHover += new System.EventHandler(this.lbSigninOut_MouseHover);
+            // 
+            // pnlAbout
+            // 
+            this.pnlAbout.Controls.Add(this.pictureBox6);
+            this.pnlAbout.Controls.Add(this.lbAbout);
+            this.pnlAbout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlAbout.Location = new System.Drawing.Point(0, 265);
+            this.pnlAbout.Name = "pnlAbout";
+            this.pnlAbout.Size = new System.Drawing.Size(177, 81);
+            this.pnlAbout.TabIndex = 1;
+            this.pnlAbout.Click += new System.EventHandler(this.lbAbout_Click);
+            this.pnlAbout.MouseLeave += new System.EventHandler(this.lbAbout_MouseLeave);
+            this.pnlAbout.MouseHover += new System.EventHandler(this.lbAbout_MouseHover);
             // 
             // pictureBox6
             // 
@@ -126,60 +237,18 @@
             this.lbAbout.MouseLeave += new System.EventHandler(this.lbAbout_MouseLeave);
             this.lbAbout.MouseHover += new System.EventHandler(this.lbAbout_MouseHover);
             // 
-            // pictureBox5
+            // pnlHelp
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(19, 23);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.txt_Install_Click);
-            this.pictureBox5.MouseLeave += new System.EventHandler(this.txt_Install_MouseLeave);
-            this.pictureBox5.MouseHover += new System.EventHandler(this.txt_Install_MouseHover);
-            // 
-            // txt_Install
-            // 
-            this.txt_Install.AutoSize = true;
-            this.txt_Install.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txt_Install.ForeColor = System.Drawing.Color.White;
-            this.txt_Install.Location = new System.Drawing.Point(63, 28);
-            this.txt_Install.Name = "txt_Install";
-            this.txt_Install.Size = new System.Drawing.Size(90, 21);
-            this.txt_Install.TabIndex = 1;
-            this.txt_Install.Text = "Installation";
-            this.txt_Install.Click += new System.EventHandler(this.txt_Install_Click);
-            this.txt_Install.MouseLeave += new System.EventHandler(this.txt_Install_MouseLeave);
-            this.txt_Install.MouseHover += new System.EventHandler(this.txt_Install_MouseHover);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(19, 25);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.lbexit_Click);
-            this.pictureBox4.MouseLeave += new System.EventHandler(this.lbexit_MouseLeave);
-            this.pictureBox4.MouseHover += new System.EventHandler(this.lbexit_MouseHover);
-            // 
-            // lbSigninOut
-            // 
-            this.lbSigninOut.AutoSize = true;
-            this.lbSigninOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbSigninOut.ForeColor = System.Drawing.Color.White;
-            this.lbSigninOut.Location = new System.Drawing.Point(60, 34);
-            this.lbSigninOut.Name = "lbSigninOut";
-            this.lbSigninOut.Size = new System.Drawing.Size(61, 21);
-            this.lbSigninOut.TabIndex = 0;
-            this.lbSigninOut.Text = "Sign in";
-            this.lbSigninOut.Click += new System.EventHandler(this.lbSignIn_Click);
-            this.lbSigninOut.MouseLeave += new System.EventHandler(this.lbSigninOut_MouseLeave);
-            this.lbSigninOut.MouseHover += new System.EventHandler(this.lbSigninOut_MouseHover);
+            this.pnlHelp.Controls.Add(this.pictureBox3);
+            this.pnlHelp.Controls.Add(this.lbHelp);
+            this.pnlHelp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHelp.Location = new System.Drawing.Point(0, 184);
+            this.pnlHelp.Name = "pnlHelp";
+            this.pnlHelp.Size = new System.Drawing.Size(177, 81);
+            this.pnlHelp.TabIndex = 1;
+            this.pnlHelp.Click += new System.EventHandler(this.lbHelp_Click);
+            this.pnlHelp.MouseLeave += new System.EventHandler(this.lbHelp_MouseLeave);
+            this.pnlHelp.MouseHover += new System.EventHandler(this.lbHelp_MouseHover);
             // 
             // pictureBox3
             // 
@@ -209,33 +278,56 @@
             this.lbHelp.MouseLeave += new System.EventHandler(this.lbHelp_MouseLeave);
             this.lbHelp.MouseHover += new System.EventHandler(this.lbHelp_MouseHover);
             // 
-            // pictureBox2
+            // pnlInstall
             // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(19, 28);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.lbSignIn_Click);
-            this.pictureBox2.MouseLeave += new System.EventHandler(this.lbSigninOut_MouseLeave);
-            this.pictureBox2.MouseHover += new System.EventHandler(this.lbSigninOut_MouseHover);
+            this.pnlInstall.Controls.Add(this.pictureBox5);
+            this.pnlInstall.Controls.Add(this.txt_Install);
+            this.pnlInstall.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnlInstall.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlInstall.Location = new System.Drawing.Point(0, 103);
+            this.pnlInstall.Name = "pnlInstall";
+            this.pnlInstall.Size = new System.Drawing.Size(177, 81);
+            this.pnlInstall.TabIndex = 1;
+            this.pnlInstall.Click += new System.EventHandler(this.txt_Install_Click);
+            this.pnlInstall.MouseLeave += new System.EventHandler(this.txt_Install_MouseLeave);
+            this.pnlInstall.MouseHover += new System.EventHandler(this.txt_Install_MouseHover);
             // 
-            // lbexit
+            // pictureBox5
             // 
-            this.lbexit.AutoSize = true;
-            this.lbexit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbexit.ForeColor = System.Drawing.Color.White;
-            this.lbexit.Location = new System.Drawing.Point(65, 31);
-            this.lbexit.Name = "lbexit";
-            this.lbexit.Size = new System.Drawing.Size(39, 21);
-            this.lbexit.TabIndex = 1;
-            this.lbexit.Text = "Exit";
-            this.lbexit.Click += new System.EventHandler(this.lbexit_Click);
-            this.lbexit.MouseLeave += new System.EventHandler(this.lbexit_MouseLeave);
-            this.lbexit.MouseHover += new System.EventHandler(this.lbexit_MouseHover);
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(19, 23);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.txt_Install_Click);
+            this.pictureBox5.MouseLeave += new System.EventHandler(this.txt_Install_MouseLeave);
+            this.pictureBox5.MouseHover += new System.EventHandler(this.txt_Install_MouseHover);
+            // 
+            // txt_Install
+            // 
+            this.txt_Install.AutoSize = true;
+            this.txt_Install.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txt_Install.ForeColor = System.Drawing.Color.White;
+            this.txt_Install.Location = new System.Drawing.Point(63, 28);
+            this.txt_Install.Name = "txt_Install";
+            this.txt_Install.Size = new System.Drawing.Size(90, 21);
+            this.txt_Install.TabIndex = 1;
+            this.txt_Install.Text = "Installation";
+            this.txt_Install.Click += new System.EventHandler(this.txt_Install_Click);
+            this.txt_Install.MouseLeave += new System.EventHandler(this.txt_Install_MouseLeave);
+            this.txt_Install.MouseHover += new System.EventHandler(this.txt_Install_MouseHover);
+            // 
+            // pnlMenu
+            // 
+            this.pnlMenu.Controls.Add(this.pBthree);
+            this.pnlMenu.Controls.Add(this.pBCancel);
+            this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMenu.Location = new System.Drawing.Point(0, 0);
+            this.pnlMenu.Name = "pnlMenu";
+            this.pnlMenu.Size = new System.Drawing.Size(177, 103);
+            this.pnlMenu.TabIndex = 0;
             // 
             // pBthree
             // 
@@ -264,7 +356,7 @@
             // pnlTop
             // 
             this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
-            this.pnlTop.Controls.Add(this.lbSignIn);
+            this.pnlTop.Controls.Add(this.lbSigninOut1);
             this.pnlTop.Controls.Add(this.lbYou);
             this.pnlTop.Controls.Add(this.pictureBox7);
             this.pnlTop.Controls.Add(this.label4);
@@ -272,8 +364,8 @@
             this.pnlTop.Controls.Add(this.pictureBox1);
             this.pnlTop.Controls.Add(this.pBDown);
             this.pnlTop.Controls.Add(this.pBUp);
-            this.pnlTop.Controls.Add(this.pbSingOut);
-            this.pnlTop.Controls.Add(this.pbSingin);
+            this.pnlTop.Controls.Add(this.pbSingOut1);
+            this.pnlTop.Controls.Add(this.pbSingin1);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
@@ -281,20 +373,20 @@
             this.pnlTop.TabIndex = 2;
             this.pnlTop.Click += new System.EventHandler(this.pnlTop_Click);
             // 
-            // lbSignIn
+            // lbSigninOut1
             // 
-            this.lbSignIn.AutoSize = true;
-            this.lbSignIn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbSignIn.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSignIn.ForeColor = System.Drawing.Color.White;
-            this.lbSignIn.Location = new System.Drawing.Point(825, 52);
-            this.lbSignIn.Name = "lbSignIn";
-            this.lbSignIn.Size = new System.Drawing.Size(61, 21);
-            this.lbSignIn.TabIndex = 4;
-            this.lbSignIn.Text = "Sign in";
-            this.lbSignIn.Click += new System.EventHandler(this.lbSignIn_Click);
-            this.lbSignIn.MouseLeave += new System.EventHandler(this.lbSignIn_MouseLeave);
-            this.lbSignIn.MouseHover += new System.EventHandler(this.lbSignIn_MouseHover);
+            this.lbSigninOut1.AutoSize = true;
+            this.lbSigninOut1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbSigninOut1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSigninOut1.ForeColor = System.Drawing.Color.White;
+            this.lbSigninOut1.Location = new System.Drawing.Point(817, 52);
+            this.lbSigninOut1.Name = "lbSigninOut1";
+            this.lbSigninOut1.Size = new System.Drawing.Size(61, 21);
+            this.lbSigninOut1.TabIndex = 4;
+            this.lbSigninOut1.Text = "Sign in";
+            this.lbSigninOut1.Click += new System.EventHandler(this.lbSignIn_Click);
+            this.lbSigninOut1.MouseLeave += new System.EventHandler(this.lbSignIn_MouseLeave);
+            this.lbSigninOut1.MouseHover += new System.EventHandler(this.lbSignIn_MouseHover);
             // 
             // lbYou
             // 
@@ -335,7 +427,7 @@
             // 
             this.lbWelcome.AutoSize = true;
             this.lbWelcome.ForeColor = System.Drawing.Color.White;
-            this.lbWelcome.Location = new System.Drawing.Point(722, 52);
+            this.lbWelcome.Location = new System.Drawing.Point(718, 52);
             this.lbWelcome.Name = "lbWelcome";
             this.lbWelcome.Size = new System.Drawing.Size(85, 21);
             this.lbWelcome.TabIndex = 2;
@@ -375,6 +467,30 @@
             this.pBUp.TabStop = false;
             this.pBUp.Click += new System.EventHandler(this.pBUp_Click);
             // 
+            // pbSingOut1
+            // 
+            this.pbSingOut1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbSingOut1.Image = ((System.Drawing.Image)(resources.GetObject("pbSingOut1.Image")));
+            this.pbSingOut1.Location = new System.Drawing.Point(888, 52);
+            this.pbSingOut1.Name = "pbSingOut1";
+            this.pbSingOut1.Size = new System.Drawing.Size(21, 21);
+            this.pbSingOut1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSingOut1.TabIndex = 5;
+            this.pbSingOut1.TabStop = false;
+            this.pbSingOut1.Click += new System.EventHandler(this.lbSignIn_Click);
+            // 
+            // pbSingin1
+            // 
+            this.pbSingin1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbSingin1.Image = ((System.Drawing.Image)(resources.GetObject("pbSingin1.Image")));
+            this.pbSingin1.Location = new System.Drawing.Point(888, 52);
+            this.pbSingin1.Name = "pbSingin1";
+            this.pbSingin1.Size = new System.Drawing.Size(21, 21);
+            this.pbSingin1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSingin1.TabIndex = 4;
+            this.pbSingin1.TabStop = false;
+            this.pbSingin1.Click += new System.EventHandler(this.lbSignIn_Click);
+            // 
             // pnlUserController
             // 
             this.pnlUserController.BackColor = System.Drawing.Color.White;
@@ -383,120 +499,6 @@
             this.pnlUserController.Size = new System.Drawing.Size(1070, 559);
             this.pnlUserController.TabIndex = 3;
             this.pnlUserController.Click += new System.EventHandler(this.pnlUserController_Click);
-            // 
-            // pbSingin
-            // 
-            this.pbSingin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbSingin.Image = ((System.Drawing.Image)(resources.GetObject("pbSingin.Image")));
-            this.pbSingin.Location = new System.Drawing.Point(888, 52);
-            this.pbSingin.Name = "pbSingin";
-            this.pbSingin.Size = new System.Drawing.Size(21, 21);
-            this.pbSingin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbSingin.TabIndex = 4;
-            this.pbSingin.TabStop = false;
-            this.pbSingin.Click += new System.EventHandler(this.lbSignIn_Click);
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(19, 28);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 4;
-            this.pictureBox9.TabStop = false;
-            this.pictureBox9.Click += new System.EventHandler(this.lbSignIn_Click);
-            this.pictureBox9.MouseLeave += new System.EventHandler(this.lbSigninOut_MouseLeave);
-            this.pictureBox9.MouseHover += new System.EventHandler(this.lbSigninOut_MouseHover);
-            // 
-            // pnlMenu
-            // 
-            this.pnlMenu.Controls.Add(this.pBthree);
-            this.pnlMenu.Controls.Add(this.pBCancel);
-            this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMenu.Location = new System.Drawing.Point(0, 0);
-            this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(177, 103);
-            this.pnlMenu.TabIndex = 0;
-            // 
-            // pnlInstall
-            // 
-            this.pnlInstall.Controls.Add(this.pictureBox5);
-            this.pnlInstall.Controls.Add(this.txt_Install);
-            this.pnlInstall.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnlInstall.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlInstall.Location = new System.Drawing.Point(0, 103);
-            this.pnlInstall.Name = "pnlInstall";
-            this.pnlInstall.Size = new System.Drawing.Size(177, 81);
-            this.pnlInstall.TabIndex = 1;
-            this.pnlInstall.Click += new System.EventHandler(this.txt_Install_Click);
-            this.pnlInstall.MouseLeave += new System.EventHandler(this.txt_Install_MouseLeave);
-            this.pnlInstall.MouseHover += new System.EventHandler(this.txt_Install_MouseHover);
-            // 
-            // pnlHelp
-            // 
-            this.pnlHelp.Controls.Add(this.pictureBox3);
-            this.pnlHelp.Controls.Add(this.lbHelp);
-            this.pnlHelp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHelp.Location = new System.Drawing.Point(0, 184);
-            this.pnlHelp.Name = "pnlHelp";
-            this.pnlHelp.Size = new System.Drawing.Size(177, 81);
-            this.pnlHelp.TabIndex = 1;
-            this.pnlHelp.Click += new System.EventHandler(this.lbHelp_Click);
-            this.pnlHelp.MouseLeave += new System.EventHandler(this.lbHelp_MouseLeave);
-            this.pnlHelp.MouseHover += new System.EventHandler(this.lbHelp_MouseHover);
-            // 
-            // pnlAbout
-            // 
-            this.pnlAbout.Controls.Add(this.pictureBox6);
-            this.pnlAbout.Controls.Add(this.lbAbout);
-            this.pnlAbout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlAbout.Location = new System.Drawing.Point(0, 265);
-            this.pnlAbout.Name = "pnlAbout";
-            this.pnlAbout.Size = new System.Drawing.Size(177, 81);
-            this.pnlAbout.TabIndex = 1;
-            this.pnlAbout.Click += new System.EventHandler(this.lbAbout_Click);
-            this.pnlAbout.MouseLeave += new System.EventHandler(this.lbAbout_MouseLeave);
-            this.pnlAbout.MouseHover += new System.EventHandler(this.lbAbout_MouseHover);
-            // 
-            // pnlsinginout
-            // 
-            this.pnlsinginout.Controls.Add(this.lbSigninOut);
-            this.pnlsinginout.Controls.Add(this.pictureBox9);
-            this.pnlsinginout.Controls.Add(this.pictureBox2);
-            this.pnlsinginout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlsinginout.Location = new System.Drawing.Point(0, 346);
-            this.pnlsinginout.Name = "pnlsinginout";
-            this.pnlsinginout.Size = new System.Drawing.Size(177, 81);
-            this.pnlsinginout.TabIndex = 1;
-            this.pnlsinginout.Click += new System.EventHandler(this.lbSignIn_Click);
-            this.pnlsinginout.MouseLeave += new System.EventHandler(this.lbSigninOut_MouseLeave);
-            this.pnlsinginout.MouseHover += new System.EventHandler(this.lbSigninOut_MouseHover);
-            // 
-            // pnlExit
-            // 
-            this.pnlExit.Controls.Add(this.pictureBox4);
-            this.pnlExit.Controls.Add(this.lbexit);
-            this.pnlExit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlExit.Location = new System.Drawing.Point(0, 427);
-            this.pnlExit.Name = "pnlExit";
-            this.pnlExit.Size = new System.Drawing.Size(177, 81);
-            this.pnlExit.TabIndex = 1;
-            this.pnlExit.Click += new System.EventHandler(this.lbexit_Click);
-            this.pnlExit.MouseLeave += new System.EventHandler(this.lbexit_MouseLeave);
-            this.pnlExit.MouseHover += new System.EventHandler(this.lbexit_MouseHover);
-            // 
-            // pbSingOut
-            // 
-            this.pbSingOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbSingOut.Image = ((System.Drawing.Image)(resources.GetObject("pbSingOut.Image")));
-            this.pbSingOut.Location = new System.Drawing.Point(888, 52);
-            this.pbSingOut.Name = "pbSingOut";
-            this.pbSingOut.Size = new System.Drawing.Size(21, 21);
-            this.pbSingOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbSingOut.TabIndex = 5;
-            this.pbSingOut.TabStop = false;
             // 
             // Home
             // 
@@ -518,11 +520,22 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlMenuBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.pnlExit.ResumeLayout(false);
+            this.pnlExit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.pnlsinginout.ResumeLayout(false);
+            this.pnlsinginout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSingOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSingin)).EndInit();
+            this.pnlAbout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.pnlHelp.ResumeLayout(false);
+            this.pnlHelp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnlInstall.ResumeLayout(false);
+            this.pnlInstall.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.pnlMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBthree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBCancel)).EndInit();
             this.pnlTop.ResumeLayout(false);
@@ -531,19 +544,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBUp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSingin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            this.pnlMenu.ResumeLayout(false);
-            this.pnlInstall.ResumeLayout(false);
-            this.pnlInstall.PerformLayout();
-            this.pnlHelp.ResumeLayout(false);
-            this.pnlHelp.PerformLayout();
-            this.pnlAbout.ResumeLayout(false);
-            this.pnlsinginout.ResumeLayout(false);
-            this.pnlsinginout.PerformLayout();
-            this.pnlExit.ResumeLayout(false);
-            this.pnlExit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSingOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSingOut1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSingin1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -556,7 +558,7 @@
         private System.Windows.Forms.Panel pnlUserController;
         private System.Windows.Forms.PictureBox pBthree;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pbSingin;
         private System.Windows.Forms.Label lbexit;
         private System.Windows.Forms.Label lbHelp;
         private System.Windows.Forms.Label lbSigninOut;
@@ -568,20 +570,20 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label lbYou;
         private System.Windows.Forms.Label lbWelcome;
-        private System.Windows.Forms.Label lbSignIn;
+        private System.Windows.Forms.Label lbSigninOut1;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pBDown;
         private System.Windows.Forms.PictureBox pBUp;
         private System.Windows.Forms.Panel pnlExit;
         private System.Windows.Forms.Panel pnlsinginout;
-        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pbSingOut;
         private System.Windows.Forms.Panel pnlAbout;
         private System.Windows.Forms.Panel pnlHelp;
         private System.Windows.Forms.Panel pnlInstall;
         private System.Windows.Forms.Panel pnlMenu;
-        private System.Windows.Forms.PictureBox pbSingin;
-        private System.Windows.Forms.PictureBox pbSingOut;
+        private System.Windows.Forms.PictureBox pbSingin1;
+        private System.Windows.Forms.PictureBox pbSingOut1;
     }
 }
 

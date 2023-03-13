@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace RPSmartHome
@@ -27,8 +28,115 @@ namespace RPSmartHome
 
         MySqlConnection conn = new MySqlConnection($"SERVER={server};DATABASE={database};UID={user};PASSWORD={pass};");
 
-        //Add roomName to DB
+        #region Login
 
+        LoginRegs LoginRegs = new LoginRegs();
+
+        public static string userNameDb { get; set; }
+        public static int passwordDb { get; set; }
+        public static int loginId { get; set; }
+        public static string personName { get; set; }
+
+        public void logIn()
+        {
+            string query = "rpsmarthome.logIn;";
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$userName", LoginRegs.userName);
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    loginId = reader.GetInt32(0);
+                    userNameDb = reader.GetString(1);
+                    passwordDb = reader.GetInt32(2);
+
+                }
+            }
+            conn.Close(); ;
+        }
+
+
+        public void person()
+        {
+            string query = "rpsmarthome.getPerson;";
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$loginId", loginId);
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    personName = reader.GetString(1);
+
+                }
+            }
+            conn.Close(); ;
+        }
+
+        #endregion
+
+        #region Register
+
+        public static int duplicateUsrname { get; set; }
+        public void Register()
+        {
+            string query = "rpsmarthome.Register;";
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$fullName", LoginRegs.fullName);
+            cmd.Parameters.AddWithValue("$userName", LoginRegs.userNameRg);
+            cmd.Parameters.AddWithValue("$pass", Convert.ToInt32(LoginRegs.passwordRg));
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    DuplicateRoom = reader.GetInt32(0);
+
+                }
+            }
+            conn.Close(); ;
+        }
+
+
+        public void checkDuplicateUsername()
+        {
+            string query = "rpsmarthome.checkDuplicateUsername;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$userName", LoginRegs.userNameRg);
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    duplicateUsrname = reader.GetInt32(0);
+
+                }
+            }
+            conn.Close(); ;
+        }
+
+        #endregion
+
+        #region rooms and devices
+        //Add roomName to DB
         public static string roomId { get; set; }
         public static int DuplicateRoom { get; set; }
         
@@ -282,5 +390,7 @@ namespace RPSmartHome
 
             conn.Close();
         }
+
+        #endregion
     }
 }
