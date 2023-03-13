@@ -31,7 +31,7 @@ namespace RPSmartHome
         {
             InitializeComponent();
             timer1.Start();
-            lbRoomNmae.Text = "Dashboard";
+            lbRoomName.Text = "Dashboard";
             if (flowLayoutPanel1.Controls.Count < 0)
             {
                 button1.Visible = false;
@@ -99,7 +99,7 @@ namespace RPSmartHome
                         FlowLayoutPanel parentPanel = this.flowLayoutPanel1;
                         Panel newPanel = new Panel();
                         newPanel.Location = new Point(Left2, Top2);
-                        newPanel.Size = new Size(117, 81);
+                        newPanel.Size = new Size(200, 144);
                         newPanel.BackColor = Color.FromArgb(60, 75, 109);
                         newPanel.Name = roomName;
                         parentPanel.Controls.Add(newPanel);
@@ -108,20 +108,33 @@ namespace RPSmartHome
                         //Label
 
                         Label label = new Label();
-                        label.Location = new Point(8, 4);
-                        label.Size = new Size(114, 23);
+                        label.Location = new Point(40, 4);
+                        label.Size = new Size(140, 30);
                         label.Text = room;
                         label.Name = room;
+                        label.Font = new Font("Times New Roman", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
                         label.ForeColor = Color.White;
                         label.Cursor = Cursors.Hand;
                         label.Click += new EventHandler(label_Click);
                         newPanel.Controls.Add(label);
 
+                        Label label1 = new Label();
+                        label1.Location = new Point(20, 70);
+                        label1.Size = new Size(60, 30);
+                        label1.Name = "ONorOFF " + room;
+                        label1.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                        label1.ForeColor = Color.White;
+                        label1.Cursor = Cursors.Hand;
+                        label1.Click += new EventHandler(label_Click);
+                        newPanel.Controls.Add(label1);
+
+
+
                         // On and Off 
 
                         PictureBox pictureBox = new PictureBox();
-                        pictureBox.Location = new Point(30, 35);
-                        pictureBox.Size = new Size(50, 44);
+                        pictureBox.Location = new Point(100, 55);
+                        pictureBox.Size = new Size(60, 54);
                         pictureBox.Name = room + " Room";
                         pictureBox.Image = imageList1.Images[0];
                         pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -130,8 +143,8 @@ namespace RPSmartHome
                         newPanel.Controls.Add(pictureBox);
 
                         PictureBox pictureBox1 = new PictureBox();
-                        pictureBox1.Location = new Point(30, 35);
-                        pictureBox1.Size = new Size(50, 44);
+                        pictureBox1.Location = new Point(100, 55);
+                        pictureBox1.Size = new Size(60, 54);
                         pictureBox1.Name = room + " Room";
                         pictureBox1.Image = imageList1.Images[1];
                         pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -157,10 +170,12 @@ namespace RPSmartHome
                                 if (Status == "ON")
                                 {
                                     pictureBox1.BringToFront();
+                                    label1.Text = Status;
                                 }
                                 else if (Status == "OFF")
                                 {
                                     pictureBox.BringToFront();
+                                    label1.Text = Status;
                                 }
                                 count1--;
                             }
@@ -200,7 +215,7 @@ namespace RPSmartHome
                     FlowLayoutPanel parentPanel = this.flowLayoutPanel1;
                     Panel newPanel = new Panel();
                     newPanel.Location = new Point(Left, Top);
-                    newPanel.Size = new Size(117, 81);
+                    newPanel.Size = new Size(200, 144);
                     newPanel.BackColor = Color.FromArgb(60, 75, 109);
                     newPanel.Name = NewroomOrDevice.deviceName;
                     parentPanel.Controls.Add(newPanel);
@@ -209,20 +224,21 @@ namespace RPSmartHome
                     //Label
 
                     Label label = new Label();
-                    label.Location = new Point(8, 4);
-                    label.Size = new Size(114, 23);
+                    label.Location = new Point(40, 4);
+                    label.Size = new Size(140, 30);
                     label.Text = NewroomOrDevice.roomName;
                     label.Name = NewroomOrDevice.roomName;
                     label.ForeColor = Color.White;
                     label.Cursor = Cursors.Hand;
+                    label.Font = new Font("Times New Roman", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
                     label.Click += new EventHandler(label_Click);
                     newPanel.Controls.Add(label);
 
                     // On and Off 
 
                     PictureBox pictureBox = new PictureBox();
-                    pictureBox.Location = new Point(30, 35);
-                    pictureBox.Size = new Size(50, 44);
+                    pictureBox.Location = new Point(100, 55);
+                    pictureBox.Size = new Size(60, 54);
                     pictureBox.Name = NewroomOrDevice.roomName + " Room";
                     pictureBox.Image = imageList1.Images[0];
                     pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -231,8 +247,8 @@ namespace RPSmartHome
                     newPanel.Controls.Add(pictureBox);
 
                     PictureBox pictureBox1 = new PictureBox();
-                    pictureBox1.Location = new Point(30, 35);
-                    pictureBox1.Size = new Size(50, 44);
+                    pictureBox1.Location = new Point(100, 55);
+                    pictureBox1.Size = new Size(60, 54);
                     pictureBox1.Name = NewroomOrDevice.roomName + " Room";
                     pictureBox1.Image = imageList1.Images[1];
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -358,11 +374,15 @@ namespace RPSmartHome
             // Get the clicked PictureBox control
             PictureBox clickedPictureBox = (PictureBox)sender;
 
+            
+
             // Hide the clicked PictureBox control
             clickedPictureBox.SendToBack();
 
-            //If all room or a device turns on
 
+            
+
+            //If all room or a device turns on
 
             string[] words = clickedPictureBox.Name.Split(' ');
 
@@ -371,7 +391,11 @@ namespace RPSmartHome
 
                 roomStatus = "ON";
                 roomName = words[0];
-                
+
+
+                Label label1 = (Label)this.Controls.Find("ONorOFF " + roomName, true)[0];
+                label1.Text = "ON";
+
                 dbHelper dbHelper = new dbHelper();
 
                 dbHelper.getRoomId();
@@ -408,6 +432,9 @@ namespace RPSmartHome
             {
                 roomStatus = "OFF";
                 roomName = words[0];
+
+                Label label1 = (Label)this.Controls.Find("ONorOFF " + roomName, true)[0];
+                label1.Text = "OFF";
 
                 dbHelper.getRoomId();
                 dbHelper.setRoomStatus();

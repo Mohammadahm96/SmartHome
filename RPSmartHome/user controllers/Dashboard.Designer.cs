@@ -44,7 +44,7 @@
             this.pBoff = new System.Windows.Forms.PictureBox();
             this.btnAddRoom = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lbRoomNmae = new System.Windows.Forms.Label();
+            this.lbRoomName = new System.Windows.Forms.Label();
             this.pnlRooms = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -211,16 +211,16 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // lbRoomNmae
+            // lbRoomName
             // 
-            this.lbRoomNmae.AutoSize = true;
-            this.lbRoomNmae.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRoomNmae.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            this.lbRoomNmae.Location = new System.Drawing.Point(-2, 0);
-            this.lbRoomNmae.Name = "lbRoomNmae";
-            this.lbRoomNmae.Size = new System.Drawing.Size(128, 27);
-            this.lbRoomNmae.TabIndex = 4;
-            this.lbRoomNmae.Text = "Room name";
+            this.lbRoomName.AutoSize = true;
+            this.lbRoomName.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRoomName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.lbRoomName.Location = new System.Drawing.Point(-2, 0);
+            this.lbRoomName.Name = "lbRoomName";
+            this.lbRoomName.Size = new System.Drawing.Size(128, 27);
+            this.lbRoomName.TabIndex = 4;
+            this.lbRoomName.Text = "Room name";
             // 
             // pnlRooms
             // 
@@ -294,7 +294,7 @@
             this.Controls.Add(this.lbDay);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbClockan);
-            this.Controls.Add(this.lbRoomNmae);
+            this.Controls.Add(this.lbRoomName);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pnlRooms);
             this.Controls.Add(this.btnAddRoom);
@@ -333,7 +333,7 @@
         private System.Windows.Forms.PictureBox pBoff;
         private System.Windows.Forms.PictureBox pBon;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label lbRoomNmae;
+        private System.Windows.Forms.Label lbRoomName;
         private System.Windows.Forms.Panel pnlRooms;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
