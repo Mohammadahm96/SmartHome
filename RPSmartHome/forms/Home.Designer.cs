@@ -364,8 +364,8 @@
             this.pnlTop.Controls.Add(this.pictureBox1);
             this.pnlTop.Controls.Add(this.pBDown);
             this.pnlTop.Controls.Add(this.pBUp);
-            this.pnlTop.Controls.Add(this.pbSingOut1);
             this.pnlTop.Controls.Add(this.pbSingin1);
+            this.pnlTop.Controls.Add(this.pbSingOut1);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
