@@ -251,14 +251,67 @@ namespace RPSmartHome
         
         private async void btnAddRoom_Click(object sender, EventArgs e)
         {
-            createRoom();
+            if (string.IsNullOrEmpty(dbHelper.personName))
+            {
+                LoginRegs loginRegs = new LoginRegs();
+                loginRegs.ShowDialog();
+                if (!string.IsNullOrEmpty(dbHelper.personName))
+                {
+                    createRoom();
+
+                }
+                else
+                {
+
+                }
+
+            }
+            else
+            {
+                createRoom();
+
+            }
+            
         }
 
         private bool deleteRoom = false;
 
         private void btnDeleteRoom_Click(object sender, EventArgs e)
         {
-            deleteRoom = true;
+            if (string.IsNullOrEmpty(dbHelper.personName))
+            {
+                LoginRegs loginRegs = new LoginRegs();
+                loginRegs.ShowDialog();
+                if (!string.IsNullOrEmpty(dbHelper.personName))
+                {
+                    deleteRoom = true;
+                    Button clickedButton = sender as Button;
+                    clickedButton.SendToBack();
+                    NewroomOrDevice.roomOrDevice = "Room";
+
+                    foreach (Control ctrl in flowLayoutPanel1.Controls)
+                    {
+                        if (ctrl is Panel panel)
+                        {
+                            // Add the MouseEnter event handler to the panel
+                            panel.BackColor = Color.FromArgb(122, 0, 0);
+                            panel.Click += Panel_Click;
+
+
+
+                        }
+                    }
+
+                }
+                else
+                {
+
+                }
+
+            }
+            else
+            {
+             deleteRoom = true;
             Button clickedButton = sender as Button;
             clickedButton.SendToBack();
             NewroomOrDevice.roomOrDevice = "Room";
@@ -275,6 +328,10 @@ namespace RPSmartHome
 
                 }
             }
+
+            }
+
+            
 
         }
 
@@ -568,71 +625,156 @@ namespace RPSmartHome
 
         private void btnAddDevice_Click(object sender, EventArgs e)
         {
-            NewroomOrDevice newroomOrDevice = new NewroomOrDevice();
-            newroomOrDevice.ShowDialog();
-
-            if(string.IsNullOrEmpty(NewroomOrDevice.deviceName))
+            if (string.IsNullOrEmpty(dbHelper.personName))
             {
-                MessageBox.Show("No device was added in this room");
+                LoginRegs loginRegs = new LoginRegs();
+                loginRegs.ShowDialog();
+                if (!string.IsNullOrEmpty(dbHelper.personName))
+                {
+                    NewroomOrDevice newroomOrDevice = new NewroomOrDevice();
+                    newroomOrDevice.ShowDialog();
+
+                    if (string.IsNullOrEmpty(NewroomOrDevice.deviceName))
+                    {
+                        MessageBox.Show("No device was added in this room");
+                    }
+                    else
+                    {
+                        count1++;
+                        for (int i = 0; i < count1; i++)
+                        {
+
+
+                            //FlowLayoutPanel
+
+
+                            Panel newPanel = new Panel();
+                            newPanel.Location = new Point(Left1, Top1);
+                            newPanel.Size = new Size(120, 100);
+                            newPanel.BackColor = Color.FromArgb(60, 75, 109);
+                            newPanel.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, (0));
+                            newPanel.Name = NewroomOrDevice.deviceName;
+                            newPanel.Cursor = Cursors.Hand;
+                            newPanel.Click += new EventHandler(Panel_Click);
+                            _flowLayoutPanel.Controls.Add(newPanel);
+
+
+                            //Label
+
+                            Label label = new Label();
+                            label.Location = new Point(8, 4);
+                            label.Size = new Size(114, 23);
+                            label.Text = NewroomOrDevice.deviceName;
+                            label.Name = NewroomOrDevice.deviceName;
+                            label.ForeColor = Color.White;
+                            newPanel.Controls.Add(label);
+
+                            // On and Off 
+
+                            PictureBox pictureBox = new PictureBox();
+                            pictureBox.Location = new Point(30, 35);
+                            pictureBox.Size = new Size(50, 44);
+                            pictureBox.Name = deviceName + " Device";
+                            pictureBox.Image = imageList1.Images[0];
+                            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                            pictureBox.Click += new EventHandler(pictureBoxOn_Click);
+                            pictureBox.Cursor = Cursors.Hand;
+                            newPanel.Controls.Add(pictureBox);
+
+                            PictureBox pictureBox1 = new PictureBox();
+                            pictureBox1.Location = new Point(30, 35);
+                            pictureBox1.Size = new Size(50, 44);
+                            pictureBox1.Name = deviceName + " Device";
+                            pictureBox1.Image = imageList1.Images[1];
+                            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                            pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
+                            pictureBox1.Cursor = Cursors.Hand;
+                            newPanel.Controls.Add(pictureBox1);
+                            Left1 += 120;
+                            count1--;
+
+                        }
+
+                    }
+
+                }
+                else
+                {
+
+                }
+
             }
             else
             {
-                count1++;
-                for (int i = 0; i < count1; i++)
+                NewroomOrDevice newroomOrDevice = new NewroomOrDevice();
+                newroomOrDevice.ShowDialog();
+
+                if (string.IsNullOrEmpty(NewroomOrDevice.deviceName))
                 {
+                    MessageBox.Show("No device was added in this room");
+                }
+                else
+                {
+                    count1++;
+                    for (int i = 0; i < count1; i++)
+                    {
 
 
-                    //FlowLayoutPanel
+                        //FlowLayoutPanel
 
 
-                    Panel newPanel = new Panel();
-                    newPanel.Location = new Point(Left1, Top1);
-                    newPanel.Size = new Size(120, 100);
-                    newPanel.BackColor = Color.FromArgb(60, 75, 109);
-                    newPanel.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, (0));
-                    newPanel.Name = NewroomOrDevice.deviceName;
-                    newPanel.Cursor = Cursors.Hand;
-                    newPanel.Click += new EventHandler(Panel_Click);
-                    _flowLayoutPanel.Controls.Add(newPanel);
+                        Panel newPanel = new Panel();
+                        newPanel.Location = new Point(Left1, Top1);
+                        newPanel.Size = new Size(120, 100);
+                        newPanel.BackColor = Color.FromArgb(60, 75, 109);
+                        newPanel.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, (0));
+                        newPanel.Name = NewroomOrDevice.deviceName;
+                        newPanel.Cursor = Cursors.Hand;
+                        newPanel.Click += new EventHandler(Panel_Click);
+                        _flowLayoutPanel.Controls.Add(newPanel);
 
 
-                    //Label
+                        //Label
 
-                    Label label = new Label();
-                    label.Location = new Point(8, 4);
-                    label.Size = new Size(114, 23);
-                    label.Text = NewroomOrDevice.deviceName;
-                    label.Name = NewroomOrDevice.deviceName;
-                    label.ForeColor = Color.White;
-                    newPanel.Controls.Add(label);
+                        Label label = new Label();
+                        label.Location = new Point(8, 4);
+                        label.Size = new Size(114, 23);
+                        label.Text = NewroomOrDevice.deviceName;
+                        label.Name = NewroomOrDevice.deviceName;
+                        label.ForeColor = Color.White;
+                        newPanel.Controls.Add(label);
 
-                    // On and Off 
+                        // On and Off 
 
-                    PictureBox pictureBox = new PictureBox();
-                    pictureBox.Location = new Point(30, 35);
-                    pictureBox.Size = new Size(50, 44);
-                    pictureBox.Name = deviceName + " Device";
-                    pictureBox.Image = imageList1.Images[0];
-                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pictureBox.Click += new EventHandler(pictureBoxOn_Click);
-                    pictureBox.Cursor = Cursors.Hand;
-                    newPanel.Controls.Add(pictureBox);
+                        PictureBox pictureBox = new PictureBox();
+                        pictureBox.Location = new Point(30, 35);
+                        pictureBox.Size = new Size(50, 44);
+                        pictureBox.Name = deviceName + " Device";
+                        pictureBox.Image = imageList1.Images[0];
+                        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pictureBox.Click += new EventHandler(pictureBoxOn_Click);
+                        pictureBox.Cursor = Cursors.Hand;
+                        newPanel.Controls.Add(pictureBox);
 
-                    PictureBox pictureBox1 = new PictureBox();
-                    pictureBox1.Location = new Point(30, 35);
-                    pictureBox1.Size = new Size(50, 44);
-                    pictureBox1.Name = deviceName + " Device";
-                    pictureBox1.Image = imageList1.Images[1];
-                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
-                    pictureBox1.Cursor = Cursors.Hand;
-                    newPanel.Controls.Add(pictureBox1);
-                    Left1 += 120;
-                    count1--;
+                        PictureBox pictureBox1 = new PictureBox();
+                        pictureBox1.Location = new Point(30, 35);
+                        pictureBox1.Size = new Size(50, 44);
+                        pictureBox1.Name = deviceName + " Device";
+                        pictureBox1.Image = imageList1.Images[1];
+                        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
+                        pictureBox1.Cursor = Cursors.Hand;
+                        newPanel.Controls.Add(pictureBox1);
+                        Left1 += 120;
+                        count1--;
+
+                    }
 
                 }
-                
+
             }
+
+            
 
 
         }

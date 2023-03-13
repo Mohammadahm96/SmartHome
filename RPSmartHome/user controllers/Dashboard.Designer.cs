@@ -251,7 +251,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 29);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(753, 104);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(753, 164);
             this.flowLayoutPanel1.TabIndex = 4;
             this.flowLayoutPanel1.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanel1_ControlAdded);
             this.flowLayoutPanel1.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanel1_ControlRemoved);
@@ -261,7 +261,7 @@
             this.button1.BackColor = System.Drawing.Color.LightGray;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(3, 13);
+            this.button1.Location = new System.Drawing.Point(3, 73);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(747, 88);
             this.button1.TabIndex = 1;
@@ -272,9 +272,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(13, 139);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 211);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(725, 381);
+            this.pictureBox1.Size = new System.Drawing.Size(725, 309);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
