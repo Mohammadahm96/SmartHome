@@ -212,14 +212,16 @@ namespace RPSmartHome
 
         private void lbSignIn_Click(object sender, EventArgs e)
         {
+            MessageBox.Show($"{lbSigninOut1.Text}");
             if(lbSigninOut1.Text == "Sign in")
             {
                 LoginRegs loginRegs = new LoginRegs();
                 loginRegs.Show();
                 pBUp_Click(sender, e);
             }
-            else
+            else 
             {
+                MessageBox.Show($"{lbSigninOut1.Text}");
                 pbSingOut_Click(sender, e);
 
             }
