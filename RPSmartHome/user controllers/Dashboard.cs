@@ -731,7 +731,7 @@ namespace RPSmartHome
 
                             Panel newPanel = new Panel();
                             newPanel.Location = new Point(Left1, Top1);
-                            newPanel.Size = new Size(120, 100);
+                            newPanel.Size = new Size(150, 130);
                             newPanel.BackColor = Color.FromArgb(60, 75, 109);
                             newPanel.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, (0));
                             newPanel.Name = NewroomOrDevice.deviceName;
@@ -743,17 +743,30 @@ namespace RPSmartHome
                             //Label
 
                             Label label = new Label();
-                            label.Location = new Point(8, 4);
-                            label.Size = new Size(114, 23);
+                            label.Location = new Point(30, 4);
+                            label.Size = new Size(114, 30);
                             label.Text = NewroomOrDevice.deviceName;
                             label.Name = NewroomOrDevice.deviceName;
                             label.ForeColor = Color.White;
                             newPanel.Controls.Add(label);
 
+
+                            Label label2 = new Label();
+                            label2.Location = new Point(15, 65);
+                            label2.Size = new Size(50, 30);
+                            label2.Name = "ONorOFF " + NewroomOrDevice.deviceName;
+                            label2.Text = "OFF";
+                            label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                            label2.ForeColor = Color.White;
+                            label2.Cursor = Cursors.Hand;
+                            newPanel.Controls.Add(label2);
+
+
+
                             // On and Off 
 
                             PictureBox pictureBox = new PictureBox();
-                            pictureBox.Location = new Point(30, 35);
+                            pictureBox.Location = new Point(80, 55);
                             pictureBox.Size = new Size(50, 44);
                             pictureBox.Name = deviceName + " Device";
                             pictureBox.Image = imageList1.Images[0];
@@ -763,7 +776,7 @@ namespace RPSmartHome
                             newPanel.Controls.Add(pictureBox);
 
                             PictureBox pictureBox1 = new PictureBox();
-                            pictureBox1.Location = new Point(30, 35);
+                            pictureBox1.Location = new Point(80, 55);
                             pictureBox1.Size = new Size(50, 44);
                             pictureBox1.Name = deviceName + " Device";
                             pictureBox1.Image = imageList1.Images[1];
@@ -777,10 +790,6 @@ namespace RPSmartHome
                         }
 
                     }
-
-                }
-                else
-                {
 
                 }
 
@@ -818,12 +827,25 @@ namespace RPSmartHome
                         //Label
 
                         Label label = new Label();
-                        label.Location = new Point(8, 4);
-                        label.Size = new Size(114, 23);
+                        label.Location = new Point(30, 4);
+                        label.Size = new Size(114, 30);
                         label.Text = NewroomOrDevice.deviceName;
                         label.Name = NewroomOrDevice.deviceName;
                         label.ForeColor = Color.White;
                         newPanel.Controls.Add(label);
+
+
+                        Label label2 = new Label();
+                        label2.Location = new Point(15, 65);
+                        label2.Size = new Size(50, 30);
+                        label2.Name = "ONorOFF " + NewroomOrDevice.deviceName;
+                        label2.Text = "OFF";
+                        label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                        label2.ForeColor = Color.White;
+                        label2.Cursor = Cursors.Hand;
+                        newPanel.Controls.Add(label2);
+
+
 
                         // On and Off 
 
@@ -864,30 +886,38 @@ namespace RPSmartHome
 
         private void btnDeleteDeviceORRoom_Click(object sender, EventArgs e)
         {
-            dbHelper dbHelper = new dbHelper();
-            deleteDevice= true;
-            if (deleteRoom)
+            if (string.IsNullOrEmpty(NewroomOrDevice.deviceName))
             {
+                LoginRegs loginRegs = new LoginRegs();
+                loginRegs.ShowDialog();
 
-                dbHelper.deleteRoom();
-                Button clickedButton = sender as Button;
-                Form deleteDeviceOrRoomForm = clickedButton.Parent as Form;
-                deleteDeviceOrRoomForm.Close();
+                dbHelper dbHelper = new dbHelper();
+                deleteDevice = true;
+                if (deleteRoom)
+                {
+
+                    dbHelper.deleteRoom();
+                    Button clickedButton = sender as Button;
+                    Form deleteDeviceOrRoomForm = clickedButton.Parent as Form;
+                    deleteDeviceOrRoomForm.Close();
+
+                }
+                else if (deleteDevice)
+                {
+                    dbHelper.deleteDevice();
+
+                    Button clickedButton = sender as Button;
+                    Form deleteDeviceOrRoomForm = clickedButton.Parent as Form;
+                    deleteDeviceOrRoomForm.Close();
+
+
+                    MessageBox.Show($"The Device was deleted");
+
+                    clickedPanel.Parent.Controls.Remove(clickedPanel);
+                }
 
             }
-            else if (deleteDevice)
-            {
-                dbHelper.deleteDevice();
-
-                Button clickedButton = sender as Button;
-                Form deleteDeviceOrRoomForm = clickedButton.Parent as Form;
-                deleteDeviceOrRoomForm.Close();
-
-
-                MessageBox.Show($"The Device was deleted");
-
-                clickedPanel.Parent.Controls.Remove(clickedPanel);
-            }
+            
 
             
         }
@@ -902,68 +932,142 @@ namespace RPSmartHome
         private Panel clickedPanel;
         private void Panel_Click(object sender, EventArgs e)
         {
-            
-            clickedPanel = sender as Panel;
-            string Delete = clickedPanel.Name;
+            if (!string.IsNullOrEmpty(dbHelper.personName))
+            {
+                MessageBox.Show("panel");
+                
 
-            deleteRoomORDevice = Delete;
+                clickedPanel = sender as Panel;
+                string Delete = clickedPanel.Name;
 
-            deleteDeviceOrRoom deviceOrRoom = new deleteDeviceOrRoom(Delete);
-            clickedPanel.BackColor = Color.FromArgb(122, 0, 0);
+                deleteRoomORDevice = Delete;
 
-            Label label = new Label();
-            label.Location = new Point(60, 10);
-            label.Size = new Size(212, 46);
-            label.Text = "Device Name: " + deviceName;
-            label.Name = deviceName;
-            label.Font = new Font("Times New Roman", 20F, FontStyle.Regular, GraphicsUnit.Point, (0));
-            label.ForeColor = Color.Black;
-            deviceOrRoom.Controls.Add(label);
-            //Label
+                deleteDeviceOrRoom deviceOrRoom = new deleteDeviceOrRoom(Delete);
+                clickedPanel.BackColor = Color.FromArgb(122, 0, 0);
 
-            Label label1 = new Label();
-            label1.Location = new Point(20, 70);
-            label1.Size = new Size(350, 46);
-            label1.Text = "Are you sure to delete this device?";
-            label1.Name = deviceName;
-            label1.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, (0));
-            label1.ForeColor = Color.Black;
-            deviceOrRoom.Controls.Add(label1);
+                Label label = new Label();
+                label.Location = new Point(60, 10);
+                label.Size = new Size(212, 46);
+                label.Text = "Device Name: " + deviceName;
+                label.Name = deviceName;
+                label.Font = new Font("Times New Roman", 20F, FontStyle.Regular, GraphicsUnit.Point, (0));
+                label.ForeColor = Color.Black;
+                deviceOrRoom.Controls.Add(label);
+                //Label
 
-            //Delete device button
+                Label label1 = new Label();
+                label1.Location = new Point(20, 70);
+                label1.Size = new Size(350, 46);
+                label1.Text = "Are you sure to delete this device?";
+                label1.Name = deviceName;
+                label1.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, (0));
+                label1.ForeColor = Color.Black;
+                deviceOrRoom.Controls.Add(label1);
 
-            Button btnDeleteDevice = new Button();
+                //Delete device button
 
-            btnDeleteDevice.BackColor = Color.FromArgb(122, 0, 0);
-            btnDeleteDevice.Font = new Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnDeleteDevice.Cursor = Cursors.Hand;
-            btnDeleteDevice.ForeColor = Color.White;
-            btnDeleteDevice.Location = new Point(20, 140);
-            btnDeleteDevice.Name = "btnDeleteDevice";
-            btnDeleteDevice.Size = new Size(150, 51);
-            btnDeleteDevice.TabIndex = 2;
-            btnDeleteDevice.Text = "Delete";
-            btnDeleteDevice.BringToFront();
-            btnDeleteDevice.Click += new EventHandler(btnDeleteDeviceORRoom_Click);
-            deviceOrRoom.Controls.Add(btnDeleteDevice);
+                Button btnDeleteDevice = new Button();
 
-            Button btnCancel = new Button();
+                btnDeleteDevice.BackColor = Color.FromArgb(122, 0, 0);
+                btnDeleteDevice.Font = new Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnDeleteDevice.Cursor = Cursors.Hand;
+                btnDeleteDevice.ForeColor = Color.White;
+                btnDeleteDevice.Location = new Point(20, 140);
+                btnDeleteDevice.Name = "btnDeleteDevice";
+                btnDeleteDevice.Size = new Size(150, 51);
+                btnDeleteDevice.TabIndex = 2;
+                btnDeleteDevice.Text = "Delete";
+                btnDeleteDevice.BringToFront();
+                btnDeleteDevice.Click += new EventHandler(btnDeleteDeviceORRoom_Click);
+                deviceOrRoom.Controls.Add(btnDeleteDevice);
 
-            btnCancel.BackColor = Color.FromArgb(122, 0, 0);
-            btnCancel.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            btnCancel.Cursor = Cursors.Hand;
-            btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(200, 140);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(150, 51);
-            btnCancel.TabIndex = 2;
-            btnCancel.Text = "Cancel";
-            btnCancel.Click += new EventHandler(btnCancel_Click);
-            deviceOrRoom.Controls.Add(btnCancel);
+                Button btnCancel = new Button();
 
-            deviceOrRoom.Show();
+                btnCancel.BackColor = Color.FromArgb(122, 0, 0);
+                btnCancel.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                btnCancel.Cursor = Cursors.Hand;
+                btnCancel.ForeColor = Color.White;
+                btnCancel.Location = new Point(200, 140);
+                btnCancel.Name = "btnCancel";
+                btnCancel.Size = new Size(150, 51);
+                btnCancel.TabIndex = 2;
+                btnCancel.Text = "Cancel";
+                btnCancel.Click += new EventHandler(btnCancel_Click);
+                deviceOrRoom.Controls.Add(btnCancel);
 
-            
+                deviceOrRoom.Show();
+
+
+            }
+            else
+            {
+                LoginRegs loginRegs = new LoginRegs();
+                loginRegs.ShowDialog();
+
+                clickedPanel = sender as Panel;
+                string Delete = clickedPanel.Name;
+
+                deleteRoomORDevice = Delete;
+
+                deleteDeviceOrRoom deviceOrRoom = new deleteDeviceOrRoom(Delete);
+                clickedPanel.BackColor = Color.FromArgb(122, 0, 0);
+
+                Label label = new Label();
+                label.Location = new Point(60, 10);
+                label.Size = new Size(212, 46);
+                label.Text = "Device Name: " + deviceName;
+                label.Name = deviceName;
+                label.Font = new Font("Times New Roman", 20F, FontStyle.Regular, GraphicsUnit.Point, (0));
+                label.ForeColor = Color.Black;
+                deviceOrRoom.Controls.Add(label);
+                //Label
+
+                Label label1 = new Label();
+                label1.Location = new Point(20, 70);
+                label1.Size = new Size(350, 46);
+                label1.Text = "Are you sure to delete this device?";
+                label1.Name = deviceName;
+                label1.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, (0));
+                label1.ForeColor = Color.Black;
+                deviceOrRoom.Controls.Add(label1);
+
+                //Delete device button
+
+                Button btnDeleteDevice = new Button();
+
+                btnDeleteDevice.BackColor = Color.FromArgb(122, 0, 0);
+                btnDeleteDevice.Font = new Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnDeleteDevice.Cursor = Cursors.Hand;
+                btnDeleteDevice.ForeColor = Color.White;
+                btnDeleteDevice.Location = new Point(20, 140);
+                btnDeleteDevice.Name = "btnDeleteDevice";
+                btnDeleteDevice.Size = new Size(150, 51);
+                btnDeleteDevice.TabIndex = 2;
+                btnDeleteDevice.Text = "Delete";
+                btnDeleteDevice.BringToFront();
+                btnDeleteDevice.Click += new EventHandler(btnDeleteDeviceORRoom_Click);
+                deviceOrRoom.Controls.Add(btnDeleteDevice);
+
+                Button btnCancel = new Button();
+
+                btnCancel.BackColor = Color.FromArgb(122, 0, 0);
+                btnCancel.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                btnCancel.Cursor = Cursors.Hand;
+                btnCancel.ForeColor = Color.White;
+                btnCancel.Location = new Point(200, 140);
+                btnCancel.Name = "btnCancel";
+                btnCancel.Size = new Size(150, 51);
+                btnCancel.TabIndex = 2;
+                btnCancel.Text = "Cancel";
+                btnCancel.Click += new EventHandler(btnCancel_Click);
+                deviceOrRoom.Controls.Add(btnCancel);
+
+                deviceOrRoom.Show();
+
+            }
+
+
+
 
         }
 
