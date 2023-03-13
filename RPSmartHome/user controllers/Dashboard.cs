@@ -393,8 +393,8 @@ namespace RPSmartHome
                 roomName = words[0];
 
 
-                Label label1 = (Label)this.Controls.Find("ONorOFF " + roomName, true)[0];
-                label1.Text = "ON";
+                Label label = (Label)this.Controls.Find("ONorOFF " + roomName, true)[0];
+                label.Text = "ON";
 
                 dbHelper dbHelper = new dbHelper();
 
@@ -406,6 +406,10 @@ namespace RPSmartHome
             {
                 devicesStatus = "ON";
                 deviceName = words[0];
+                Label label2 = (Label)_flowLayoutPanel.Controls.Find("ONorOFF " + deviceName, true)[0];
+                label2.Text = "ON";
+
+
                 dbHelper dbHelper = new dbHelper();
                 dbHelper.setDeviceStatus();
 
@@ -433,8 +437,11 @@ namespace RPSmartHome
                 roomStatus = "OFF";
                 roomName = words[0];
 
-                Label label1 = (Label)this.Controls.Find("ONorOFF " + roomName, true)[0];
-                label1.Text = "OFF";
+                roomName = words[0];
+
+
+                Label label = (Label)this.Controls.Find("ONorOFF " + roomName, true)[0];
+                label.Text = "OFF";
 
                 dbHelper.getRoomId();
                 dbHelper.setRoomStatus();
@@ -443,6 +450,10 @@ namespace RPSmartHome
             {
                 devicesStatus = "OFF";
                 deviceName = words[0];
+
+                Label label2 = (Label)_flowLayoutPanel.Controls.Find("ONorOFF " + deviceName, true)[0];
+                label2.Text = "OFF";
+
                 dbHelper.setDeviceStatus();
             }
         }
@@ -536,6 +547,9 @@ namespace RPSmartHome
             label.Cursor = Cursors.Hand;
             roomForm.Controls.Add(label);
 
+
+
+
             dbHelper dbHelper = new dbHelper();
 
             dbHelper.getRoomId();
@@ -562,9 +576,9 @@ namespace RPSmartHome
 
                         Panel newPanel = new Panel();
                         newPanel.Location = new Point(Left1, Top1);
-                        newPanel.Size = new Size(120, 100);
+                        newPanel.Size = new Size(150, 130);
                         newPanel.BackColor = Color.FromArgb(60, 75, 109);
-                        newPanel.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, (0));
+                        newPanel.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, (0));
                         newPanel.Name = device;
                         newPanel.Cursor= Cursors.Hand;
                         newPanel.Click += new EventHandler(Panel_Click);
@@ -574,18 +588,28 @@ namespace RPSmartHome
                         //Label
 
                         Label label1 = new Label();
-                        label1.Location = new Point(8, 4);
-                        label1.Size = new Size(114, 23);
+                        label1.Location = new Point(30, 4);
+                        label1.Size = new Size(114, 30);
                         label1.Text = device;
                         label1.Name = device;
                         label1.ForeColor = Color.White;
                         label1.Cursor = Cursors.Hand;
                         newPanel.Controls.Add(label1);
 
+                        Label label2 = new Label();
+                        label2.Location = new Point(15, 65);
+                        label2.Size = new Size(50, 30);
+                        label2.Name = "ONorOFF " + device;
+                        label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                        label2.ForeColor = Color.White;
+                        label2.Cursor = Cursors.Hand;
+                        newPanel.Controls.Add(label2);
+
+
                         // On and Off 
 
                         PictureBox pictureBox = new PictureBox();
-                        pictureBox.Location = new Point(30, 35);
+                        pictureBox.Location = new Point(60, 55);
                         pictureBox.Size = new Size(50, 44);
                         pictureBox.Name = device + " Device";
                         pictureBox.Image = imageList1.Images[0];
@@ -595,7 +619,7 @@ namespace RPSmartHome
                         newPanel.Controls.Add(pictureBox);
 
                         PictureBox pictureBox1 = new PictureBox();
-                        pictureBox1.Location = new Point(30, 35);
+                        pictureBox1.Location = new Point(60, 55);
                         pictureBox1.Size = new Size(50, 44);
                         pictureBox1.Name = device + " Device";
                         pictureBox1.Image = imageList1.Images[1];
@@ -623,10 +647,12 @@ namespace RPSmartHome
                                 if (Status == "ON")
                                 {
                                     pictureBox1.BringToFront();
+                                    label2.Text = Status;
                                 }
                                 else if (Status == "OFF")
                                 {
                                     pictureBox.BringToFront();
+                                    label2.Text = Status;
                                 }
                                 count1--;
                             }
