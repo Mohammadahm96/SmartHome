@@ -95,12 +95,12 @@ namespace RPSmartHome
 
 
                         roomName = room;
+
                         //Panel
                         FlowLayoutPanel parentPanel = this.flowLayoutPanel1;
                         Panel newPanel = new Panel();
                         newPanel.Location = new Point(Left2, Top2);
                         newPanel.Size = new Size(200, 144);
-                        newPanel.BackColor = Color.FromArgb(60, 75, 109);
                         newPanel.Name = roomName;
                         parentPanel.Controls.Add(newPanel);
 
@@ -171,11 +171,15 @@ namespace RPSmartHome
                                 {
                                     pictureBox1.BringToFront();
                                     label1.Text = Status;
+
+                                    newPanel.BackColor = Color.FromArgb(0, 150, 80);
                                 }
                                 else if (Status == "OFF")
                                 {
                                     pictureBox.BringToFront();
                                     label1.Text = Status;
+
+                                    newPanel.BackColor = Color.FromArgb(60, 75, 109);
                                 }
                                 count1--;
                             }
@@ -396,6 +400,11 @@ namespace RPSmartHome
                 Label label = (Label)this.Controls.Find("ONorOFF " + roomName, true)[0];
                 label.Text = "ON";
 
+
+                Panel panel = (Panel)this.Controls.Find(roomName, true)[0];
+
+                panel.BackColor = Color.FromArgb(0, 150, 80);
+
                 dbHelper dbHelper = new dbHelper();
 
                 dbHelper.getRoomId();
@@ -408,6 +417,11 @@ namespace RPSmartHome
                 deviceName = words[0];
                 Label label2 = (Label)_flowLayoutPanel.Controls.Find("ONorOFF " + deviceName, true)[0];
                 label2.Text = "ON";
+
+
+                Panel panel = (Panel)_flowLayoutPanel.Controls.Find(deviceName, true)[0];
+
+                panel.BackColor = Color.FromArgb(0, 150, 80);
 
 
                 dbHelper dbHelper = new dbHelper();
@@ -443,6 +457,12 @@ namespace RPSmartHome
                 Label label = (Label)this.Controls.Find("ONorOFF " + roomName, true)[0];
                 label.Text = "OFF";
 
+
+                Panel panel = (Panel)this.Controls.Find(roomName, true)[0];
+
+                panel.BackColor = Color.FromArgb(60, 75, 109);
+
+
                 dbHelper.getRoomId();
                 dbHelper.setRoomStatus();
             }
@@ -453,6 +473,13 @@ namespace RPSmartHome
 
                 Label label2 = (Label)_flowLayoutPanel.Controls.Find("ONorOFF " + deviceName, true)[0];
                 label2.Text = "OFF";
+
+
+                Panel panel = (Panel)_flowLayoutPanel.Controls.Find(deviceName, true)[0];
+
+                panel.BackColor = Color.FromArgb(60, 75, 109);
+
+
 
                 dbHelper.setDeviceStatus();
             }
@@ -577,7 +604,6 @@ namespace RPSmartHome
                         Panel newPanel = new Panel();
                         newPanel.Location = new Point(Left1, Top1);
                         newPanel.Size = new Size(150, 130);
-                        newPanel.BackColor = Color.FromArgb(60, 75, 109);
                         newPanel.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, (0));
                         newPanel.Name = device;
                         newPanel.Cursor= Cursors.Hand;
@@ -609,7 +635,7 @@ namespace RPSmartHome
                         // On and Off 
 
                         PictureBox pictureBox = new PictureBox();
-                        pictureBox.Location = new Point(60, 55);
+                        pictureBox.Location = new Point(80, 55);
                         pictureBox.Size = new Size(50, 44);
                         pictureBox.Name = device + " Device";
                         pictureBox.Image = imageList1.Images[0];
@@ -619,7 +645,7 @@ namespace RPSmartHome
                         newPanel.Controls.Add(pictureBox);
 
                         PictureBox pictureBox1 = new PictureBox();
-                        pictureBox1.Location = new Point(60, 55);
+                        pictureBox1.Location = new Point(80, 55);
                         pictureBox1.Size = new Size(50, 44);
                         pictureBox1.Name = device + " Device";
                         pictureBox1.Image = imageList1.Images[1];
@@ -648,11 +674,13 @@ namespace RPSmartHome
                                 {
                                     pictureBox1.BringToFront();
                                     label2.Text = Status;
+                                    newPanel.BackColor = Color.FromArgb(0, 150, 80);
                                 }
                                 else if (Status == "OFF")
                                 {
                                     pictureBox.BringToFront();
                                     label2.Text = Status;
+                                    newPanel.BackColor = Color.FromArgb(60, 75, 109);
                                 }
                                 count1--;
                             }
