@@ -31,7 +31,6 @@ namespace RPSmartHome
         {
             InitializeComponent();
             timer1.Start();
-            lbRoomName.Text = "Dashboard";
             if (flowLayoutPanel1.Controls.Count < 0)
             {
                 button1.Visible = false;

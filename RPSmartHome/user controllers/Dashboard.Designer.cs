@@ -218,9 +218,9 @@
             this.lbRoomName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
             this.lbRoomName.Location = new System.Drawing.Point(-2, 0);
             this.lbRoomName.Name = "lbRoomName";
-            this.lbRoomName.Size = new System.Drawing.Size(128, 27);
+            this.lbRoomName.Size = new System.Drawing.Size(116, 27);
             this.lbRoomName.TabIndex = 4;
-            this.lbRoomName.Text = "Room name";
+            this.lbRoomName.Text = "Dashboard";
             // 
             // pnlRooms
             // 
