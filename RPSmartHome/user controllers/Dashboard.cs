@@ -415,6 +415,7 @@ namespace RPSmartHome
             {
                 devicesStatus = "ON";
                 deviceName = words[0];
+
                 Label label2 = (Label)_flowLayoutPanel.Controls.Find("ONorOFF " + deviceName, true)[0];
                 label2.Text = "ON";
 
@@ -706,6 +707,7 @@ namespace RPSmartHome
 
         private void btnAddDevice_Click(object sender, EventArgs e)
         {
+
             if (string.IsNullOrEmpty(dbHelper.personName))
             {
                 LoginRegs loginRegs = new LoginRegs();
@@ -728,7 +730,6 @@ namespace RPSmartHome
 
                             //FlowLayoutPanel
 
-
                             Panel newPanel = new Panel();
                             newPanel.Location = new Point(Left1, Top1);
                             newPanel.Size = new Size(150, 130);
@@ -741,7 +742,6 @@ namespace RPSmartHome
 
 
                             //Label
-
                             Label label = new Label();
                             label.Location = new Point(30, 4);
                             label.Size = new Size(114, 30);
@@ -768,7 +768,7 @@ namespace RPSmartHome
                             PictureBox pictureBox = new PictureBox();
                             pictureBox.Location = new Point(80, 55);
                             pictureBox.Size = new Size(50, 44);
-                            pictureBox.Name = deviceName + " Device";
+                            pictureBox.Name = NewroomOrDevice.deviceName + " Device";
                             pictureBox.Image = imageList1.Images[0];
                             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                             pictureBox.Click += new EventHandler(pictureBoxOn_Click);
@@ -778,7 +778,7 @@ namespace RPSmartHome
                             PictureBox pictureBox1 = new PictureBox();
                             pictureBox1.Location = new Point(80, 55);
                             pictureBox1.Size = new Size(50, 44);
-                            pictureBox1.Name = deviceName + " Device";
+                            pictureBox1.Name = NewroomOrDevice.deviceName + " Device";
                             pictureBox1.Image = imageList1.Images[1];
                             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                             pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
@@ -815,7 +815,7 @@ namespace RPSmartHome
 
                         Panel newPanel = new Panel();
                         newPanel.Location = new Point(Left1, Top1);
-                        newPanel.Size = new Size(120, 100);
+                        newPanel.Size = new Size(150, 130);
                         newPanel.BackColor = Color.FromArgb(60, 75, 109);
                         newPanel.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, (0));
                         newPanel.Name = NewroomOrDevice.deviceName;
@@ -850,9 +850,9 @@ namespace RPSmartHome
                         // On and Off 
 
                         PictureBox pictureBox = new PictureBox();
-                        pictureBox.Location = new Point(30, 35);
+                        pictureBox.Location = new Point(80, 55);
                         pictureBox.Size = new Size(50, 44);
-                        pictureBox.Name = deviceName + " Device";
+                        pictureBox.Name = NewroomOrDevice.deviceName + " Device";
                         pictureBox.Image = imageList1.Images[0];
                         pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                         pictureBox.Click += new EventHandler(pictureBoxOn_Click);
@@ -860,9 +860,9 @@ namespace RPSmartHome
                         newPanel.Controls.Add(pictureBox);
 
                         PictureBox pictureBox1 = new PictureBox();
-                        pictureBox1.Location = new Point(30, 35);
+                        pictureBox1.Location = new Point(80, 55);
                         pictureBox1.Size = new Size(50, 44);
-                        pictureBox1.Name = deviceName + " Device";
+                        pictureBox1.Name = NewroomOrDevice.deviceName + " Device";
                         pictureBox1.Image = imageList1.Images[1];
                         pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                         pictureBox1.Click += new EventHandler(pictureBoxOff_Click);
@@ -886,7 +886,7 @@ namespace RPSmartHome
 
         private void btnDeleteDeviceORRoom_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(NewroomOrDevice.deviceName))
+            if (string.IsNullOrEmpty(dbHelper.personName))
             {
                 LoginRegs loginRegs = new LoginRegs();
                 loginRegs.ShowDialog();
@@ -917,6 +917,33 @@ namespace RPSmartHome
                 }
 
             }
+            else
+            {
+                dbHelper dbHelper = new dbHelper();
+                deleteDevice = true;
+                if (deleteRoom)
+                {
+
+                    dbHelper.deleteRoom();
+                    Button clickedButton = sender as Button;
+                    Form deleteDeviceOrRoomForm = clickedButton.Parent as Form;
+                    deleteDeviceOrRoomForm.Close();
+
+                }
+                else if (deleteDevice)
+                {
+                    dbHelper.deleteDevice();
+
+                    Button clickedButton = sender as Button;
+                    Form deleteDeviceOrRoomForm = clickedButton.Parent as Form;
+                    deleteDeviceOrRoomForm.Close();
+
+
+                    MessageBox.Show($"The Device was deleted");
+
+                    clickedPanel.Parent.Controls.Remove(clickedPanel);
+                }
+            }
             
 
             
@@ -927,15 +954,35 @@ namespace RPSmartHome
             Button clickedButton = sender as Button;
             Form deleteDeviceOrRoomForm = clickedButton.Parent as Form;
             deleteDeviceOrRoomForm.Close();
+
+            Label label2 = (Label)_flowLayoutPanel.Controls.Find("ONorOFF " + deviceName, true)[0];
+
+            MessageBox.Show($"{label2.Text}");
+
+            if(label2.Text == "ON" )
+            {
+                Panel panel = (Panel)_flowLayoutPanel.Controls.Find(deviceName, true)[0];
+
+                panel.BackColor = Color.FromArgb(0, 150, 80);
+            }
+            else if (label2.Text == "OFF")
+            {
+                MessageBox.Show("OFF");
+
+                Panel panel = (Panel)_flowLayoutPanel.Controls.Find(deviceName, true)[0];
+
+                panel.BackColor = Color.FromArgb(60, 75, 109);
+
+            }
         }
 
         private Panel clickedPanel;
         private void Panel_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(dbHelper.personName))
+            if (string.IsNullOrEmpty(dbHelper.personName))
             {
-                MessageBox.Show("panel");
-                
+                LoginRegs loginRegs = new LoginRegs();
+                loginRegs.ShowDialog();
 
                 clickedPanel = sender as Panel;
                 string Delete = clickedPanel.Name;
@@ -1001,8 +1048,7 @@ namespace RPSmartHome
             }
             else
             {
-                LoginRegs loginRegs = new LoginRegs();
-                loginRegs.ShowDialog();
+                
 
                 clickedPanel = sender as Panel;
                 string Delete = clickedPanel.Name;
