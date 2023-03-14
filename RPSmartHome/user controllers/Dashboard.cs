@@ -36,6 +36,7 @@ namespace RPSmartHome
             {
                 button1.Visible = false;
             }
+
         }
 
         int Top2 = 29;
@@ -44,6 +45,9 @@ namespace RPSmartHome
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Parent = pBHome;
+            flowLayoutPanel1.BackColor = Color.Transparent;
+
             dbHelper dbHelper  = new dbHelper();
             dbHelper.GetRooms();
 
@@ -223,7 +227,7 @@ namespace RPSmartHome
                     newPanel.Location = new Point(Left, Top);
                     newPanel.Size = new Size(200, 144);
                     newPanel.BackColor = Color.FromArgb(60, 75, 109);
-                    newPanel.Name = NewroomOrDevice.deviceName;
+                    newPanel.Name = NewroomOrDevice.roomName;
                     parentPanel.Controls.Add(newPanel);
 
 
@@ -233,7 +237,7 @@ namespace RPSmartHome
                     label.Location = new Point(40, 4);
                     label.Size = new Size(140, 30);
                     label.Text = NewroomOrDevice.roomName;
-                    label.Name = NewroomOrDevice.roomName;
+                    label.Name = "ONorOFF " + NewroomOrDevice.roomName;
                     label.ForeColor = Color.White;
                     label.Cursor = Cursors.Hand;
                     label.Font = new Font("Times New Roman", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1194,8 +1198,5 @@ namespace RPSmartHome
                 }
             }
         }
-
-        
-
     }
 }

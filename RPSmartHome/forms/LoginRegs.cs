@@ -211,6 +211,8 @@ namespace RPSmartHome
 
                     dbHelper.Register();
                     MessageBox.Show("Sing up was successfully");
+                    pnlRegister.Size = new Size(906, 18);
+                    pnlRegister.Visible = false;
                 }
 
             }
@@ -362,5 +364,13 @@ namespace RPSmartHome
 
 
         #endregion
+
+        private void txtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
     }
 }

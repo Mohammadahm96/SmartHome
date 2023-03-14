@@ -48,9 +48,9 @@
             this.pnlRooms = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pBHome = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -58,7 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pBoff)).BeginInit();
             this.pnlRooms.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBHome)).BeginInit();
             this.SuspendLayout();
             // 
             // lbDay
@@ -227,7 +227,7 @@
             // 
             this.pnlRooms.Controls.Add(this.label8);
             this.pnlRooms.Controls.Add(this.flowLayoutPanel1);
-            this.pnlRooms.Controls.Add(this.pictureBox1);
+            this.pnlRooms.Controls.Add(this.pBHome);
             this.pnlRooms.Location = new System.Drawing.Point(3, 30);
             this.pnlRooms.Name = "pnlRooms";
             this.pnlRooms.Size = new System.Drawing.Size(753, 538);
@@ -249,36 +249,23 @@
             this.flowLayoutPanel1.AllowDrop = true;
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 29);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 32);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(753, 164);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(753, 503);
             this.flowLayoutPanel1.TabIndex = 4;
             this.flowLayoutPanel1.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanel1_ControlAdded);
             this.flowLayoutPanel1.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanel1_ControlRemoved);
             // 
-            // button1
+            // pBHome
             // 
-            this.button1.BackColor = System.Drawing.Color.LightGray;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(3, 73);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(747, 88);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "+ Add new room";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.btnAddRoom_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(13, 211);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(725, 309);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.pBHome.Image = ((System.Drawing.Image)(resources.GetObject("pBHome.Image")));
+            this.pBHome.Location = new System.Drawing.Point(3, 32);
+            this.pBHome.Name = "pBHome";
+            this.pBHome.Size = new System.Drawing.Size(805, 509);
+            this.pBHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBHome.TabIndex = 3;
+            this.pBHome.TabStop = false;
             // 
             // imageList1
             // 
@@ -286,6 +273,20 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "off-button.png");
             this.imageList1.Images.SetKeyName(1, "on-button.png");
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(182, 60);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "+ Add new room";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btnAddRoom_Click);
             // 
             // Dashboard
             // 
@@ -314,7 +315,7 @@
             this.pnlRooms.ResumeLayout(false);
             this.pnlRooms.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,8 +340,8 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbDay;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pBHome;
+        private System.Windows.Forms.Button button1;
     }
 }
