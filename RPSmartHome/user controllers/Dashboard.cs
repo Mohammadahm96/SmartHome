@@ -16,6 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 using static Mysqlx.Datatypes.Scalar.Types;
 using Button = System.Windows.Forms.Button;
 using Mysqlx.Crud;
+using System.Drawing.Drawing2D;
 
 namespace RPSmartHome
 {
@@ -68,6 +69,7 @@ namespace RPSmartHome
                         btnDeleteDevice.Cursor = Cursors.Hand;
                         btnDeleteDevice.ForeColor = Color.White;
                         btnDeleteDevice.Location = new Point(779, 78);
+                        btnDeleteDevice.FlatStyle= FlatStyle.Flat;
                         btnDeleteDevice.Name = "btnDeleteRoom";
                         btnDeleteDevice.Size = new Size(263, 51);
                         btnDeleteDevice.TabIndex = 2;
@@ -84,6 +86,7 @@ namespace RPSmartHome
                         btnCancel.ForeColor = Color.White;
                         btnCancel.Location = new Point(779, 78);
                         btnCancel.Name = "btnCancelRoom";
+                        btnCancel.FlatStyle= FlatStyle.Flat;
                         btnCancel.Size = new Size(263, 51);
                         btnCancel.TabIndex = 2;
                         btnCancel.Text = "Cancel";
@@ -97,7 +100,7 @@ namespace RPSmartHome
 
                         //Panel
                         FlowLayoutPanel parentPanel = this.flowLayoutPanel1;
-                        Panel newPanel = new Panel();
+                        CustomPanel newPanel = new CustomPanel();
                         newPanel.Location = new Point(Left2, Top2);
                         newPanel.Size = new Size(200, 144);
                         newPanel.Name = roomName;
@@ -216,7 +219,7 @@ namespace RPSmartHome
                     //Panel
 
                     FlowLayoutPanel parentPanel = this.flowLayoutPanel1;
-                    Panel newPanel = new Panel();
+                    CustomPanel newPanel = new CustomPanel();
                     newPanel.Location = new Point(Left, Top);
                     newPanel.Size = new Size(200, 144);
                     newPanel.BackColor = Color.FromArgb(60, 75, 109);
@@ -553,6 +556,7 @@ namespace RPSmartHome
             btnAddDevice.ForeColor = Color.White;
             btnAddDevice.Location = new Point(420, 10);
             btnAddDevice.Name = "btnAddDevice";
+            btnAddDevice.FlatStyle = FlatStyle.Flat;
             btnAddDevice.Size = new Size(150, 51);
             btnAddDevice.TabIndex = 1;
             btnAddDevice.Text = "+ Device";
@@ -601,7 +605,7 @@ namespace RPSmartHome
                         deviceName = device;
                         //FlowLayoutPanel
 
-                        Panel newPanel = new Panel();
+                        CustomPanel newPanel = new CustomPanel();
                         newPanel.Location = new Point(Left1, Top1);
                         newPanel.Size = new Size(150, 130);
                         newPanel.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, (0));
@@ -729,7 +733,7 @@ namespace RPSmartHome
 
                             //FlowLayoutPanel
 
-                            Panel newPanel = new Panel();
+                            CustomPanel newPanel = new CustomPanel();
                             newPanel.Location = new Point(Left1, Top1);
                             newPanel.Size = new Size(150, 130);
                             newPanel.BackColor = Color.FromArgb(60, 75, 109);
@@ -812,7 +816,7 @@ namespace RPSmartHome
                         //FlowLayoutPanel
 
 
-                        Panel newPanel = new Panel();
+                        CustomPanel newPanel = new CustomPanel();
                         newPanel.Location = new Point(Left1, Top1);
                         newPanel.Size = new Size(150, 130);
                         newPanel.BackColor = Color.FromArgb(60, 75, 109);
@@ -950,29 +954,53 @@ namespace RPSmartHome
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Button clickedButton = sender as Button;
-            Form deleteDeviceOrRoomForm = clickedButton.Parent as Form;
-            deleteDeviceOrRoomForm.Close();
-
-            Label label2 = (Label)_flowLayoutPanel.Controls.Find("ONorOFF " + deviceName, true)[0];
-
-            MessageBox.Show($"{label2.Text}");
-
-            if(label2.Text == "ON" )
+            if(deleteRoom)
             {
-                Panel panel = (Panel)_flowLayoutPanel.Controls.Find(deviceName, true)[0];
+                Button clickedButton = sender as Button;
+                Form deleteDeviceOrRoomForm = clickedButton.Parent as Form;
+                deleteDeviceOrRoomForm.Close();
 
-                panel.BackColor = Color.FromArgb(0, 150, 80);
+
+                if (label2.Text == "ON")
+                {
+                    Panel panel = (Panel)_flowLayoutPanel.Controls.Find(deviceName, true)[0];
+
+                    panel.BackColor = Color.FromArgb(0, 150, 80);
+                }
+                else if (label2.Text == "OFF")
+                {
+
+                    Panel panel = (Panel)_flowLayoutPanel.Controls.Find(deviceName, true)[0];
+
+                    panel.BackColor = Color.FromArgb(60, 75, 109);
+
+                }
             }
-            else if (label2.Text == "OFF")
+            else if (deleteDevice)
             {
-                MessageBox.Show("OFF");
+                Button clickedButton = sender as Button;
+                Form deleteDeviceOrRoomForm = clickedButton.Parent as Form;
+                deleteDeviceOrRoomForm.Close();
 
-                Panel panel = (Panel)_flowLayoutPanel.Controls.Find(deviceName, true)[0];
+                Label label2 = (Label)_flowLayoutPanel.Controls.Find("ONorOFF " + deviceName, true)[0];
 
-                panel.BackColor = Color.FromArgb(60, 75, 109);
 
+                if (label2.Text == "ON")
+                {
+                    Panel panel = (Panel)_flowLayoutPanel.Controls.Find(deviceName, true)[0];
+
+                    panel.BackColor = Color.FromArgb(0, 150, 80);
+                }
+                else if (label2.Text == "OFF")
+                {
+
+                    Panel panel = (Panel)_flowLayoutPanel.Controls.Find(deviceName, true)[0];
+
+                    panel.BackColor = Color.FromArgb(60, 75, 109);
+
+                }
             }
+            
         }
 
         private Panel clickedPanel;
@@ -1022,6 +1050,7 @@ namespace RPSmartHome
                 btnDeleteDevice.Name = "btnDeleteDevice";
                 btnDeleteDevice.Size = new Size(150, 51);
                 btnDeleteDevice.TabIndex = 2;
+                btnDeleteDevice.FlatStyle= FlatStyle.Flat;
                 btnDeleteDevice.Text = "Delete";
                 btnDeleteDevice.BringToFront();
                 btnDeleteDevice.Click += new EventHandler(btnDeleteDeviceORRoom_Click);
@@ -1037,6 +1066,7 @@ namespace RPSmartHome
                 btnCancel.Name = "btnCancel";
                 btnCancel.Size = new Size(150, 51);
                 btnCancel.TabIndex = 2;
+                btnCancel.FlatStyle = FlatStyle.Flat;
                 btnCancel.Text = "Cancel";
                 btnCancel.Click += new EventHandler(btnCancel_Click);
                 deviceOrRoom.Controls.Add(btnCancel);
@@ -1088,6 +1118,7 @@ namespace RPSmartHome
                 btnDeleteDevice.Name = "btnDeleteDevice";
                 btnDeleteDevice.Size = new Size(150, 51);
                 btnDeleteDevice.TabIndex = 2;
+                btnDeleteDevice.FlatStyle = FlatStyle.Flat;
                 btnDeleteDevice.Text = "Delete";
                 btnDeleteDevice.BringToFront();
                 btnDeleteDevice.Click += new EventHandler(btnDeleteDeviceORRoom_Click);
@@ -1103,6 +1134,7 @@ namespace RPSmartHome
                 btnCancel.Name = "btnCancel";
                 btnCancel.Size = new Size(150, 51);
                 btnCancel.TabIndex = 2;
+                btnCancel.FlatStyle = FlatStyle.Flat;
                 btnCancel.Text = "Cancel";
                 btnCancel.Click += new EventHandler(btnCancel_Click);
                 deviceOrRoom.Controls.Add(btnCancel);
@@ -1138,6 +1170,32 @@ namespace RPSmartHome
             }
         }
 
+        //all Panels corners change to this
+        public class CustomPanel : Panel
+        {
+            private int cornerRadius = 20; 
+
+            protected override void OnPaint(PaintEventArgs e)
+            {
+                base.OnPaint(e);
+
+                GraphicsPath path = new GraphicsPath();
+                path.AddArc(0, 0, cornerRadius * 2, cornerRadius * 2, 180, 90);
+                path.AddArc(Width - cornerRadius * 2, 0, cornerRadius * 2, cornerRadius * 2, 270, 90);
+                path.AddArc(Width - cornerRadius * 2, Height - cornerRadius * 2, cornerRadius * 2, cornerRadius * 2, 0, 90);
+                path.AddArc(0, Height - cornerRadius * 2, cornerRadius * 2, cornerRadius * 2, 90, 90);
+                path.CloseFigure();
+
+                this.Region = new Region(path);
+
+                using (SolidBrush brush = new SolidBrush(BackColor))
+                {
+                    e.Graphics.FillPath(brush, path);
+                }
+            }
+        }
+
+        
 
     }
 }

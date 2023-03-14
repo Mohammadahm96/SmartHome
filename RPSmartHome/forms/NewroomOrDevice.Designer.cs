@@ -80,6 +80,7 @@
             // 
             this.btnAddRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.btnAddRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddRoom.ForeColor = System.Drawing.Color.White;
             this.btnAddRoom.Location = new System.Drawing.Point(137, 134);
             this.btnAddRoom.Name = "btnAddRoom";
@@ -93,6 +94,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(18)))), ((int)(((byte)(19)))));
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(295, 134);
             this.btnCancel.Name = "btnCancel";
