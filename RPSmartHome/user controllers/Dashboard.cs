@@ -958,6 +958,7 @@ namespace RPSmartHome
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            
             if(deleteRoom)
             {
                 Button clickedButton = sender as Button;
@@ -982,6 +983,7 @@ namespace RPSmartHome
             }
             else if (deleteDevice)
             {
+                MessageBox.Show("Test");
                 Button clickedButton = sender as Button;
                 Form deleteDeviceOrRoomForm = clickedButton.Parent as Form;
                 deleteDeviceOrRoomForm.Close();
@@ -1014,7 +1016,7 @@ namespace RPSmartHome
             {
                 LoginRegs loginRegs = new LoginRegs();
                 loginRegs.ShowDialog();
-
+                deleteDevice = true;
                 clickedPanel = sender as Panel;
                 string Delete = clickedPanel.Name;
 
@@ -1081,8 +1083,8 @@ namespace RPSmartHome
             }
             else
             {
-                
 
+                deleteDevice = true;
                 clickedPanel = sender as Panel;
                 string Delete = clickedPanel.Name;
 
