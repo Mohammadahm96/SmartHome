@@ -48,9 +48,11 @@
             this.pnlRooms = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.pBHome = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.pBMainDoor = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -59,6 +61,7 @@
             this.pnlRooms.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBHome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBMainDoor)).BeginInit();
             this.SuspendLayout();
             // 
             // lbDay
@@ -66,7 +69,7 @@
             this.lbDay.AutoSize = true;
             this.lbDay.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            this.lbDay.Location = new System.Drawing.Point(794, 144);
+            this.lbDay.Location = new System.Drawing.Point(789, 137);
             this.lbDay.Name = "lbDay";
             this.lbDay.Size = new System.Drawing.Size(92, 27);
             this.lbDay.TabIndex = 4;
@@ -77,7 +80,7 @@
             this.lbClockan.AutoSize = true;
             this.lbClockan.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbClockan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            this.lbClockan.Location = new System.Drawing.Point(848, 181);
+            this.lbClockan.Location = new System.Drawing.Point(843, 174);
             this.lbClockan.Name = "lbClockan";
             this.lbClockan.Size = new System.Drawing.Size(108, 33);
             this.lbClockan.TabIndex = 4;
@@ -89,7 +92,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.pictureBox2);
-            this.groupBox2.Location = new System.Drawing.Point(799, 221);
+            this.groupBox2.Location = new System.Drawing.Point(794, 214);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(241, 147);
             this.groupBox2.TabIndex = 2;
@@ -145,7 +148,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pBon);
             this.panel1.Controls.Add(this.pBoff);
-            this.panel1.Location = new System.Drawing.Point(817, 385);
+            this.panel1.Location = new System.Drawing.Point(812, 367);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(209, 62);
             this.panel1.TabIndex = 0;
@@ -257,6 +260,20 @@
             this.flowLayoutPanel1.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanel1_ControlAdded);
             this.flowLayoutPanel1.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanel1_ControlRemoved);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(182, 60);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "+ Add new room";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btnAddRoom_Click);
+            // 
             // pBHome
             // 
             this.pBHome.Image = ((System.Drawing.Image)(resources.GetObject("pBHome.Image")));
@@ -274,27 +291,38 @@
             this.imageList1.Images.SetKeyName(0, "off-button.png");
             this.imageList1.Images.SetKeyName(1, "on-button.png");
             // 
-            // button1
+            // pBMainDoor
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 60);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "+ Add new room";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.btnAddRoom_Click);
+            this.pBMainDoor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pBMainDoor.Image = ((System.Drawing.Image)(resources.GetObject("pBMainDoor.Image")));
+            this.pBMainDoor.Location = new System.Drawing.Point(794, 462);
+            this.pBMainDoor.Name = "pBMainDoor";
+            this.pBMainDoor.Size = new System.Drawing.Size(241, 103);
+            this.pBMainDoor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBMainDoor.TabIndex = 1;
+            this.pBMainDoor.TabStop = false;
+            this.pBMainDoor.Click += new System.EventHandler(this.pBMainDoor_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.label5.Location = new System.Drawing.Point(859, 432);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(112, 27);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Main door";
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.pBMainDoor);
             this.Controls.Add(this.lbDay);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lbClockan);
             this.Controls.Add(this.lbRoomName);
             this.Controls.Add(this.groupBox2);
@@ -316,6 +344,7 @@
             this.pnlRooms.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBMainDoor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,5 +372,7 @@
         private System.Windows.Forms.Label lbDay;
         private System.Windows.Forms.PictureBox pBHome;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pBMainDoor;
+        private System.Windows.Forms.Label label5;
     }
 }
